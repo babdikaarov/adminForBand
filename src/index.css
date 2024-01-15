@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+}
+.MuiTreeItem-root {
+}
+
+.MuiTreeItem-content {
+  padding: 0 !important;
+  margin-block: 5px;
+}
+.MuiTreeItem-iconContainer {
+  width: 40px !important;
+  margin-right: 20px !important;
+  /* margin-left: 0px; */
+}
+
+.MuiListItemIcon-root {
+  padding-inline: 10px;
+  margin-left: -25px;
+}
