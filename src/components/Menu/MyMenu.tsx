@@ -1,5 +1,5 @@
 // in src/MyMenu.js
-import { Menu, Title, TitlePortal } from "react-admin";
+import { Menu } from "react-admin";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { TreeView, TreeItem } from "@mui/x-tree-view";
@@ -42,35 +42,32 @@ export const MyMenu = () => {
         defaultExpandIcon={<ChevronRightIcon />}
         sx={{ height: "auto", flexGrow: 1, maxWidth: 400, overflowY: "auto", textWrap: "nowrap" }}
       >
+        {/* <span onClick={() => handleClick("cool_show_band")}> */}
         <TreeItem nodeId="0" label={handleClick("cool_show_band")} icon={<BandIcon />}>
           {/* FIXME Title on app bar fix me for COOL SHOW BAND  */}
-          {/* <TitlePortal variant="body2" component="h3" /> */}
-          {/* <Title title="My Custom Page" /> */}
-
           <Menu.ResourceItem name="posts" />
-          <Menu.ResourceItem name="team_band" />
-          <Menu.ResourceItem name="team_band" />
           <Menu.ResourceItem name="partners_band" />
           <Menu.ResourceItem name="hero_band" />
-          <Menu.ResourceItem name="event_images" />
-          <Menu.ResourceItem name="event_band" />
           <Menu.ResourceItem name="contacts_band" />
           <Menu.ResourceItem name="collaborations_band" />
           <Menu.ResourceItem name="about_us_band" />
+          <Menu.ResourceItem name="why_us_band" />
+          <Menu.ResourceItem name="team_band" />
+          <Menu.ResourceItem name="event_images" />
+          <Menu.ResourceItem name="event_band" />
         </TreeItem>
+        {/* </span> */}
         <TreeItem nodeId="2" label={handleClick("cool_studio")} icon={<StudioIcon />}>
+          {/*  CoolStudio  */}
           {/* Title on app bar fix me for COOL SHOW BAND  */}
-          {/* <TitlePortal variant="body2" component="h3" /> */}
-          {/* <Title title="My Custom Page" /> */}
-          <Menu.ResourceItem name="student_success_studio" />
-          <Menu.ResourceItem name="student_success_studio" />
           <Menu.ResourceItem name="hero_studio" />
+          <Menu.ResourceItem name="about_us" />
+          <Menu.ResourceItem name="student_success_studio" />
           <Menu.ResourceItem name="st_teachers" />
           <Menu.ResourceItem name="st_student_reviews" />
+          <Menu.ResourceItem name="direction" />
           <Menu.ResourceItem name="event_studio_images" />
           <Menu.ResourceItem name="event_studio" />
-          <Menu.ResourceItem name="direction" />
-          <Menu.ResourceItem name="about_us" />
         </TreeItem>
       </TreeView>
     </Menu>
