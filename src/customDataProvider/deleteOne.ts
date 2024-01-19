@@ -1,7 +1,6 @@
 import { DeleteParams, DeleteResult } from "react-admin";
 
-export const deleteOne = (url: string, resource: string, params: DeleteParams) => {
-  return async (): Promise<DeleteResult> => {
+export const deleteOne = async (url: string, resource: string, params: DeleteParams): Promise<DeleteResult> => {
     const { id } = params;
     console.log(params);
     try {
@@ -34,7 +33,6 @@ export const deleteOne = (url: string, resource: string, params: DeleteParams) =
       console.error("Error in deleteOne:", error);
       return Promise.reject(error);
     }
-  };
 };
 
 // const options = {

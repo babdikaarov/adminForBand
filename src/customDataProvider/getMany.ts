@@ -1,7 +1,6 @@
 import { fetchUtils, GetManyParams, GetManyResult } from "react-admin";
 
-export const getMany = (url: string, resource: string, params: GetManyParams) => {
-  return async (): Promise<GetManyResult> => {
+export const getMany = async (url: string, resource: string, params: GetManyParams): Promise<GetManyResult> => {
     const { ids } = params;
 
     try {
@@ -18,7 +17,6 @@ export const getMany = (url: string, resource: string, params: GetManyParams) =>
       console.error("Error in getMany:", error);
       return Promise.reject(error);
     }
-  };
 };
 
 // getMany("http://209.38.228.54:8080/api", "why_us_band", { ids: [1, 2] })()

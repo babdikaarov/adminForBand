@@ -1,8 +1,7 @@
 import { UpdateManyParams, UpdateManyResult } from "react-admin";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const updateMany = (url: string, resource: string, params: UpdateManyParams) => {
-  return async (): Promise<UpdateManyResult> => {
+export const updateMany = async (url: string, resource: string, params: UpdateManyParams): Promise<UpdateManyResult> => {
     // const { ids } = params;
     // console.log(params, "FIXME", resource);
     try {
@@ -42,7 +41,6 @@ export const updateMany = (url: string, resource: string, params: UpdateManyPara
       console.error("Error in updateMany:", error);
       return Promise.reject(error);
     }
-  };
 };
 
 // const options = {

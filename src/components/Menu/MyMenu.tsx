@@ -3,26 +3,29 @@ import { Menu } from "react-admin";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { TreeView, TreeItem } from "@mui/x-tree-view";
-import BandIcon from "./BandIcon";
-import StudioIcon from "./StudioIcon";
+import BandIcon from "./BandIcon.svg";
+import StudioIcon from "./StudioIcon.svg";
 import { useNavigate } from "react-router-dom";
 
 export const MyMenu = () => {
   const navigate = useNavigate();
+
+  //
   const handleClick = (text: string) => {
-    let element = document.querySelector(".css-12qcmes-MuiDrawer-docked-RaSidebar-root");
+    // FIX_ME wardprope behavior
+    // let element = document.querySelector(".css-12qcmes-MuiDrawer-docked-RaSidebar-root");
 
-    // If the first class is not found, try to find the element with the second class
-    if (!element) {
-      element = document.querySelector(".css-1plqj3i-MuiDrawer-docked-RaSidebar-root");
-    }
+    // // If the first class is not found, try to find the element with the second class
+    // if (!element) {
+    //   element = document.querySelector(".css-1plqj3i-MuiDrawer-docked-RaSidebar-root");
+    // }
 
-    // Check if the element is found
-    if (element) {
-      // Do something with the element, for example, toggle classes
-      element.classList.toggle("css-12qcmes-MuiDrawer-docked-RaSidebar-root");
-      element.classList.toggle("css-1plqj3i-MuiDrawer-docked-RaSidebar-root");
-    }
+    // // Check if the element is found
+    // if (element) {
+    //   // Do something with the element, for example, toggle classes
+    //   element.classList.toggle("css-12qcmes-MuiDrawer-docked-RaSidebar-root");
+    //   element.classList.toggle("css-1plqj3i-MuiDrawer-docked-RaSidebar-root");
+    // }
 
     return (
       <div onClick={() => navigate(`/${text}`)}>
@@ -43,7 +46,7 @@ export const MyMenu = () => {
         sx={{ height: "auto", flexGrow: 1, maxWidth: 400, overflowY: "auto", textWrap: "nowrap" }}
       >
         {/* <span onClick={() => handleClick("cool_show_band")}> */}
-        <TreeItem nodeId="0" label={handleClick("cool_show_band")} icon={<BandIcon />}>
+        <TreeItem nodeId="0" label={handleClick("cool_show_band")} icon={<img src={BandIcon} />}>
           {/* FIXME Title on app bar fix me for COOL SHOW BAND  */}
           <Menu.ResourceItem name="posts" />
           <Menu.ResourceItem name="partners_band" />
@@ -57,7 +60,7 @@ export const MyMenu = () => {
           <Menu.ResourceItem name="event_band" />
         </TreeItem>
         {/* </span> */}
-        <TreeItem nodeId="2" label={handleClick("cool_studio")} icon={<StudioIcon />}>
+        <TreeItem nodeId="2" label={handleClick("cool_studio")} icon={<img src={StudioIcon} />}>
           {/*  CoolStudio  */}
           {/* Title on app bar fix me for COOL SHOW BAND  */}
           <Menu.ResourceItem name="hero_studio" />

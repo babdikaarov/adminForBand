@@ -1,42 +1,41 @@
-import { UpdateParams, UpdateResult } from "react-admin";
+import { UpdateParams, UpdateResult } from 'react-admin';
 
-export const updateOne = (url: string, resource: string, params: UpdateParams) => {
-  return async (): Promise<UpdateResult> => {
-    const { id, data } = params;
-    // console.log(params);
-    try {
-      const token = JSON.parse(localStorage.user).token;
-      // console.log(token);
-      const jsonData = JSON.stringify({ id, ...data });
-      //   console.log({ jsonData });
-      const encoder = new TextEncoder();
-      const contentLength = encoder.encode(jsonData).length;
+export const updateOne = async (url: string, resource: string, params: UpdateParams): Promise<UpdateResult>  => {
+		const { id, data } = params;
+		// console.log(params);
 
-      const headers = {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-        "Content-Length": contentLength.toString(),
-      };
+		try {
+			const token = JSON.parse(localStorage.user).token;
+			// console.log(token);
+			const jsonData = JSON.stringify({ id, ...data });
+			//   console.log({ jsonData });
+			const encoder = new TextEncoder();
+			const contentLength = encoder.encode(jsonData).length;
 
-      const parameters = {
-        method: "PUT",
-        headers,
-        body: jsonData,
-      };
+			const headers = {
+				Authorization: `Bearer ${token}`,
+				'Content-Type': 'application/json',
+				'Content-Length': contentLength.toString(),
+			};
 
-      const response = await fetch(`${url}/${resource}/${id}`, parameters);
+			const parameters = {
+				method: 'PUT',
+				headers,
+				body: jsonData,
+			};
 
-      const responseData = await response.json();
-      //   console.log(responseData);
+			const response = await fetch(`${url}/${resource}/${id}`, parameters);
 
-      return {
-        data: responseData,
-      };
-    } catch (error) {
-      console.error("Error in updateOne:", error);
-      return Promise.reject(error);
-    }
-  };
+			const responseData = await response.json();
+			//   console.log(responseData);
+
+			return {
+				data: responseData,
+			};
+		} catch (error) {
+			console.error('Error in updateOne:', error);
+			return Promise.reject(error);
+		}
 };
 
 // const options = {
