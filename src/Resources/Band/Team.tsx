@@ -16,7 +16,7 @@ import { Create, Edit, SimpleForm, TextInput, ImageInput } from "react-admin";
 
 export const TeamList = () => {
    return (
-      <List title="Наша команда" hasCreate={true}>
+      <List title="Coll Band → Наша команда" hasCreate={true}>
          <Datagrid>
             <TextField source="id" />
             <TextField source="name" label="Имя" />
@@ -48,7 +48,7 @@ export const TeamCreate = () => {
    };
    const defaultValue = () => ({ orientation: "portrait" });
    return (
-      <Create title="Наша команда - создать карточку" mutationOptions={{ onSuccess }}>
+      <Create title="Coll Band → Наша команда → создать карточку" mutationOptions={{ onSuccess }}>
          <SimpleForm>
             <TextInput source="id" disabled />
             <TextInput source="name" label="Имя" />
@@ -59,6 +59,7 @@ export const TeamCreate = () => {
             <SelectInput
                source="orientation"
                choices={[
+                  /* big lettere ENUM */
                   { _orientation: "lanscape", name: "Портретная" },
                   { _orientation: "portrait", name: "Альбомная" },
                ]}
@@ -68,7 +69,8 @@ export const TeamCreate = () => {
             />
 
             <FileInput
-               source="video"
+               source="attachments"
+               // multiple
                //  format={(value) => {
                //     const formData = new FormData();
                //     formData.append("video", value.rawFile); // Append the rawFile to the FormData
@@ -86,7 +88,7 @@ export const TeamCreate = () => {
 
 export const TeamEdit = () => {
    return (
-      <Edit title="Наша команда - изменить карточку">
+      <Edit title="Coll Band → Наша команда → изменить карточку">
          <SimpleForm>
             <TextInput source="id" disabled />
             <TextInput source="name" label="Имя" />

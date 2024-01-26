@@ -25,7 +25,7 @@ export const create = async (url: string, resource: string, params: CreateParams
             headers,
             body: data as FormData,
          };
-         // console.log(parameters);
+         console.log(parameters.body);
       } else {
          // if hasMedia does not exist skipped during lifeCycleCallBack
          headers.set("Content-Type", "application/json");
@@ -44,28 +44,28 @@ export const create = async (url: string, resource: string, params: CreateParams
       const responseData = await response.json();
       console.log(responseData);
 
-      // FIX_ME delete below function when beckend response will include posted body fixed it
-      function extractNumberFromString(str: string) {
-         const regex = /\d+/; // Match one or more digits
-         const match = str.match(regex);
+      // // FIX_ME delete below function when beckend response will include posted body fixed it
+      // function extractNumberFromString(str: string) {
+      //    const regex = /\d+/; // Match one or more digits
+      //    const match = str.match(regex);
 
-         if (match) {
-            // Convert the matched string to a number
-            return parseInt(match[0], 10);
-         }
+      //    if (match) {
+      //       // Convert the matched string to a number
+      //       return parseInt(match[0], 10);
+      //    }
 
-         // Return null if no numbers are found in the string
-         return null;
-      }
-      const id = extractNumberFromString(responseData.message);
-      // console.log(id);
-      return {
-         data: { id: id, ...data },
-      };
-      // FIXME delete above after fix
+      //    // Return null if no numbers are found in the string
+      //    return null;
+      // }
+      // const id = extractNumberFromString(responseData.message);
+      // // console.log(id);
       // return {
-      //    data: responseData,
+      //    data: { id: id, ...data },
       // };
+      // FIXME delete above after fix
+      return {
+         data: responseData,
+      };
    } catch (error) {
       console.error("Error in create:", error);
       return Promise.reject(error);

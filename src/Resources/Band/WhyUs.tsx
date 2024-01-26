@@ -15,7 +15,7 @@ import { Create, Edit, SimpleForm, TextInput /* , ImageInput  */ } from "react-a
 
 export const WhyUsList = () => {
    return (
-      <List title="Studio Students Story" hasCreate={false}>
+      <List title="Coll Band → Почему выбирают нас" hasCreate={false}>
          <Datagrid bulkActionButtons={false}>
             {/* <TextField source="id" /> */}
             <TextField source="title" title="name" />
@@ -37,7 +37,7 @@ export const WhyUsCreate = () => {
       redirect(`/why_us_band`);
    };
    return (
-      <Create title="Studio Students Story - create" mutationOptions={{ onSuccess }}>
+      <Create title="Coll Band → Почему выбирают нас → создать" mutationOptions={{ onSuccess }}>
          {/* <SimpleForm toolbar={<SaveButton />} defaultValues={postDefaultValue}> */}
          <SimpleForm toolbar={<SaveButton />}>
             <TextInput source="id" disabled />
@@ -55,7 +55,7 @@ export const WhyUsCreate = () => {
 
 export const WhyUsEdit = () => {
    return (
-      <Edit title="Studio Students Story - edit">
+      <Edit title="Coll Band → Почему выбирают нас → изменить">
          <SimpleForm toolbar={<SaveButton />}>
             {/* <TextInput disabled source="id" /> */}
             <TextInput source="title" />

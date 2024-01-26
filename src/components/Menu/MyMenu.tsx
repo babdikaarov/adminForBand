@@ -7,13 +7,26 @@ import BandIcon from "./BandIcon.svg";
 import StudioIcon from "./StudioIcon.svg";
 import { useNavigate } from "react-router-dom";
 import icons from "../../Resources/icons";
-
 export const MyMenu = () => {
    const navigate = useNavigate();
    const style = {
-      treeView: { height: "auto", flexGrow: 1, maxWidth: 400, overflowY: "auto", textWrap: "nowrap" },
+      treeView: {
+         height: "auto",
+         flexGrow: 1,
+         maxWidth: 400,
+         overflowY: "auto",
+         textWrap: "nowrap",
+         fontSize: "24px",
+         fontWeight: 700,
+      },
       item: { color: "inherit", marginLeft: "-15px" },
+      contacts: {
+         color: "inherit",
+         fontSize: "24px",
+         fontWeight: 700,
+      },
    };
+
    //
    const handleClick = (text: string) => {
       // FIX_ME wardprope behavior
@@ -50,7 +63,6 @@ export const MyMenu = () => {
          >
             <TreeItem nodeId="0" label={handleClick("cool_band")} icon={<img src={BandIcon} />}>
                {/* Cool Band*/}
-               <Menu.Item to="contacts_band" primaryText="Контакты" leftIcon={<icons.contacts />} sx={style.item} />
                <Menu.Item to="hero_band" primaryText="Баннер" leftIcon={<icons.hero />} sx={style.item} />
                <Menu.Item to="about_us_band" primaryText="О нас" leftIcon={<icons.about />} sx={style.item} />
                <Menu.Item to="team_band" primaryText="Наша команда" leftIcon={<icons.team />} sx={style.item} />
@@ -70,7 +82,7 @@ export const MyMenu = () => {
             <TreeItem nodeId="2" label={handleClick("cool_studio")} icon={<img src={StudioIcon} />}>
                {/*  CoolStudio  */}
                <Menu.Item to="hero_studio" primaryText="Баннер" leftIcon={<icons.hero />} sx={style.item} />
-               <Menu.Item to="about_us" primaryText="О нас" leftIcon={<icons.about />} sx={style.item} />
+               <Menu.Item to="about_us_studio" primaryText="О нас" leftIcon={<icons.about />} sx={style.item} />
                <Menu.Item to="direction" primaryText="Наши Курсы" leftIcon={<icons.courses />} sx={style.item} />
                <Menu.Item to="st_teachers" primaryText="Преподаватели" leftIcon={<icons.teacher />} sx={style.item} />
                <Menu.Item
@@ -88,6 +100,7 @@ export const MyMenu = () => {
                <Menu.Item to="event_studio_images" primaryText="Галерея" leftIcon={<icons.gallery />} sx={style.item} />
                <Menu.Item to="event_studio" primaryText="Коллаж" leftIcon={<icons.collage />} sx={style.item} />
             </TreeItem>
+            <Menu.Item to="contacts_band" primaryText="Контакты" leftIcon={<icons.contacts />} sx={style.contacts} />
          </TreeView>
       </Menu>
    );

@@ -3,7 +3,7 @@ import { Create, Edit, SimpleForm, TextInput, ImageInput } from "react-admin";
 
 export const AboutList = () => {
    return (
-      <List title="Band About Us" hasCreate={true}>
+      <List title="Coll Band → О нас" hasCreate={true}>
          {/* <CreateButton /> */}
          <Datagrid>
             <TextField source="id" />
@@ -19,7 +19,7 @@ export const AboutList = () => {
 export const AboutCreate = () => {
    // const postDefaultValue = () => ({ id: uuid(), created_at: new Date(), nb_views: 0 });
    return (
-      <Create title="Band About Us - create">
+      <Create title="Coll Band → О нас → создать">
          {/* <SimpleForm toolbar={<SaveButton />} defaultValues={postDefaultValue}> */}
          {/* <SimpleForm toolbar={<SaveButton />}> */}
          <SimpleForm>
@@ -34,7 +34,7 @@ export const AboutCreate = () => {
 
 export const AboutEdit = () => {
    return (
-      <Edit title="Band About Us - edit">
+      <Edit title="Coll Band → О нас → изменить">
          {/* <SimpleForm toolbar={<SaveButton />}> */}
          <SimpleForm>
             <TextInput source="id" disabled />

@@ -30,9 +30,8 @@ const App = () => {
             <Route path="cool_band" element={<BandPage />} />
             <Route path="cool_studio" element={<BandPage />} />
          </CustomRoutes>
-
          {/* CoolStudio */}
-
+         <Resource name="cool_band" /> {/* initial page */}
          <Resource
             name="hero_studio"
             list={<rcs.Studio.heroS.list />}
@@ -40,7 +39,7 @@ const App = () => {
             edit={<rcs.Studio.heroS.edit />}
          />
          <Resource
-            name="about_us"
+            name="about_us_studio"
             list={<rcs.Studio.aboutS.list />}
             create={<rcs.Studio.aboutS.create />}
             edit={<rcs.Studio.aboutS.edit />}
@@ -71,7 +70,6 @@ const App = () => {
          />
          <Resource name="event_studio_images" list={<div>make ra-CRUD compoents</div>} />
          <Resource name="event_studio" list={<div>make ra-CRUD compoents</div>} />
-
          {/* CoolBand */}
          <Resource
             name="partners_band"
@@ -85,7 +83,6 @@ const App = () => {
             create={<rcs.Band.heroB.create />}
             edit={<rcs.Band.heroB.edit />}
          />
-
          <Resource
             name="contacts_band"
             list={<rcs.Band.contacts.list />}
@@ -118,7 +115,6 @@ const App = () => {
             create={<rcs.Band.team.create />}
             edit={<rcs.Band.team.edit />}
          />
-
          <Resource name="event_images" list={<div>make ra-CRUD compoents</div>} />
          <Resource name="event_band" list={<div>make ra-CRUD compoents</div>} />
       </Admin>
