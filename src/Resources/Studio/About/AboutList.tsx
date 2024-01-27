@@ -1,4 +1,4 @@
-import { List, Datagrid, TextField, ImageField, EditButton, DeleteButton, SelectField, UrlField } from "react-admin";
+import { List, Datagrid, TextField, ImageField, EditButton, SelectField } from "react-admin";
 import { ModalImage } from "./ModalImage";
 
 export const AboutList = () => {
@@ -18,7 +18,6 @@ export const AboutList = () => {
             />
             <ImageField source="video" label="video" />
             <EditButton />
-            {/* <DeleteButton /> */}
          </Datagrid>
       </List>
    );

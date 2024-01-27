@@ -1,4 +1,4 @@
-import { fetchUtils, GetOneParams, GetOneResult } from "react-admin";
+import { GetOneParams, GetOneResult } from "react-admin";
 
 export const getOne = async (url: string, resource: string, params: GetOneParams): Promise<GetOneResult> => {
    const id = params?.id;

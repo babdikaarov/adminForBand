@@ -1,16 +1,17 @@
-import { GetManyReferenceParams, GetManyReferenceResult } from "react-admin";
+// import { GetManyReferenceParams, GetManyReferenceResult } from "react-admin";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const getManyReference = async (url: string, resource: string, params?: GetManyReferenceParams): Promise<GetManyReferenceResult> => {
-    // console.log(url, resource, params);
-    try {
+export const getManyReference = async () => {
+   // export const getManyReference = async (url: string, resource: string, params?: GetManyReferenceParams): Promise<GetManyReferenceResult> => {
+   // console.log(url, resource, params);
+   try {
       return {
-        data: [],
+         data: [],
       };
-    } catch (error) {
+   } catch (error) {
       console.error("Error in getManyReference:", error);
       return Promise.reject(error);
-    }
+   }
 };
 
 // const options = {

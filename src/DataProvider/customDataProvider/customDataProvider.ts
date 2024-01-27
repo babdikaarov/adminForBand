@@ -4,9 +4,9 @@ import {
    DeleteManyParams,
    DeleteParams,
    GetManyParams,
-   GetManyReferenceParams,
+   // GetManyReferenceParams,
    GetOneParams,
-   UpdateManyParams,
+   // UpdateManyParams,
    UpdateParams,
 } from "react-admin";
 import { getListAll } from "./getListAll";
@@ -31,8 +31,9 @@ const customDataProvider = (url: string): DataProvider => {
       getMany: (resource: string, params: GetManyParams) => getMany(url, resource, params),
 
       // get the records referenced to another record, e.g. comments for a post
-      getManyReference: (resource: string, params: GetManyReferenceParams) =>
-         getManyReference("endpoint does not exist", resource, params),
+      // esling ignore
+      // getManyReference: (resource: string, params: GetManyReferenceParams) => getManyReference(),
+      getManyReference: () => getManyReference(),
 
       // create a record
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -44,7 +45,9 @@ const customDataProvider = (url: string): DataProvider => {
 
       // update a list of records based on an array of ids and a common patch
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      updateMany: (resource: string, params: UpdateManyParams<any>) => updateMany(url, resource, params),
+      // eslint ignore
+      updateMany: () => updateMany(),
+      // updateMany: (resource: string, params: UpdateManyParams<any>) => updateMany(),
 
       // delete a record by id
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
