@@ -1,50 +1,95 @@
 import { UpdateParams, UpdateResult } from "react-admin";
+import hasFormDataValue from "../../modules/hasFormData";
 
 export const updateOne = async (url: string, resource: string, params: UpdateParams): Promise<UpdateResult> => {
    const { id, data } = params;
    // console.log(params);
+   // console.log(data);
 
    try {
+      // const token = JSON.parse(localStorage.user).token;
+      // // console.log(token);
+      // const jsonData = JSON.stringify({ ...data });
+      // // const jsonData = JSON.stringify({ id ...data });
+      // //   console.log({ jsonData });
+      // const encoder = new TextEncoder();
+      // const contentLength = encoder.encode(jsonData).length;
+
+      // const headers = {
+      //    Authorization: `Bearer ${token}`,
+      //    "Content-Type": "application/json",
+      //    "Content-Length": contentLength.toString(),
+      // };
+
+      // const parameters = {
+      //    method: "PUT",
+      //    headers,
+      //    body: jsonData,
+      // };
       const token = JSON.parse(localStorage.user).token;
-      // console.log(token);
-      const jsonData = JSON.stringify({ id, ...data });
-      //   console.log({ jsonData });
       const encoder = new TextEncoder();
+      const jsonData = JSON.stringify(data);
       const contentLength = encoder.encode(jsonData).length;
 
-      const headers = {
-         Authorization: `Bearer ${token}`,
-         "Content-Type": "application/json",
-         "Content-Length": contentLength.toString(),
-      };
+      let headers = new Headers();
+      headers.set("Authorization", `Bearer ${token}`);
+      headers.set("Content-Length", contentLength.toString());
 
-      const parameters = {
-         method: "PUT",
-         headers,
-         body: jsonData,
-      };
+      let parameters;
+      // console.log(data);
 
-      const response = await fetch(`${url}/${resource}/${id}`, parameters);
+      if (hasFormDataValue(params)) {
+         // if hasMedia exist assigned during lifeCycleCallBack
+
+         parameters = {
+            method: "PUT",
+            headers,
+            body: data as FormData,
+         };
+         console.log(data);
+         console.log(parameters.body);
+      } else {
+         // if hasMedia does not exist skipped during lifeCycleCallBack
+         headers.set("Content-Type", "application/json");
+         parameters = {
+            method: "POST",
+            headers,
+            body: jsonData,
+         };
+         // console.log(parameters);
+      }
+
+      let response;
+
+      switch (resource) {
+         case "contacts":
+            parameters.method = "PATCH";
+            response = await fetch(`${url}/${resource}`, parameters);
+            break;
+         default:
+            response = await fetch(`${url}/${resource}/${id}`, parameters);
+            break;
+      }
 
       const responseData = await response.json();
-      //   console.log(responseData);
+      console.log(responseData);
       // FIX_ME delete below function when beckend fixed it
-      function extractNumberFromString(str: string) {
-         const regex = /\d+/; // Match one or more digits
-         const match = str.match(regex);
+      // function extractNumberFromString(str: string) {
+      //    const regex = /\d+/; // Match one or more digits
+      //    const match = str.match(regex);
 
-         if (match) {
-            // Convert the matched string to a number
-            return parseInt(match[0], 10);
-         }
+      //    if (match) {
+      //       // Convert the matched string to a number
+      //       return parseInt(match[0], 10);
+      //    }
 
-         // Return null if no numbers are found in the string
-         return null;
-      }
-      const idRes = extractNumberFromString(responseData.message);
-      // console.log(id);
+      //    // Return null if no numbers are found in the string
+      //    return null;
+      // }
+      // const idRes = extractNumberFromString(responseData.message);
+      // // console.log(id);
       return {
-         data: { id: idRes, ...data },
+         data: responseData,
       };
       // return {
       // 	data: responseData,

@@ -6,11 +6,11 @@ import { useRecordContext } from "react-admin";
 export const ModalImage = (props: UseRecordContextParams<RaRecord<Identifier>> | undefined) => {
    const { dialogRef, handleClose, openModal } = useModalCotroller();
    const record = useRecordContext(props);
-   // console.log(record);
+
    return record ? (
       <>
-         <div onClick={() => openModal(`aboutStudio${record.id}`)} className="MuiBox-root css-cb34tx-RaImageField-root">
-            <img src={record.image} alt="" className="RaImageField-image" />
+         <div onClick={() => openModal(`aboutStudio${record.id}`)} className={styles.div}>
+            <img src={record.image} alt="" />
          </div>
          <dialog
             id={`aboutStudio${record.id}`}

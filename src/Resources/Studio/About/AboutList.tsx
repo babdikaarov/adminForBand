@@ -1,4 +1,4 @@
-import { List, Datagrid, TextField, ImageField, EditButton, DeleteButton, SelectField } from "react-admin";
+import { List, Datagrid, TextField, ImageField, EditButton, DeleteButton, SelectField, UrlField } from "react-admin";
 import { ModalImage } from "./ModalImage";
 
 export const AboutList = () => {
@@ -6,6 +6,8 @@ export const AboutList = () => {
       <List title="Cool Studio → О нас" hasCreate={true}>
          <Datagrid>
             <TextField source="id" />
+            {/* <UrlField source="video" label="Youtube ссылка на видео" /> */}
+            <ModalImage source="image" label="Постер" />
             <SelectField
                source="orientation"
                label="Тип фотографии"
@@ -14,11 +16,9 @@ export const AboutList = () => {
                   { id: "PORTRAIT", name: "Портрет" },
                ]}
             />
-
-            <ModalImage source="image" />
             <ImageField source="video" label="video" />
             <EditButton />
-            <DeleteButton />
+            {/* <DeleteButton /> */}
          </Datagrid>
       </List>
    );

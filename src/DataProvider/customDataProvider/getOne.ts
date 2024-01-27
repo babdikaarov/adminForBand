@@ -3,16 +3,24 @@ import { fetchUtils, GetOneParams, GetOneResult } from "react-admin";
 export const getOne = async (url: string, resource: string, params: GetOneParams): Promise<GetOneResult> => {
    const id = params?.id;
    // console.log(resource);
+
    try {
       let response;
-      if (resource === "about_us_studio") {
-         response = await fetch(`${url}/${resource}/image/${id}`);
-      } else {
-         response = await fetch(`${url}/${resource}/${id}`);
+      switch (resource) {
+         /*     case "about_us_studio":
+            response = await fetch(`${url}/${resource}/image/${id}`);
+            console.log(response);
+            break; */
+         case "contacts":
+            response = await fetch(`${url}/${resource}`);
+            break;
+         default:
+            response = await fetch(`${url}/${resource}/${id}`);
+            break;
       }
 
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
 
       // //   console.log(id);
       // const response = await fetch(`${url}/${resource}/${id}`);

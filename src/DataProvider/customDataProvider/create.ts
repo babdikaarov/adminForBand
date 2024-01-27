@@ -25,6 +25,7 @@ export const create = async (url: string, resource: string, params: CreateParams
             headers,
             body: data as FormData,
          };
+         console.log(data);
          console.log(parameters.body);
       } else {
          // if hasMedia does not exist skipped during lifeCycleCallBack
@@ -39,7 +40,7 @@ export const create = async (url: string, resource: string, params: CreateParams
 
       const response = await fetch(`${url}/${resource}`, parameters);
 
-      // console.log(response);
+      console.log(response.status);
 
       const responseData = await response.json();
       console.log(responseData);

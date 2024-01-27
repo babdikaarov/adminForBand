@@ -8,7 +8,7 @@ import testimonials from "./Studio/Testimonials";
 /* BAND */
 import aboutB from "./Band/About";
 import collaboration from "./Band/Collaboration";
-import contacts from "./Band/Contacts";
+import contacts from "./Contacts/Contatcs";
 import heroB from "./Band/Hero";
 import partners from "./Band/Partners";
 import team from "./Band/Team";
@@ -18,7 +18,6 @@ export const rcs = {
    Band: {
       aboutB,
       collaboration,
-      contacts,
       heroB,
       partners,
       team,
@@ -31,5 +30,8 @@ export const rcs = {
       studentsStory,
       teacher,
       testimonials,
+   },
+   Contacts: {
+      contacts,
    },
 };

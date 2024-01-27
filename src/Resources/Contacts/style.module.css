@@ -1,0 +1,23 @@
+.div {
+   max-width: 400px;
+   height: 35px;
+
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   & h3 {
+      width: 40%;
+      min-width: 150px;
+      margin-left: 10px;
+   }
+
+   & h3::first-letter {
+      text-transform: uppercase;
+   }
+   & input {
+      min-width: 150px;
+      width: 60%;
+      background: inherit;
+      color: #fcfcfc;
+   }
+}

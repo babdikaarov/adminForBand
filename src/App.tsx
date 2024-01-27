@@ -1,10 +1,4 @@
-import {
-   Admin,
-   // nanoLightTheme,
-   nanoDarkTheme,
-   Resource,
-   CustomRoutes,
-} from "react-admin";
+import { Admin, nanoLightTheme, nanoDarkTheme, Resource, CustomRoutes } from "react-admin";
 import { Route } from "react-router-dom";
 import authProvider from "./authProvider";
 import { MyLayout } from "./components/Layout/MyLayout";
@@ -18,11 +12,11 @@ const App = () => {
 
    return (
       <Admin
-         title="My Cool Admin"
+         title="Cool Band Admin"
          dataProvider={dataProvider}
          authProvider={authProvider}
          layout={MyLayout}
-         // theme={nanoLightTheme}
+         theme={nanoLightTheme}
          darkTheme={nanoDarkTheme}
       >
          {/* Dashboard */}
@@ -39,7 +33,7 @@ const App = () => {
             edit={<rcs.Studio.heroS.edit />}
          />
          <Resource
-            name="about_us_studio"
+            name={rcs.Studio.aboutS.resource}
             list={<rcs.Studio.aboutS.list />}
             create={<rcs.Studio.aboutS.create />}
             edit={<rcs.Studio.aboutS.edit />}
@@ -84,12 +78,6 @@ const App = () => {
             edit={<rcs.Band.heroB.edit />}
          />
          <Resource
-            name="contacts_band"
-            list={<rcs.Band.contacts.list />}
-            create={<rcs.Band.contacts.create />}
-            edit={<rcs.Band.contacts.edit />}
-         />
-         <Resource
             name="collaborations_band"
             list={<rcs.Band.collaboration.list />}
             create={<rcs.Band.collaboration.create />}
@@ -117,6 +105,13 @@ const App = () => {
          />
          <Resource name="event_images" list={<div>make ra-CRUD compoents</div>} />
          <Resource name="event_band" list={<div>make ra-CRUD compoents</div>} />
+         {/* Contacts */}
+         <Resource
+            name={rcs.Contacts.contacts.resource}
+            list={<rcs.Contacts.contacts.list />}
+            create={<rcs.Contacts.contacts.create />}
+            edit={<rcs.Contacts.contacts.edit />}
+         />
       </Admin>
    );
 };

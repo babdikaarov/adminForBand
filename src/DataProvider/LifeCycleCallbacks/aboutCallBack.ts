@@ -12,12 +12,12 @@ export const createFormDataCallback = () => {
    };
 };
 
-export const aboutLifecycleCallbacks: ResourceCallbacks = {
+export const aboutCallBackStudio: ResourceCallbacks = {
    resource: "about_us_studio",
    beforeCreate: createFormDataCallback(),
 };
 
-export const anotherResourceLifecycleCallbacks: ResourceCallbacks = {
-   resource: "about_us_band",
-   beforeCreate: createFormDataCallback(),
-};
+// export const anotherResourceLifecycleCallbacks: ResourceCallbacks = {
+//    resource: "about_us_band",
+//    beforeCreate: createFormDataCallback(),
+// };
