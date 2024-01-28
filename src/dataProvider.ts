@@ -4,7 +4,7 @@ import { teamLifecycleCallbacks } from "./DataProvider/LifeCycleCallbacks/teamCa
 import { aboutCallBackStudio } from "./DataProvider/LifeCycleCallbacks/aboutCallBack";
 // import { contactsCallBack } from "./DataProvider/LifeCycleCallbacks/contactsCallBack";
 
-const baseDataProvider = customDataProvider(import.meta.env.VITE_API_URL);
+const baseDataProvider = customDataProvider(import.meta.env.VITE_COOL_API);
 
 const callBacks = [teamLifecycleCallbacks, aboutCallBackStudio];
 

@@ -1,7 +1,7 @@
 import { AuthProvider, HttpError, fetchUtils } from "react-admin";
 
 const httpClient = fetchUtils.fetchJson;
-const apiUrl = import.meta.env.VITE_API_URL;
+const apiUrl = import.meta.env.VITE_COOL_API;
 
 export const authProvider: AuthProvider = {
    login: async ({ username, password }) => {
