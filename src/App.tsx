@@ -16,7 +16,7 @@ const App = () => {
          dataProvider={dataProvider}
          authProvider={authProvider}
          layout={MyLayout}
-         theme={nanoLightTheme}
+         lightTheme={nanoLightTheme}
          darkTheme={nanoDarkTheme}
       >
          {/* Dashboard */}
