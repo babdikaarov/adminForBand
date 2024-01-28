@@ -1,11 +1,11 @@
-import { UpdateManyParams, UpdateManyResult } from "react-admin";
+// import { UpdateManyParams, UpdateManyResult } from "react-admin";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const updateMany = (url: string, resource: string, params: UpdateManyParams) => {
-  return async (): Promise<UpdateManyResult> => {
-    // const { ids } = params;
-    // console.log(params, "FIXME", resource);
-    try {
+export const updateMany = async () => {
+   // export const updateMany = async (url: string, resource: string, params: UpdateManyParams): Promise<UpdateManyResult> => {
+   // const { ids } = params;
+   // console.log(params, "FIXME", resource);
+   try {
       return { data: [] };
       //   const token = JSON.parse(localStorage.user).token;
       //   const jsonData = JSON.stringify({ ids, ...data });
@@ -38,11 +38,10 @@ export const updateMany = (url: string, resource: string, params: UpdateManyPara
       //   return {
       //     data: [],
       //   };
-    } catch (error) {
+   } catch (error) {
       console.error("Error in updateMany:", error);
       return Promise.reject(error);
-    }
-  };
+   }
 };
 
 // const options = {

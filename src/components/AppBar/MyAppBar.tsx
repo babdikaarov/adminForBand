@@ -1,18 +1,14 @@
 import { AppBar, LoadingIndicator, TitlePortal, ToggleThemeButton } from "react-admin";
 export const MyAppBar = () => (
-  <AppBar
-    toolbar={
-      <>
-        <ToggleThemeButton />
-        <LoadingIndicator />
-      </>
-    }
-  >
-    <TitlePortal />
-    {/* <Toolbar> */}
-    {/* <Box flex="1" /> */}
-    {/* <RefreshIconButton /> */}
-    {/* </Toolbar> */}
-    {/* <ToggleThemeButton /> */}
-  </AppBar>
+   // create userMenu https://marmelab.com/blog/2020/12/14/react-admin-v3-userprofile.html
+   <AppBar
+      toolbar={
+         <>
+            <ToggleThemeButton />
+            <LoadingIndicator />
+         </>
+      }
+   >
+      <TitlePortal />
+   </AppBar>
 );

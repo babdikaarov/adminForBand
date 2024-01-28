@@ -1,7 +1,6 @@
 import { DeleteManyParams, DeleteManyResult } from "react-admin";
 
-export const deleteMany = (url: string, resource: string, params: DeleteManyParams) => {
-  return async (): Promise<DeleteManyResult> => {
+export const deleteMany = async (url: string, resource: string, params: DeleteManyParams): Promise<DeleteManyResult> => {
     const { ids } = params;
     // console.log(ids);
 
@@ -38,7 +37,6 @@ export const deleteMany = (url: string, resource: string, params: DeleteManyPara
       console.error("Error in deleteMany:", error);
       return Promise.reject(error);
     }
-  };
 };
 
 // const options = { ids: [1, 2] };
