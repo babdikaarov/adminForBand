@@ -27,7 +27,7 @@ const App = () => {
          {/* CoolStudio */}
          <Resource name="cool_band" /> {/* initial page */}
          <Resource
-            name="hero_studio"
+            name={rcs.Studio.heroS.resource}
             list={<rcs.Studio.heroS.list />}
             create={<rcs.Studio.heroS.create />}
             edit={<rcs.Studio.heroS.edit />}
@@ -39,25 +39,25 @@ const App = () => {
             edit={<rcs.Studio.aboutS.edit />}
          />
          <Resource
-            name="student_success_studio"
+            name={rcs.Studio.studentsStory.resource}
             list={<rcs.Studio.studentsStory.list />}
             create={<rcs.Studio.studentsStory.create />}
             edit={<rcs.Studio.studentsStory.edit />}
          />
          <Resource
-            name="st_teachers"
+            name={rcs.Studio.teacher.resource}
             list={<rcs.Studio.teacher.list />}
             create={<rcs.Studio.teacher.create />}
             edit={<rcs.Studio.teacher.edit />}
          />
          <Resource
-            name="st_student_reviews"
+            name={rcs.Studio.testimonials.resource}
             list={<rcs.Studio.testimonials.list />}
             create={<rcs.Studio.testimonials.create />}
             edit={<rcs.Studio.testimonials.edit />}
          />
          <Resource
-            name="direction"
+            name={rcs.Studio.courses.resource}
             list={<rcs.Studio.courses.list />}
             create={<rcs.Studio.courses.create />}
             edit={<rcs.Studio.courses.edit />}
@@ -66,39 +66,26 @@ const App = () => {
          <Resource name="event_studio" list={<div>make ra-CRUD compoents</div>} />
          {/* CoolBand */}
          <Resource
-            name="partners_band"
+            name={rcs.Band.partners.resource}
             list={<rcs.Band.partners.list />}
             create={<rcs.Band.partners.create />}
             edit={<rcs.Band.partners.edit />}
          />
+         <Resource name={rcs.Band.heroB.resource} list={<rcs.Band.heroB.list />} edit={<rcs.Band.heroB.edit />} />
          <Resource
-            name="hero_band"
-            list={<rcs.Band.heroB.list />}
-            create={<rcs.Band.heroB.create />}
-            edit={<rcs.Band.heroB.edit />}
-         />
-         <Resource
-            name="collaborations_band"
+            name={rcs.Band.collaboration.resource}
             list={<rcs.Band.collaboration.list />}
             create={<rcs.Band.collaboration.create />}
             edit={<rcs.Band.collaboration.edit />}
          />
          <Resource
-            name="about_us_band"
+            name={rcs.Band.aboutB.resource}
             list={<rcs.Band.aboutB.list />}
             create={<rcs.Band.aboutB.create />}
             edit={<rcs.Band.aboutB.edit />}
          />
-         {/* 
-         sdelali static
          <Resource
-            name="why_us_band"
-            list={<rcs.Band.whyUs.list />}
-            // create={<rcs.Band.whyUs.create />}
-            edit={<rcs.Band.whyUs.edit />}
-         /> */}
-         <Resource
-            name="team_band"
+            name={rcs.Band.team.resource}
             list={<rcs.Band.team.list />}
             create={<rcs.Band.team.create />}
             edit={<rcs.Band.team.edit />}

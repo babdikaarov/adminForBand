@@ -1,15 +1,5 @@
-import {
-   List,
-   Datagrid,
-   TextField,
-   ImageField,
-   EditButton,
-   SelectField,
-   FileField,
-   UrlField,
-   DeleteButton,
-} from "react-admin";
-import { ModalImage } from "./ModalImage";
+import { List, Datagrid, TextField, EditButton, UrlField, DeleteButton, ChipField } from "react-admin";
+import { ModalImage } from "../../../shared/ModalImage";
 
 export const AboutList = () => {
    return (
@@ -18,14 +8,8 @@ export const AboutList = () => {
             <TextField source="id" />
             {/* <UrlField source="video" label="Youtube ссылка на видео" /> */}
             <ModalImage source="image" label="Постер" />
-            <SelectField
-               source="orientation"
-               label="Тип фотографии"
-               choices={[
-                  { id: "LANDSCAPE", name: "Альбом" },
-                  { id: "PORTRAIT", name: "Портрет" },
-               ]}
-            />
+            <ChipField source="orientation" />
+
             <UrlField source="video" label="video" />
             <EditButton />
             <DeleteButton />

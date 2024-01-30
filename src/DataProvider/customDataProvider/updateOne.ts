@@ -3,7 +3,7 @@ import hasFormDataValue from "../../modules/hasFormData";
 
 export const updateOne = async (url: string, resource: string, params: UpdateParams): Promise<UpdateResult> => {
    const { id, data } = params;
-   // console.log(params);
+   console.log(params);
    // console.log(data);
 
    try {
@@ -46,13 +46,13 @@ export const updateOne = async (url: string, resource: string, params: UpdatePar
             headers,
             body: data as FormData,
          };
-         console.log(data);
-         console.log(parameters.body);
+         // console.log(data);
+         // console.log(parameters.body);
       } else {
          // if hasMedia does not exist skipped during lifeCycleCallBack
          headers.set("Content-Type", "application/json");
          parameters = {
-            method: "POST",
+            method: "PUT",
             headers,
             body: jsonData,
          };
@@ -72,7 +72,7 @@ export const updateOne = async (url: string, resource: string, params: UpdatePar
       }
 
       const responseData = await response.json();
-      console.log(responseData);
+      // console.log(responseData);
       // FIX_ME delete below function when beckend fixed it
       // function extractNumberFromString(str: string) {
       //    const regex = /\d+/; // Match one or more digits

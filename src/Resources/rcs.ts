@@ -1,18 +1,17 @@
 /* STUDIO */
 import aboutS from "./Studio/About/About";
-import courses from "./Studio/Courses";
-import heroS from "./Studio/Hero";
-import studentsStory from "./Studio/StudentsSuccess";
-import teacher from "./Studio/Teacher";
+import courses from "./Studio/Courses/Courses";
+import heroS from "./Studio/Hero/Hero";
+import studentsStory from "./Studio/StudentsSuccess/StudentsSuccess";
+import teacher from "./Studio/Teachers/Teacher";
 import testimonials from "./Studio/Testimonials";
 /* BAND */
-import aboutB from "./Band/About";
-import collaboration from "./Band/Collaboration";
+import aboutB from "./Band/About/About";
+import collaboration from "./Band/Collaboration/Collaboration";
 import contacts from "./Contacts/Contatcs";
-import heroB from "./Band/Hero";
-import partners from "./Band/Partners";
-import team from "./Band/Team";
-import whyUs from "./Band/WhyUs";
+import heroB from "./Band/Hero/Hero";
+import partners from "./Band/Partners/Partners";
+import team from "./Band/Team/Team";
 
 export const rcs = {
    Band: {
@@ -21,7 +20,6 @@ export const rcs = {
       heroB,
       partners,
       team,
-      whyUs,
    },
    Studio: {
       aboutS,

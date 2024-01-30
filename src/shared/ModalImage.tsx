@@ -1,6 +1,6 @@
 import { Identifier, RaRecord, UseRecordContextParams } from "react-admin";
-import { useModalCotroller } from "../../../modules/useModalCotroller";
-import styles from "./about.module.css";
+import { useModalCotroller } from "../modules/useModalCotroller";
+import styles from "./modalImage.module.css";
 import { useRecordContext } from "react-admin";
 
 export const ModalImage = (props: UseRecordContextParams<RaRecord<Identifier>> | undefined) => {

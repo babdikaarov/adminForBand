@@ -8,143 +8,136 @@ import StudioIcon from "./StudioIcon.svg";
 import { useNavigate } from "react-router-dom";
 import icons from "../../Resources/icons";
 import { rcs } from "../../Resources/rcs";
-
+import styles from "./styles";
 export const MyMenu = () => {
    const navigate = useNavigate();
-   const style = {
-      treeView: {
-         height: "auto",
-         flexGrow: 1,
-         maxWidth: 400,
-         overflowY: "auto",
-         textWrap: "nowrap",
-         fontSize: "24px",
-         fontWeight: 700,
-      },
-      item: { color: "inherit", marginLeft: "-15px" },
-      contacts: {
-         color: "inherit",
-         fontSize: "24px",
-         fontWeight: 700,
-      },
-   };
 
-   //
-   const handleClick = (text: string) => {
-      // FIX_ME wardprope behavior
-
-      return (
-         <div onClick={() => navigate(`/${text}`)}>
-            {text
-               .split("_")
-               .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-               .join(" ")}
-         </div>
-      );
-   };
    return (
       <Menu>
          <TreeView
             aria-label="file system navigator"
             defaultCollapseIcon={<ExpandMoreIcon />}
             defaultExpandIcon={<ChevronRightIcon />}
-            sx={style.treeView}
+            sx={styles.treeView}
          >
-            <TreeItem nodeId="0" label={handleClick("cool_band")} icon={<img src={BandIcon} />}>
+            <TreeItem
+               nodeId="0"
+               label={"Cool Band"}
+               icon={<img src={BandIcon} />}
+               onClick={() => navigate("/cool_band")}
+            >
                {/* Cool Band*/}
-               <Menu.Item to="hero_band" primaryText="Баннер" leftIcon={<icons.hero />} sx={style.item} disabled />
-               <Menu.Item to="about_us_band" primaryText="О нас" leftIcon={<icons.about />} sx={style.item} disabled />
                <Menu.Item
-                  to="team_band"
+                  to={rcs.Band.heroB.resource}
+                  primaryText="Баннер"
+                  leftIcon={<icons.hero />}
+                  sx={styles.item}
+               />
+               <Menu.Item
+                  to={rcs.Band.aboutB.resource}
+                  primaryText="О нас"
+                  leftIcon={<icons.about />}
+                  sx={styles.item}
+               />
+               <Menu.Item
+                  to={rcs.Band.team.resource}
                   primaryText="Наша команда"
                   leftIcon={<icons.team />}
-                  sx={style.item}
-                  disabled
+                  sx={styles.item}
                />
                <Menu.Item
-                  to="partners_band"
+                  to={rcs.Band.partners.resource}
                   primaryText="Наши Клиенты"
                   leftIcon={<icons.partners />}
-                  sx={style.item}
-                  disabled
+                  sx={styles.item}
                />
                <Menu.Item
-                  to="collaborations_band"
+                  to={rcs.Band.collaboration.resource}
                   primaryText="Коллаборации"
                   leftIcon={<icons.collaboration />}
-                  sx={style.item}
-                  disabled
+                  sx={styles.item}
                />
                {/* sdelali static whyus */}
-               {/* <Menu.Item to="why_us_band" primaryText="Почему нас" leftIcon={<icons.about />} sx={style.item} /> */}
+               {/* <Menu.Item to="why_us_band" primaryText="Почему нас" leftIcon={<icons.about />} sx={styles.item} /> */}
                <Menu.Item
                   to="event_images"
                   primaryText="Галерея"
                   leftIcon={<icons.gallery />}
-                  sx={style.item}
+                  sx={styles.item}
                   disabled
                />
-               <Menu.Item to="event_band" primaryText="Коллаж" leftIcon={<icons.collage />} sx={style.item} disabled />
+               <Menu.Item to="event_band" primaryText="Коллаж" leftIcon={<icons.collage />} sx={styles.item} disabled />
             </TreeItem>
 
-            <TreeItem nodeId="2" label={handleClick("cool_studio")} icon={<img src={StudioIcon} />}>
+            <TreeItem
+               nodeId="2"
+               label={"Cool Studio"}
+               icon={<img src={StudioIcon} />}
+               onClick={() => navigate("/cool_studio")}
+            >
                {/*  CoolStudio  */}
-               <Menu.Item to="hero_studio" primaryText="Баннер" leftIcon={<icons.hero />} sx={style.item} disabled />
+               <Menu.Item
+                  to={rcs.Studio.heroS.resource}
+                  primaryText="Баннер"
+                  leftIcon={<icons.hero />}
+                  sx={styles.item}
+               />
                <Menu.Item
                   to={rcs.Studio.aboutS.resource}
                   primaryText="О нас"
                   leftIcon={<icons.about />}
-                  sx={style.item}
+                  sx={styles.item}
                />
                <Menu.Item
-                  to="direction"
+                  to={rcs.Studio.courses.resource}
                   primaryText="Наши Курсы"
                   leftIcon={<icons.courses />}
-                  sx={style.item}
-                  disabled
+                  sx={styles.item}
                />
                <Menu.Item
-                  to="st_teachers"
+                  to={rcs.Studio.teacher.resource}
                   primaryText="Преподаватели"
                   leftIcon={<icons.teacher />}
-                  sx={style.item}
-                  disabled
+                  sx={styles.item}
                />
                <Menu.Item
-                  to="st_student_reviews"
+                  to={rcs.Studio.testimonials.resource}
                   primaryText="Отзывы учеников"
                   leftIcon={<icons.testimonails />}
-                  sx={style.item}
-                  disabled
+                  sx={styles.item}
                />
                <Menu.Item
-                  to="student_success_studio"
+                  to={rcs.Studio.studentsStory.resource}
                   primaryText="Успехи студентов"
                   leftIcon={<icons.success />}
-                  sx={style.item}
-                  disabled
+                  sx={styles.item}
                />
                <Menu.Item
                   to="event_studio_images"
                   primaryText="Галерея"
                   leftIcon={<icons.gallery />}
-                  sx={style.item}
+                  sx={styles.item}
                   disabled
                />
                <Menu.Item
                   to="event_studio"
                   primaryText="Коллаж"
                   leftIcon={<icons.collage />}
-                  sx={style.item}
+                  sx={styles.item}
                   disabled
                />
             </TreeItem>
-            <Menu.Item
+
+            {/* Can not choose between => TreeItem : Menu.Item*/}
+
+            <TreeItem nodeId="3" label="Контакты" icon={<icons.contacts />} onClick={() => navigate("/contacts")} />
+
+            {/* <Menu.Item
                to={rcs.Contacts.contacts.resource}
                primaryText="Контакты"
                leftIcon={<icons.contacts />}
-               sx={style.contacts}
-            />
+               sx={styles.contacts}
+            /> */}
          </TreeView>
       </Menu>
    );
