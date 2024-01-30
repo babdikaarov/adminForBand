@@ -95,7 +95,6 @@ export const MyMenu = () => {
                   primaryText="О нас"
                   leftIcon={<icons.about />}
                   sx={style.item}
-                  disabled
                />
                <Menu.Item
                   to="direction"

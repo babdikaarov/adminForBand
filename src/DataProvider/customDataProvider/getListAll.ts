@@ -1,27 +1,25 @@
 import { fetchUtils, GetListParams, GetListResult, Options } from "react-admin";
 
-export const getListAll = (url: string, resource: string, params?: GetListParams) => {
-   return async (): Promise<GetListResult> => {
-      try {
-         const { json } = await fetchUtils.fetchJson(`${url}/${resource}`, params as Options);
+export const getListAll = async (url: string, resource: string, params?: GetListParams): Promise<GetListResult> => {
+   try {
+      const { json } = await fetchUtils.fetchJson(`${url}/${resource}`, params as Options);
 
-         if (Array.isArray(json)) {
-            return {
-               data: json,
-               total: json.length,
-            };
-         } else {
-            const data = [json];
-            return {
-               data,
-               total: data.length,
-            };
-         }
-      } catch (error) {
-         console.error("Error in getList:", error);
-         return Promise.reject(error);
+      if (Array.isArray(json)) {
+         return {
+            data: json,
+            total: json.length,
+         };
+      } else {
+         const data = [json];
+         return {
+            data,
+            total: data.length,
+         };
       }
-   };
+   } catch (error) {
+      console.error("Error in getList:", error);
+      return Promise.reject(error);
+   }
 };
 
 // getListAll("http://209.38.228.54:8080/api", "about_us_studio", {

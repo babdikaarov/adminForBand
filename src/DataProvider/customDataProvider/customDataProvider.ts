@@ -3,6 +3,7 @@ import {
    DataProvider,
    DeleteManyParams,
    DeleteParams,
+   GetListParams,
    GetManyParams,
    // GetManyReferenceParams,
    GetOneParams,
@@ -21,7 +22,7 @@ import { deleteMany } from "./deleteMany";
 
 const customDataProvider = (url: string): DataProvider => {
    return {
-      getList: (resource: string) => getListAll(url, resource)(),
+      getList: (resource: string, params: GetListParams) => getListAll(url, resource, params),
 
       // get a single record by id
       // eslint-disable-next-line @typescript-eslint/no-explicit-any

@@ -9,24 +9,24 @@ export const ContactsEdit = () => {
          <TabbedForm toolbar={<SaveButton label="Сохранить" />}>
             <TabbedForm.Tab label="Контактные данные">
                <TextInput source="bandNumber" validate={validators.validateBandNumber} />
-               <TextInput source="studioNumber" validate={validators.validateStudioNumber} />
-               <TextInput source="whatsapp" validate={validators.validateWhatsapp} />
-               <TextInput source="telegram" validate={validators.validateTelegramField} />
+               <TextInput source="studioNumber" />
+               <TextInput source="whatsapp" />
+               <TextInput source="telegram" />
             </TabbedForm.Tab>
             <TabbedForm.Tab label="Адресс">
-               <TextInput source="longitude" validate={validators.validateLongitude} />
-               <TextInput source="city" validate={validators.validateAddressField} />
-               <TextInput source="latitude" validate={validators.validateLatitude} />
-               <TextInput source="organizationId" validate={validators.validateOrganizationIdField} />
-               <TextInput source="address" validate={validators.validateAddressField} />
+               <TextInput source="longitude" />
+               <TextInput source="city" />
+               <TextInput source="latitude" />
+               <TextInput source="organizationId" />
+               <TextInput source="address" />
             </TabbedForm.Tab>
             <TabbedForm.Tab label="Социальные сети">
-               <TextInput source="instagram" validate={validators.validateInstagramField} />
-               <TextInput source="youtube" validate={validators.validateYoutubeField} />
-               <TextInput source="tiktok" validate={validators.validateTikTokField} />
+               <TextInput source="instagram" />
+               <TextInput source="youtube" />
+               <TextInput source="tiktok" />
             </TabbedForm.Tab>
             <TabbedForm.Tab label="Почта">
-               <TextInput source="email" validate={validators.validateEmailField} />
+               <TextInput source="email" />
             </TabbedForm.Tab>
          </TabbedForm>
       </Edit>

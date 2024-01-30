@@ -1,13 +1,14 @@
-import { CreateParams, ResourceCallbacks } from "react-admin";
+import { CreateParams, ResourceCallbacks, UpdateParams } from "react-admin";
 export const createFormDataCallback = () => {
    return async (params: CreateParams) => {
       const { data } = params;
+      // console.log(data);
       const formDataImage = new FormData();
       formDataImage.append("orientation", data.orientation);
       formDataImage.append("image", data.image.rawFile);
       // FIXME video should be a string
       formDataImage.append("video", data.video.rawFile);
-      console.log(formDataImage);
+      // console.log(formDataImage);
       return { data: formDataImage };
    };
 };
@@ -15,6 +16,18 @@ export const createFormDataCallback = () => {
 export const aboutCallBackStudio: ResourceCallbacks = {
    resource: "about_us_studio",
    beforeCreate: createFormDataCallback(),
+   // beforeUpdate: async (params: UpdateParams<any>) => {
+   //    // console.log(data);
+   //    const { data } = params;
+
+   //    const formDataImage = new FormData();
+   //    formDataImage.append("orientation", data.orientation);
+   //    formDataImage.append("image", data.image.rawFile);
+   //    // FIXME video should be a string
+   //    formDataImage.append("video", data.video.rawFile);
+   //    // console.log(formDataImage);
+   //    return { data: formDataImage };
+   // },
 };
 
 // export const anotherResourceLifecycleCallbacks: ResourceCallbacks = {
