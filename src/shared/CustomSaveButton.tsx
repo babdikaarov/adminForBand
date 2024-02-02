@@ -9,6 +9,7 @@ const CustomSaveButton: React.FC<CustomSaveButtonProps> = ({ transform }) => {
    const navigate = useNavigate();
    return (
       <Toolbar>
+         {/* below code has been tested with transform working on hero warn bug solution rendering without warn bug after submitting  */}
          {/* <SaveButton label="CustomSaveButton" transform={transform} type="button" /> */}
          <SaveButton label="SaveButton" />
          <div> postav style suda</div>
