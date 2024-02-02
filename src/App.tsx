@@ -26,16 +26,10 @@ const App = () => {
          </CustomRoutes>
          {/* CoolStudio */}
          <Resource name="cool_band" /> {/* initial page */}
-         <Resource
-            name={rcs.Studio.heroS.resource}
-            list={<rcs.Studio.heroS.list />}
-            create={<rcs.Studio.heroS.create />}
-            edit={<rcs.Studio.heroS.edit />}
-         />
+         <Resource name={rcs.Studio.heroS.resource} list={<rcs.Studio.heroS.list />} edit={<rcs.Studio.heroS.edit />} />
          <Resource
             name={rcs.Studio.aboutS.resource}
             list={<rcs.Studio.aboutS.list />}
-            create={<rcs.Studio.aboutS.create />}
             edit={<rcs.Studio.aboutS.edit />}
          />
          <Resource
@@ -78,12 +72,7 @@ const App = () => {
             create={<rcs.Band.collaboration.create />}
             edit={<rcs.Band.collaboration.edit />}
          />
-         <Resource
-            name={rcs.Band.aboutB.resource}
-            list={<rcs.Band.aboutB.list />}
-            create={<rcs.Band.aboutB.create />}
-            edit={<rcs.Band.aboutB.edit />}
-         />
+         <Resource name={rcs.Band.aboutB.resource} list={<rcs.Band.aboutB.list />} edit={<rcs.Band.aboutB.edit />} />
          <Resource
             name={rcs.Band.team.resource}
             list={<rcs.Band.team.list />}
@@ -96,7 +85,6 @@ const App = () => {
          <Resource
             name={rcs.Contacts.contacts.resource}
             list={<rcs.Contacts.contacts.list />}
-            create={<rcs.Contacts.contacts.create />}
             edit={<rcs.Contacts.contacts.edit />}
          />
       </Admin>

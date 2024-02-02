@@ -1,5 +1,5 @@
-import { UpdateParams, UpdateResult } from "react-admin";
-import hasFormDataValue from "../../modules/hasFormData";
+import { rejects } from "assert";
+import { HttpError, UpdateParams, UpdateResult } from "react-admin";
 
 export const updateOne = async (url: string, resource: string, params: UpdateParams): Promise<UpdateResult> => {
    const { id, data } = params;
@@ -7,25 +7,6 @@ export const updateOne = async (url: string, resource: string, params: UpdatePar
    // console.log(data);
 
    try {
-      // const token = JSON.parse(localStorage.user).token;
-      // // console.log(token);
-      // const jsonData = JSON.stringify({ ...data });
-      // // const jsonData = JSON.stringify({ id ...data });
-      // //   console.log({ jsonData });
-      // const encoder = new TextEncoder();
-      // const contentLength = encoder.encode(jsonData).length;
-
-      // const headers = {
-      //    Authorization: `Bearer ${token}`,
-      //    "Content-Type": "application/json",
-      //    "Content-Length": contentLength.toString(),
-      // };
-
-      // const parameters = {
-      //    method: "PUT",
-      //    headers,
-      //    body: jsonData,
-      // };
       const token = JSON.parse(localStorage.user).token;
       const encoder = new TextEncoder();
       const jsonData = JSON.stringify(data);
@@ -38,8 +19,8 @@ export const updateOne = async (url: string, resource: string, params: UpdatePar
       let parameters;
       // console.log(data);
 
-      if (hasFormDataValue(params)) {
-         // if hasMedia exist assigned during lifeCycleCallBack
+      if (data instanceof FormData) {
+         // if formaData exist assigned during lifeCycleCallBack
 
          parameters = {
             method: "PUT",
@@ -49,7 +30,7 @@ export const updateOne = async (url: string, resource: string, params: UpdatePar
          // console.log(data);
          // console.log(parameters.body);
       } else {
-         // if hasMedia does not exist skipped during lifeCycleCallBack
+         // if no media exist skip during lifeCycleCallBack
          headers.set("Content-Type", "application/json");
          parameters = {
             method: "PUT",
@@ -63,37 +44,42 @@ export const updateOne = async (url: string, resource: string, params: UpdatePar
 
       switch (resource) {
          case "contacts":
+         case "about_us_studio":
+         case "about_us_band":
+         case "hero_band":
+         case "hero_studio":
             parameters.method = "PATCH";
+            console.log(parameters);
+
             response = await fetch(`${url}/${resource}`, parameters);
             break;
+         case "team_band":
+            parameters.method = "PATCH";
+            console.log(parameters);
+            response = await fetch(`${url}/${resource}/${id}`, parameters);
+            break;
          default:
+            console.log(parameters);
+
             response = await fetch(`${url}/${resource}/${id}`, parameters);
             break;
       }
 
-      const responseData = await response.json();
-      // console.log(responseData);
-      // FIX_ME delete below function when beckend fixed it
-      // function extractNumberFromString(str: string) {
-      //    const regex = /\d+/; // Match one or more digits
-      //    const match = str.match(regex);
+      // console.log(response.ok);
+      if (!response.ok) {
+         return Promise.reject(
+            new HttpError("Server Error", response.status, {
+               message: response.json(),
+            }),
+         );
+      } else {
+         const responseData = await response.json();
+         console.log(responseData);
 
-      //    if (match) {
-      //       // Convert the matched string to a number
-      //       return parseInt(match[0], 10);
-      //    }
-
-      //    // Return null if no numbers are found in the string
-      //    return null;
-      // }
-      // const idRes = extractNumberFromString(responseData.message);
-      // // console.log(id);
-      return {
-         data: responseData,
-      };
-      // return {
-      // 	data: responseData,
-      // };
+         return {
+            data: responseData,
+         };
+      }
    } catch (error) {
       console.error("Error in updateOne:", error);
       return Promise.reject(error);

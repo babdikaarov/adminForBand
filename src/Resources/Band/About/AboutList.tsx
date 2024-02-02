@@ -1,19 +1,15 @@
-import { List, Datagrid, TextField, EditButton, SelectField, UrlField, DeleteButton, ChipField } from "react-admin";
+import { List, Datagrid, TextField, EditButton, ChipField } from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
 
 export const AboutList = () => {
    return (
-      <List title="Coll Band → О нас" hasCreate={true}>
-         <Datagrid>
-            {/* <TextField source="id" /> */}
-            {/* <UrlField source="video" label="Youtube ссылка на видео" /> */}
-            <TextField source="id" />
-            <TextField source="image" label="Постер" />
+      <List title="Coll Band → О нас" hasCreate={false}>
+         <Datagrid bulkActionButtons={false}>
+            <ModalImage source="image" label="Постер" />
+            {/* bluer orientation убрать потом на продакшне */}
             <ChipField source="orientation" />
-
-            {/* <UrlField source="video" label="video" /> */}
+            <TextField source="bluer" />
             <EditButton />
-            <DeleteButton />
          </Datagrid>
       </List>
    );

@@ -7,11 +7,11 @@ export const getOne = async (url: string, resource: string, params: GetOneParams
    try {
       let response;
       switch (resource) {
-         /*     case "about_us_studio":
-            response = await fetch(`${url}/${resource}/image/${id}`);
-            console.log(response);
-            break; */
          case "contacts":
+         case "about_us_studio":
+         case "about_us_band":
+         case "hero_band":
+         case "hero_studio":
             response = await fetch(`${url}/${resource}`);
             break;
          default:
@@ -31,6 +31,7 @@ export const getOne = async (url: string, resource: string, params: GetOneParams
       return {
          data,
       };
+      // return data;
    } catch (error) {
       console.error("Error in getOne:", error);
       return Promise.reject(error);

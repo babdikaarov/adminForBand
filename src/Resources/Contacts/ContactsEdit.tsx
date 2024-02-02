@@ -8,7 +8,7 @@ export const ContactsEdit = () => {
       <Edit title="Coll Band → Контакты → изменить">
          <TabbedForm toolbar={<SaveButton label="Сохранить" />}>
             <TabbedForm.Tab label="Контактные данные">
-               <TextInput source="bandNumber" validate={validators.validateBandNumber} />
+               <TextInput source="bandNumber" />
                <TextInput source="studioNumber" />
                <TextInput source="whatsapp" />
                <TextInput source="telegram" />

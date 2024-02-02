@@ -6,7 +6,7 @@ import { useRecordContext } from "react-admin";
 export const ModalImage = (props: UseRecordContextParams<RaRecord<Identifier>> | undefined) => {
    const { dialogRef, handleClose, openModal } = useModalCotroller();
    const record = useRecordContext(props);
-
+   // console.log(record);
    return record ? (
       <>
          <div onClick={() => openModal(`aboutStudio${record.id}`)} className={styles.div}>

@@ -12,6 +12,19 @@ import styles from "./styles";
 export const MyMenu = () => {
    const navigate = useNavigate();
 
+   const handleNavigate = (text: string) => {
+      // FIX_ME wardprope behavior on tablet size
+
+      return (
+         <div onClick={() => navigate(`/${text}`)}>
+            {text
+               .split("_")
+               .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+               .join(" ")}
+         </div>
+      );
+   };
+
    return (
       <Menu>
          <TreeView
@@ -22,9 +35,10 @@ export const MyMenu = () => {
          >
             <TreeItem
                nodeId="0"
-               label={"Cool Band"}
+               // label={"Cool Band"}
+               // onClick={() => navigate("/cool_band")}
+               label={handleNavigate("cool_band")}
                icon={<img src={BandIcon} />}
-               onClick={() => navigate("/cool_band")}
             >
                {/* Cool Band*/}
                <Menu.Item
@@ -71,9 +85,10 @@ export const MyMenu = () => {
 
             <TreeItem
                nodeId="2"
-               label={"Cool Studio"}
+               // label={"Cool Studio"}
+               // onClick={() => navigate("/cool_studio")}
+               label={handleNavigate("cool_studio")}
                icon={<img src={StudioIcon} />}
-               onClick={() => navigate("/cool_studio")}
             >
                {/*  CoolStudio  */}
                <Menu.Item
