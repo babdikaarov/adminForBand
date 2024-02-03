@@ -1,5 +1,4 @@
 import { List, Datagrid, TextField, EditButton, ChipField, UrlField } from "react-admin";
-import MyUrlField from "../../../shared/MyUrlField";
 
 export const HeroList = () => {
    /* 
@@ -18,7 +17,7 @@ export const HeroList = () => {
          <Datagrid bulkActionButtons={false}>
             <TextField source="title" title="name" />
             <TextField source="text" title="name" />
-            <MyUrlField source="video" />
+            <UrlField source="video" target="blank" />
             {/* delete on production chipfield */}
             <ChipField source="orientation" title="name" />
             <EditButton />

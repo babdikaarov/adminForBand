@@ -3,6 +3,8 @@ import { AuthProvider, HttpError, fetchUtils } from "react-admin";
 const httpClient = fetchUtils.fetchJson;
 const apiUrl = import.meta.env.VITE_COOL_API;
 
+// FIXME what to do whith role: USER functionality
+
 export const authProvider: AuthProvider = {
    login: async ({ username, password }) => {
       const { json } = await httpClient(`${apiUrl}/auth/signIn`, {

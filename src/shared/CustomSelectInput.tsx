@@ -33,10 +33,3 @@ const CustomSelectInput = () => {
 };
 
 export default CustomSelectInput;
-
-/* <SelectInput
-         source="orientation"
-         choices={choices}
-         label="Фотография"
-      />
- */

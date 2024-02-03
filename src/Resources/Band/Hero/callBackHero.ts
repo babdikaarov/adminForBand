@@ -1,21 +1,15 @@
-import { ResourceCallbacks, UpdateParams } from "react-admin";
+import { ResourceCallbacks } from "react-admin";
 import createFormData from "../../../modules/createFormData";
-import processRawFile from "../../../modules/processRawFile";
 /*
  */
-const callBack = async (params: UpdateParams<any>) => {
-   console.log(params);
-   const { data } = params;
-
-   processRawFile(data, "video");
-   data.orientation = "LANDSCAPE";
-
+const callBack = async (params: Partial<any>) => {
    // console.log(params);
-   const formData = createFormData(data);
-   return { ...params, data: formData };
+   params.orientation = "LANDSCAPE";
+   const formData = createFormData(params);
+   return formData;
 };
 
 export const callBackHero: ResourceCallbacks = {
    resource: "hero_band",
-   beforeUpdate: callBack,
+   beforeSave: callBack,
 };

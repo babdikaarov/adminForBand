@@ -1,30 +1,18 @@
-import {
-   Create,
-   FieldTitle,
-   FileField,
-   FileInput,
-   ImageField,
-   ImageInput,
-   Labeled,
-   SimpleForm,
-   TextInput,
-} from "react-admin";
+import { Create, FieldTitle, FileField, FileInput, ImageField, ImageInput, SimpleForm, TextInput } from "react-admin";
 import CustomSelectInput from "../../../shared/CustomSelectInput";
-import { handlePreview } from "../../../modules/handlePreview";
-import CustomSaveButton from "../../../shared/CustomSaveButton";
-import transformTeam from "./transformTeam";
+import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
 
 export const TeamCreate = () => {
    return (
       <Create title="Coll Band → Наша команда → создать карточку" redirect="list">
-         <SimpleForm toolbar={<CustomSaveButton transform={transformTeam} />}>
+         <SimpleForm toolbar={<CustomSaveToolBar />}>
             <FieldTitle label="Карточка спереди" />
-            <ImageInput format={handlePreview} source="image" label="Постер" multiple={false} accept="image/*">
+            <ImageInput source="newImage" label="Постер" multiple={false} accept="image/*">
                <ImageField source="src" title="" />
             </ImageInput>
             <CustomSelectInput />
             <FieldTitle label="Карточка сзади" />
-            <FileInput source="video" accept="video/*" multiple={false}>
+            <FileInput source="newVideo" accept="video/*" multiple={false}>
                <FileField source="src" title="title" target="blank" />
             </FileInput>
             <FieldTitle label="Описание" />

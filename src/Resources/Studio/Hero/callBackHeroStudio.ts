@@ -3,7 +3,7 @@ import createFormData from "../../../modules/createFormData";
 /*
  */
 const callBack = async (params: Partial<any>) => {
-   console.log(params);
+   // console.log(params);
    const formData = createFormData(params);
    return formData;
 };
