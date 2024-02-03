@@ -1,6 +1,7 @@
 import { List, Datagrid, TextField, EditButton, UrlField, ChipField } from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
-
+/*
+ */
 export const AboutList = () => {
    // ubrat  orientation s backend
    return (
