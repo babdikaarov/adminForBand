@@ -4,7 +4,7 @@ import { Box, Divider, Typography } from "@mui/material";
 import { DataGrid, GridColDef, GridColumnMenu, GridColumnMenuProps, GridRowsProp } from "@mui/x-data-grid";
 const CustomField = () => {
    const record = useRecordContext({ source: "contacts" });
-   console.log(record);
+   // console.log(record);
    const table = Object.entries(record).map(([key, value]) =>
       key === "id" ? null : (
          <div key={key} className={styles.div}>

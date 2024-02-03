@@ -1,13 +1,14 @@
-import { DateInput, Edit, SaveButton, SimpleForm, TabbedForm, TextInput } from "react-admin";
+import { Edit, SimpleForm, TextInput } from "react-admin";
 import validators from "./validators";
 import { Box, Typography } from "@mui/material";
+import CustomSaveToolBar from "../../shared/CustomSaveToolBar";
 
 export const ContactsEdit = () => {
    // custom form check https://marmelab.com/react-admin/Form.html
    // https://marmelab.com/react-admin/SimpleForm.html#complex-input-layout
    return (
       <Edit title="Coll Band → Контакты → изменить">
-         <SimpleForm sx={{ maxWidth: 700 }}>
+         <SimpleForm sx={{ maxWidth: 700 }} toolbar={<CustomSaveToolBar />}>
             <Typography variant="h6" gutterBottom>
                Контактные данные
             </Typography>

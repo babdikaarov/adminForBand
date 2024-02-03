@@ -64,12 +64,14 @@ export const MyMenu = () => {
                   primaryText="Наши Клиенты"
                   leftIcon={<icons.partners />}
                   sx={styles.item}
+                  disabled
                />
                <Menu.Item
                   to={rcs.Band.collaboration.resource}
                   primaryText="Коллаборации"
                   leftIcon={<icons.collaboration />}
                   sx={styles.item}
+                  disabled
                />
                {/* sdelali static whyus */}
                {/* <Menu.Item to="why_us_band" primaryText="Почему нас" leftIcon={<icons.about />} sx={styles.item} /> */}
@@ -108,18 +110,21 @@ export const MyMenu = () => {
                   primaryText="Наши Курсы"
                   leftIcon={<icons.courses />}
                   sx={styles.item}
+                  disabled
                />
                <Menu.Item
                   to={rcs.Studio.teacher.resource}
                   primaryText="Преподаватели"
                   leftIcon={<icons.teacher />}
                   sx={styles.item}
+                  disabled
                />
                <Menu.Item
                   to={rcs.Studio.testimonials.resource}
                   primaryText="Отзывы учеников"
                   leftIcon={<icons.testimonails />}
                   sx={styles.item}
+                  disabled
                />
                <Menu.Item
                   to={rcs.Studio.studentsStory.resource}
