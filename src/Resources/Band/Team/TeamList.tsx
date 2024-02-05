@@ -1,4 +1,4 @@
-import { List, Datagrid, TextField, EditButton, DeleteButton, ChipField, UrlField, FileField } from "react-admin";
+import { List, Datagrid, TextField, EditButton, DeleteButton, ChipField, UrlField } from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
 
 export const TeamList = () => {

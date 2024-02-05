@@ -1,7 +1,7 @@
 import { useRecordContext } from "react-admin";
 import styles from "./style.module.css";
-import { Box, Divider, Typography } from "@mui/material";
-import { DataGrid, GridColDef, GridColumnMenu, GridColumnMenuProps, GridRowsProp } from "@mui/x-data-grid";
+// import { Box, Divider, Typography } from "@mui/material";
+// import { DataGrid, GridColDef, GridColumnMenu, GridColumnMenuProps, GridRowsProp } from "@mui/x-data-grid";
 const CustomField = () => {
    const record = useRecordContext({ source: "contacts" });
    // console.log(record);
@@ -13,7 +13,7 @@ const CustomField = () => {
          </div>
       ),
    );
-
+   /* 
    const customDisplay = (
       <>
          <Typography variant="h6" gutterBottom>
@@ -107,7 +107,7 @@ const CustomField = () => {
          disableDensitySelector
          disableEval
       />
-   );
+   ); */
    return record ? table : null;
 };
 

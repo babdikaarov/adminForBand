@@ -1,4 +1,3 @@
-import { rejects } from "assert";
 import { HttpError, UpdateParams, UpdateResult } from "react-admin";
 
 export const updateOne = async (url: string, resource: string, params: UpdateParams): Promise<UpdateResult> => {

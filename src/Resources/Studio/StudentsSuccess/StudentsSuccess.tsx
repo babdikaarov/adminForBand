@@ -1,5 +1,5 @@
-import { List, Datagrid, TextField, ImageField, EditButton, DeleteButton, SaveButton, UrlField } from "react-admin";
-import { Create, Edit, SimpleForm, TextInput, ImageInput } from "react-admin";
+import { List, Datagrid, TextField, EditButton, DeleteButton, UrlField } from "react-admin";
+import { Create, Edit, SimpleForm, TextInput } from "react-admin";
 
 export const StudentsSuccessList = () => {
    /* 

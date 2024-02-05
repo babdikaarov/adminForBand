@@ -1,4 +1,4 @@
-import { List, Datagrid, TextField, EditButton, DeleteButton, SelectField, ChipField } from "react-admin";
+import { List, Datagrid, TextField, EditButton, DeleteButton, ChipField } from "react-admin";
 
 export const CollaborationList = () => {
    /* 

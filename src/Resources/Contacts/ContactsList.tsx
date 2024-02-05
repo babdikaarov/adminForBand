@@ -1,4 +1,4 @@
-import { Datagrid, DatagridHeaderProps, EditButton, List, SimpleList, TextField, useRecordContext } from "react-admin";
+import { Datagrid, DatagridHeaderProps, EditButton, List } from "react-admin";
 import { TableHead } from "@mui/material";
 import CustomField from "./CustomField";
 import styleGrid from "./styleGrid";
