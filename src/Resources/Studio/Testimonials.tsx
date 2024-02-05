@@ -1,14 +1,26 @@
-import { List, Datagrid, TextField, ImageField, EditButton, DeleteButton, SaveButton } from "react-admin";
-import { Create, Edit, SimpleForm, TextInput, ImageInput } from "react-admin";
+import { List, Datagrid, TextField, EditButton, DeleteButton, SaveButton } from "react-admin";
+import { Create, Edit, SimpleForm, TextInput } from "react-admin";
+import CustomSelectInput from "../../shared/CustomSelectInput";
 
 export const TestimonaialsList = () => {
+   /* 
+     {
+    "id": 0,
+    "image": "string",
+    "name": "string",
+    "reviews": "string",
+    "orientation": "PORTRAIT"
+  }
+   */
    return (
       <List title="Cool Studio → Отзывы учеников" hasCreate={true}>
          {/* <CreateButton /> */}
          <Datagrid>
             <TextField source="id" />
-            <TextField source="filename" title="name" />
-            <ImageField source="filename" title="image" />
+            <TextField source="image" title="name" />
+            <TextField source="name" title="name" />
+            <TextField source="reviews" title="name" />
+            <TextField source="orientation" title="name" />
             <EditButton />
             <DeleteButton />
          </Datagrid>
@@ -17,15 +29,13 @@ export const TestimonaialsList = () => {
 };
 
 export const TestimonaialsCreate = () => {
-   // const postDefaultValue = () => ({ id: uuid(), created_at: new Date(), nb_views: 0 });
    return (
-      <Create title="Cool Studio → Отзывы учеников → создать">
-         {/* <SimpleForm toolbar={<SaveButton />} defaultValues={postDefaultValue}> */}
+      <Create title="Cool Studio → Отзывы учеников → создать" redirect="list">
          <SimpleForm toolbar={<SaveButton />}>
-            <TextInput source="id" disabled />
-            <ImageInput source="filename" label="image">
-               <ImageField source="src" title="title" />
-            </ImageInput>
+            <TextInput source="image" title="name" />
+            <TextInput source="name" title="name" />
+            <TextInput source="reviews" title="name" />
+            <CustomSelectInput />
          </SimpleForm>
       </Create>
    );
@@ -33,17 +43,19 @@ export const TestimonaialsCreate = () => {
 
 export const TestimonaialsEdit = () => {
    return (
-      <Edit title="Cool Studio → Отзывы учеников → изменить">
+      <Edit title="Cool Studio → Отзывы учеников → изменить" redirect="list">
          <SimpleForm toolbar={<SaveButton />}>
-            <TextInput disabled source="id" />
-            <TextInput source="name" />
-            <ImageInput source="img" />
+            <TextInput source="image" title="name" />
+            <TextInput source="name" title="name" />
+            <TextInput source="reviews" title="name" />
+            <CustomSelectInput />
          </SimpleForm>
       </Edit>
    );
 };
 
 export default {
+   resource: "st_student_reviews",
    list: TestimonaialsList,
    create: TestimonaialsCreate,
    edit: TestimonaialsEdit,

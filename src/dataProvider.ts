@@ -1,11 +1,14 @@
 import { withLifecycleCallbacks } from "react-admin";
-import customDataProvider from "./DataProvider/customDataProvider/customDataProvider";
-import { teamLifecycleCallbacks } from "./DataProvider/LifeCycleCallbacks/teamCallBack";
-import { aboutCallBackStudio } from "./DataProvider/LifeCycleCallbacks/aboutCallBack";
-// import { contactsCallBack } from "./DataProvider/LifeCycleCallbacks/contactsCallBack";
+import customDataProvider from "./customDataProvider/customDataProvider";
+import { aboutCallBackStudio } from "./Resources/Studio/About/callBackStudioAbout";
+import { aboutCallBackBand } from "./Resources/Band/About/callBackBandAbout";
+import { callBackTeam } from "./Resources/Band/Team/callBackTeam";
+import { callBackHero } from "./Resources/Band/Hero/callBackHero";
+import { callBackHeroStudio } from "./Resources/Studio/Hero/callBackHeroStudio";
 
 const baseDataProvider = customDataProvider(import.meta.env.VITE_COOL_API);
 
-const callBacks = [teamLifecycleCallbacks, aboutCallBackStudio];
+const callBacks = [aboutCallBackStudio, aboutCallBackBand, callBackTeam, callBackHero, callBackHeroStudio];
 
+// export const dataProvider = customDataProvider(import.meta.env.VITE_COOL_API);
 export const dataProvider = withLifecycleCallbacks(baseDataProvider, callBacks);
