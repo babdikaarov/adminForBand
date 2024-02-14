@@ -18,9 +18,7 @@ export const ModalImage = (props: UseRecordContextParams<RaRecord<Identifier>> |
             onClick={() => handleClose(`aboutStudio${record.id}`)}
             ref={dialogRef}
          >
-            <span>
                <img src={record.image} alt="" />
-            </span>
          </dialog>
       </>
    ) : null;

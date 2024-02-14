@@ -12,6 +12,8 @@ import contacts from "./Contacts/Contatcs";
 import heroB from "./Band/Hero/Hero";
 import partners from "./Band/Partners/Partners";
 import team from "./Band/Team/Team";
+import eventBand from "./Band/EvenBand/EventBand"
+import eventBandImages from "./Band/EventBandImages/EventBandImages";
 
 export const rcs = {
    Band: {
@@ -20,6 +22,8 @@ export const rcs = {
       heroB,
       partners,
       team,
+      eventBand,
+      eventBandImages
    },
    Studio: {
       aboutS,

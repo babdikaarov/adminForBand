@@ -11,7 +11,7 @@ export const updateOne = async (url: string, resource: string, params: UpdatePar
       const jsonData = JSON.stringify(data);
       const contentLength = encoder.encode(jsonData).length;
 
-      let headers = new Headers();
+      const headers = new Headers();
       headers.set("Authorization", `Bearer ${token}`);
       headers.set("Content-Length", contentLength.toString());
 
@@ -53,6 +53,7 @@ export const updateOne = async (url: string, resource: string, params: UpdatePar
             response = await fetch(`${url}/${resource}`, parameters);
             break;
          case "team_band":
+         case "event_band":
             parameters.method = "PATCH";
             console.log(parameters);
             response = await fetch(`${url}/${resource}/${id}`, parameters);

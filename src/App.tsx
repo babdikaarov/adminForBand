@@ -26,7 +26,9 @@ const App = () => {
          </CustomRoutes>
          {/* CoolStudio */}
          <Resource name="cool_band" /> {/* initial page */}
+         
          <Resource name={rcs.Studio.heroS.resource} list={<rcs.Studio.heroS.list />} edit={<rcs.Studio.heroS.edit />} />
+        
          <Resource
             name={rcs.Studio.aboutS.resource}
             list={<rcs.Studio.aboutS.list />}
@@ -72,15 +74,29 @@ const App = () => {
             create={<rcs.Band.collaboration.create />}
             edit={<rcs.Band.collaboration.edit />}
          />
-         <Resource name={rcs.Band.aboutB.resource} list={<rcs.Band.aboutB.list />} edit={<rcs.Band.aboutB.edit />} />
+         <Resource 
+         name={rcs.Band.aboutB.resource} 
+         list={<rcs.Band.aboutB.list />} 
+         edit={<rcs.Band.aboutB.edit />} 
+         />
          <Resource
             name={rcs.Band.team.resource}
             list={<rcs.Band.team.list />}
             create={<rcs.Band.team.create />}
             edit={<rcs.Band.team.edit />}
          />
-         <Resource name="event_images" list={<div>make ra-CRUD compoents</div>} />
-         <Resource name="event_band" list={<div>make ra-CRUD compoents</div>} />
+            
+     
+      <Resource 
+            name={rcs.Band.eventBand.resource} 
+            list={<rcs.Band.eventBand.list/>} 
+            create={<rcs.Band.eventBand.create/>} 
+            edit={<rcs.Band.eventBand.edit/>} 
+         >
+            {/* <Route path={":albumId/images"} element={<rcs.Band.eventBandImages.list />} /> */}
+         </Resource>
+         
+         
          {/* Contacts */}
          <Resource
             name={rcs.Contacts.contacts.resource}
