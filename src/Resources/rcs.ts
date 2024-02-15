@@ -4,7 +4,7 @@ import courses from "./Studio/Courses/Courses";
 import heroS from "./Studio/Hero/Hero";
 import studentsStory from "./Studio/StudentsSuccess/StudentsSuccess";
 import teacher from "./Studio/Teachers/Teacher";
-import testimonials from "./Studio/Testimonials";
+import testimonials from "./Studio/Testimonials/Testimonials";
 /* BAND */
 import aboutB from "./Band/About/About";
 import collaboration from "./Band/Collaboration/Collaboration";

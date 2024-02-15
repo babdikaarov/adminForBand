@@ -4,7 +4,7 @@ import StudioIcon from "./StudioIcon.svg";
 import icons from "../../Resources/icons";
 import { rcs } from "../../Resources/rcs";
 import styles from "./styles";
-import { HandleNavigate } from "../../modules/handleNavigate";
+import HandleNavigate  from "../../modules/HandleNavigate";
 
 
 export const MenuStudio = () => {
@@ -39,14 +39,14 @@ icon={<img src={StudioIcon} />}
    primaryText="Преподаватели"
    leftIcon={<icons.teacher />}
    sx={styles.item}
-   disabled
+   
 />
 <Menu.Item
    to={rcs.Studio.testimonials.resource}
    primaryText="Отзывы учеников"
    leftIcon={<icons.testimonails />}
    sx={styles.item}
-   disabled
+   
 />
 <Menu.Item
    to={rcs.Studio.studentsStory.resource}
@@ -59,14 +59,14 @@ icon={<img src={StudioIcon} />}
    primaryText="Галерея"
    leftIcon={<icons.gallery />}
    sx={styles.item}
-   disabled
+   
 />
 <Menu.Item
    to="event_studio"
    primaryText="Коллаж"
    leftIcon={<icons.collage />}
    sx={styles.item}
-   disabled
+   
 />
 </TreeItem>
 

@@ -26,9 +26,11 @@ const App = () => {
          </CustomRoutes>
          {/* CoolStudio */}
          <Resource name="cool_band" /> {/* initial page */}
-         
-         <Resource name={rcs.Studio.heroS.resource} list={<rcs.Studio.heroS.list />} edit={<rcs.Studio.heroS.edit />} />
-        
+
+         <Resource 
+            name={rcs.Studio.heroS.resource}
+            list={<rcs.Studio.heroS.list />} 
+            edit={<rcs.Studio.heroS.edit />} />
          <Resource
             name={rcs.Studio.aboutS.resource}
             list={<rcs.Studio.aboutS.list />}
@@ -51,6 +53,7 @@ const App = () => {
             list={<rcs.Studio.testimonials.list />}
             create={<rcs.Studio.testimonials.create />}
             edit={<rcs.Studio.testimonials.edit />}
+         // {...rcs.Studio.testimonials}
          />
          <Resource
             name={rcs.Studio.courses.resource}
@@ -67,17 +70,19 @@ const App = () => {
             create={<rcs.Band.partners.create />}
             edit={<rcs.Band.partners.edit />}
          />
-         <Resource name={rcs.Band.heroB.resource} list={<rcs.Band.heroB.list />} edit={<rcs.Band.heroB.edit />} />
+         <Resource
+            name={rcs.Band.heroB.resource}
+            list={<rcs.Band.heroB.list />} edit={<rcs.Band.heroB.edit />} />
          <Resource
             name={rcs.Band.collaboration.resource}
             list={<rcs.Band.collaboration.list />}
             create={<rcs.Band.collaboration.create />}
             edit={<rcs.Band.collaboration.edit />}
          />
-         <Resource 
-         name={rcs.Band.aboutB.resource} 
-         list={<rcs.Band.aboutB.list />} 
-         edit={<rcs.Band.aboutB.edit />} 
+         <Resource
+            name={rcs.Band.aboutB.resource}
+            list={<rcs.Band.aboutB.list />}
+            edit={<rcs.Band.aboutB.edit />}
          />
          <Resource
             name={rcs.Band.team.resource}
@@ -85,18 +90,18 @@ const App = () => {
             create={<rcs.Band.team.create />}
             edit={<rcs.Band.team.edit />}
          />
-            
-     
-      <Resource 
-            name={rcs.Band.eventBand.resource} 
-            list={<rcs.Band.eventBand.list/>} 
-            create={<rcs.Band.eventBand.create/>} 
-            edit={<rcs.Band.eventBand.edit/>} 
+
+
+         <Resource
+            name={rcs.Band.eventBand.resource}
+            list={<rcs.Band.eventBand.list />}
+            create={<rcs.Band.eventBand.create />}
+            edit={<rcs.Band.eventBand.edit />}
          >
             {/* <Route path={":albumId/images"} element={<rcs.Band.eventBandImages.list />} /> */}
          </Resource>
-         
-         
+
+
          {/* Contacts */}
          <Resource
             name={rcs.Contacts.contacts.resource}

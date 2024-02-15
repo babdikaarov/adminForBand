@@ -1,11 +1,16 @@
 import { List, Datagrid, TextField, EditButton, DeleteButton, ChipField } from "react-admin";
+import { ModalImage } from "../../../shared/ModalImage";
 
 export const CollaborationList = () => {
    /* 
    {
-  "name": "string",
-  "image": "string",
-  "orientation": "PORTRAIT"
+   {
+    "id": 0,
+    "name": "string",
+    "image": "string",
+    "bluer": "string",
+    "orientation": "PORTRAIT"
+  }
 }
    */
    return (
@@ -14,9 +19,9 @@ export const CollaborationList = () => {
          <Datagrid>
             <TextField source="id" />
             <TextField source="name" />
-            <TextField source="image" />
+            <TextField source="bluer" />
+            <ModalImage source="image" />
             <ChipField source="orientation" />
-            {/* <ImageField source="image" title="image" /> */}
             <EditButton />
             <DeleteButton />
          </Datagrid>

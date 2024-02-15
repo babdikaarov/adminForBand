@@ -2,7 +2,6 @@ import { fetchUtils, GetListParams, GetListResult, Options } from "react-admin";
 
 export const getListAll = async (url: string, resource: string, params?: GetListParams): Promise<GetListResult> => {
   
-  console.log(params)
    try {
       
       const { json } = await fetchUtils.fetchJson(`${url}/${resource}`, params as Options);

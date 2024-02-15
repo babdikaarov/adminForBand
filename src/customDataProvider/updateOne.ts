@@ -49,13 +49,17 @@ export const updateOne = async (url: string, resource: string, params: UpdatePar
          case "hero_studio":
             parameters.method = "PATCH";
             console.log(parameters);
-
+            
             response = await fetch(`${url}/${resource}`, parameters);
             break;
-         case "team_band":
-         case "event_band":
+            case "team_band":
+            case "event_band":
+            case "partners_band":
+            case "direction":
+            case "student_success_studio":
+            case "st_student_reviews":
             parameters.method = "PATCH";
-            console.log(parameters);
+            // console.log(parameters);
             response = await fetch(`${url}/${resource}/${id}`, parameters);
             break;
          default:

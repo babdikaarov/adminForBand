@@ -1,27 +1,31 @@
 import { List, Datagrid, TextField, EditButton, DeleteButton, ChipField } from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
 
-export const TeacherList = () => {
-   /* 
-     {
+
+export const TestimonaialsList = () => {
+   /*
+    {
     "id": 0,
-    "name": "string",
     "image": "string",
-    "urlInstagram": "string",
-    "position": "string",
-    "description": "string",
+    "bluer": "string",
+    "name": "string",
+    "reviews": "string",
     "orientation": "PORTRAIT"
+  }
+]
   }
    */
    return (
-      <List title="Cool Studio → Преподаватели" hasCreate={true}>
+      <List title="Cool Studio → Отзывы учеников" hasCreate={true}>
+         {/* <CreateButton /> */}
          <Datagrid>
             <TextField source="id" />
+            {/* <ModalImage source="image"  /> */}
+            <TextField source="image"  />
             <TextField source="name"  />
-            <ModalImage source="image"  />
-            <TextField source="urlInstagram"  />
-            <TextField source="position"  />
-            <TextField source="description"  />
+            <ModalImage source="bluer"  />
+            {/* <TextField source="bluer"  /> */}
+            <TextField source="reviews"  />
             <ChipField source="orientation"  />
             <EditButton />
             <DeleteButton />

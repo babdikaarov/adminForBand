@@ -1,13 +1,13 @@
-import { Create, SimpleForm, TextInput } from "react-admin";
-import CustomSelectInput from "../../../shared/CustomSelectInput";
+import { Create, ImageField, ImageInput, SimpleForm, TextInput } from "react-admin";
 
 export const PartnersCreate = () => {
    return (
       <Create title="Coll Band → Клиенты → создать" redirect="list">
          <SimpleForm>
-            <TextInput source="image" title="name" />
+         <ImageInput source="newImage" label="Logo клиента" multiple={false} accept="image/*">
+               <ImageField source="src" title="новое лого" />
+            </ImageInput>
             <TextInput source="url" title="name" />
-            <CustomSelectInput />
          </SimpleForm>
       </Create>
    );

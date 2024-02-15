@@ -13,14 +13,14 @@ const callBack = async (params: Partial<any>) => {
       params.bluer = bluerHash;
    }
 
-   // console.log(params);
+   console.log(params);
 
    const formData = createFormData(params);
    objectURL && URL.revokeObjectURL(objectURL);
    return formData;
 };
 
-export const callBackTeam: ResourceCallbacks = {
-   resource: "team_band",
+export const callBackCourses: ResourceCallbacks = {
+   resource: "direction",
    beforeSave: callBack,
 };

@@ -4,7 +4,7 @@ import BandIcon from "./BandIcon.svg";
 import icons from "../../Resources/icons";
 import { rcs } from "../../Resources/rcs";
 import styles from "./styles";
-import { HandleNavigate } from "../../modules/handleNavigate";
+import HandleNavigate from "../../modules/HandleNavigate";
 
 
 const MenuBand = () => {
@@ -44,7 +44,7 @@ const MenuBand = () => {
        primaryText="Коллаборации"
        leftIcon={<icons.collaboration />}
        sx={styles.item}
-       disabled
+       
     />
    
     <Menu.Item
