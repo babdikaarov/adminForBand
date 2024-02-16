@@ -92,15 +92,6 @@ const App = () => {
          />
 
 
-         <Resource
-            name={rcs.Band.eventBand.resource}
-            list={<rcs.Band.eventBand.list />}
-            create={<rcs.Band.eventBand.create />}
-            edit={<rcs.Band.eventBand.edit />}
-         >
-            {/* <Route path={":albumId/images"} element={<rcs.Band.eventBandImages.list />} /> */}
-         </Resource>
-
 
          {/* Contacts */}
          <Resource

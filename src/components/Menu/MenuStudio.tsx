@@ -54,7 +54,7 @@ icon={<img src={StudioIcon} />}
    leftIcon={<icons.success />}
    sx={styles.item}
 />
-<Menu.Item
+{/* <Menu.Item
    to="event_studio_images"
    primaryText="Галерея"
    leftIcon={<icons.gallery />}
@@ -67,7 +67,7 @@ icon={<img src={StudioIcon} />}
    leftIcon={<icons.collage />}
    sx={styles.item}
    
-/>
+/> */}
 </TreeItem>
 
   )

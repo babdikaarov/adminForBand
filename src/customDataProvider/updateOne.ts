@@ -22,7 +22,7 @@ export const updateOne = async (url: string, resource: string, params: UpdatePar
          // if formaData exist assigned during lifeCycleCallBack
 
          parameters = {
-            method: "PUT",
+            method: "PATCH",
             headers,
             body: data as FormData,
          };
@@ -32,7 +32,7 @@ export const updateOne = async (url: string, resource: string, params: UpdatePar
          // if no media exist skip during lifeCycleCallBack
          headers.set("Content-Type", "application/json");
          parameters = {
-            method: "PUT",
+            method: "PATCH",
             headers,
             body: jsonData,
          };
@@ -47,24 +47,11 @@ export const updateOne = async (url: string, resource: string, params: UpdatePar
          case "about_us_band":
          case "hero_band":
          case "hero_studio":
-            parameters.method = "PATCH";
             console.log(parameters);
-            
             response = await fetch(`${url}/${resource}`, parameters);
-            break;
-            case "team_band":
-            case "event_band":
-            case "partners_band":
-            case "direction":
-            case "student_success_studio":
-            case "st_student_reviews":
-            parameters.method = "PATCH";
-            // console.log(parameters);
-            response = await fetch(`${url}/${resource}/${id}`, parameters);
             break;
          default:
             console.log(parameters);
-
             response = await fetch(`${url}/${resource}/${id}`, parameters);
             break;
       }

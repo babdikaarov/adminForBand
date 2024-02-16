@@ -20,11 +20,9 @@ export const TestimonaialsList = () => {
          {/* <CreateButton /> */}
          <Datagrid>
             <TextField source="id" />
-            {/* <ModalImage source="image"  /> */}
-            <TextField source="image"  />
+            <ModalImage source="image"  />
             <TextField source="name"  />
-            <ModalImage source="bluer"  />
-            {/* <TextField source="bluer"  /> */}
+            <TextField source="bluer"  />
             <TextField source="reviews"  />
             <ChipField source="orientation"  />
             <EditButton />

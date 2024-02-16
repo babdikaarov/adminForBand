@@ -47,18 +47,7 @@ const MenuBand = () => {
        
     />
    
-    <Menu.Item
-       to={rcs.Band.eventBand.resource} 
-       primaryText="Галерея"
-       leftIcon={<icons.gallery />}
-       sx={styles.item}
-       
-    />
-    {/* <Menu.Item 
-       to={rcs.Band.eventBandImages.resource} 
-       primaryText="Коллаж" leftIcon={<icons.collage />} 
-       sx={styles.item}
-       /> */}
+  
  </TreeItem>
   )
 };
