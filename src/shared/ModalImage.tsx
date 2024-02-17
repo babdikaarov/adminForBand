@@ -7,18 +7,19 @@ export const ModalImage = (props: UseRecordContextParams<RaRecord<Identifier>> |
    const { dialogRef, handleClose, openModal } = useModalCotroller();
    const record = useRecordContext(props);
    // console.log(record);
+   const id = `${record.id}${record[props?.source]}`;
    return record ? (
       <>
-         <div onClick={() => openModal(`aboutStudio${record.id}`)} className={styles.div}>
-            <img src={record.image} alt="" />
+         <div onClick={() => openModal(id)} className={styles.div}>
+            <img src={record[props?.source]} alt="" />
          </div>
          <dialog
-            id={`aboutStudio${record.id}`}
+            id={id}
             className={styles.modal}
-            onClick={() => handleClose(`aboutStudio${record.id}`)}
+            onClick={() => handleClose(id)}
             ref={dialogRef}
          >
-               <img src={record.image} alt="" />
+               <img src={record[props?.source]} alt="" />
          </dialog>
       </>
    ) : null;

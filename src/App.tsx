@@ -5,6 +5,7 @@ import { MyLayout } from "./components/Layout/MyLayout";
 import { rcs } from "./Resources/rcs";
 import BandPage from "./components/ReviewPage/ReviewPage";
 import { dataProvider } from "./dataProvider";
+import { ProfileEdit } from "./Profile";
 
 const App = () => {
    // const token = JSON.parse(localStorage.user).token;
@@ -12,6 +13,7 @@ const App = () => {
 
    return (
       <Admin
+         requireAuth
          title="Cool Band Admin"
          dataProvider={dataProvider}
          authProvider={authProvider}
@@ -23,6 +25,7 @@ const App = () => {
          <CustomRoutes>
             <Route path="cool_band" element={<BandPage />} />
             <Route path="cool_studio" element={<BandPage />} />
+            <Route path="users" element={<div>test</div>} />
          </CustomRoutes>
          {/* CoolStudio */}
          <Resource name="cool_band" /> {/* initial page */}
