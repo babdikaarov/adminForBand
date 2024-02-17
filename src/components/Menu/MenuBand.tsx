@@ -4,7 +4,7 @@ import BandIcon from "./BandIcon.svg";
 import icons from "../../Resources/icons";
 import { rcs } from "../../Resources/rcs";
 import styles from "./styles";
-import { HandleNavigate } from "../../modules/handleNavigate";
+import HandleNavigate from "../../modules/HandleNavigate";
 
 
 const MenuBand = () => {
@@ -44,21 +44,10 @@ const MenuBand = () => {
        primaryText="Коллаборации"
        leftIcon={<icons.collaboration />}
        sx={styles.item}
-       disabled
-    />
-   
-    <Menu.Item
-       to={rcs.Band.eventBand.resource} 
-       primaryText="Галерея"
-       leftIcon={<icons.gallery />}
-       sx={styles.item}
        
     />
-    {/* <Menu.Item 
-       to={rcs.Band.eventBandImages.resource} 
-       primaryText="Коллаж" leftIcon={<icons.collage />} 
-       sx={styles.item}
-       /> */}
+   
+  
  </TreeItem>
   )
 };

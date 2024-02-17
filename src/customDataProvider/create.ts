@@ -3,13 +3,13 @@ import { CreateParams, CreateResult } from "react-admin";
 export const create = async (url: string, resource: string, params: CreateParams): Promise<CreateResult> => {
    try {
       const { data } = params;
-      // console.log(params);
+      console.log(params);
       const token = JSON.parse(localStorage.user).token;
       const encoder = new TextEncoder();
       const jsonData = JSON.stringify(data);
       const contentLength = encoder.encode(jsonData).length;
 
-      let headers = new Headers();
+      const headers = new Headers();
       let parameters;
       headers.set("Authorization", `Bearer ${token}`);
       headers.set("Content-Length", contentLength.toString());

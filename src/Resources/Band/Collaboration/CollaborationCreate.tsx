@@ -1,13 +1,21 @@
-import { Create, SimpleForm, TextInput } from "react-admin";
+import { Create, ImageField, ImageInput, SimpleForm, TextInput } from "react-admin";
 import CustomSelectInput from "../../../shared/CustomSelectInput";
 export const CollaborationCreate = () => {
-   // const postDefaultValue = () => ({ id: uuid(), created_at: new Date(), nb_views: 0 });
+  /* 
+  {
+  "name": "string",
+  "image": "string",
+  "bluer": "string",
+  "orientation": "PORTRAIT"
+}
+  */
    return (
       <Create title="Coll Band → Коллаборация → создать" redirect="list">
-         {/* <SimpleForm toolbar={<SaveButton />} defaultValues={postDefaultValue}> */}
          <SimpleForm>
+         <ImageInput source="newImage" label="Аватар" multiple={false} accept="image/*">
+               <ImageField source="src" title="Аватар" />
+            </ImageInput>
             <TextInput source="name" />
-            <TextInput source="image" />
             <CustomSelectInput />
          </SimpleForm>
       </Create>

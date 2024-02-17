@@ -1,14 +1,24 @@
-import { List, Datagrid, TextField, EditButton, DeleteButton, ChipField } from "react-admin";
+import { List, Datagrid, TextField, EditButton, DeleteButton, UrlField } from "react-admin";
+import { ModalImage } from "../../../shared/ModalImage";
 
 export const PartnersList = () => {
+
+   /* 
+     {
+    "id": 0,
+    "image": "string",
+    "bluer": "string",
+    "url": "string"
+  }
+   */
    return (
       <List title="Coll Band → Клиенты" hasCreate={true}>
          {/* <CreateButton /> */}
          <Datagrid>
             <TextField source="id" />
-            <TextField source="image" title="name" />
-            <TextField source="url" title="name" />
-            <ChipField source="orientation" title="name" />
+            <ModalImage source="image" />
+            <TextField source="bluer" />
+            <UrlField source="url" />
             <EditButton />
             <DeleteButton />
          </Datagrid>

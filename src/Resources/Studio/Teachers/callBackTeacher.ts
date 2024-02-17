@@ -12,13 +12,15 @@ const callBack = async (params: Partial<any>) => {
       const bluerHash = await encodeImageToBlurhash(objectURL);
       params.bluer = bluerHash;
    }
+
+   // console.log(params);
+
    const formData = createFormData(params);
    objectURL && URL.revokeObjectURL(objectURL);
-
    return formData;
 };
 
-export const aboutCallBackBand: ResourceCallbacks = {
-   resource: "about_us_band",
+export const callBackTeacher: ResourceCallbacks = {
+   resource: "st_teachers",
    beforeSave: callBack,
 };

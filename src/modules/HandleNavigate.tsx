@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 
 
-export const HandleNavigate = (text: string) => {
+const HandleNavigate = (text: string) => {
    const navigate = useNavigate();
 
     // FIX_ME wardprope behavior on tablet size
@@ -15,3 +15,5 @@ export const HandleNavigate = (text: string) => {
        </div>
     );
  };
+
+ export default HandleNavigate

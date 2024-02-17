@@ -18,7 +18,7 @@ const callBack = async (params: Partial<any>) => {
    return formData;
 };
 
-export const aboutCallBackBand: ResourceCallbacks = {
-   resource: "about_us_band",
+export const callBackCollaboration: ResourceCallbacks = {
+   resource: "collaborations_band",
    beforeSave: callBack,
 };

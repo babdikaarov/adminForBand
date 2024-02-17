@@ -1,14 +1,14 @@
-import { TextInput } from "react-admin";
+import { ImageField, ImageInput, TextInput } from "react-admin";
 import { Edit, SimpleForm } from "react-admin";
-import CustomSelectInput from "../../../shared/CustomSelectInput";
 
 export const CoursesEdit = () => {
    return (
       <Edit title="Cool Studio → Направления → изменить" redirect="list">
          <SimpleForm>
+         <ImageInput source="newImage" label="icon направления" multiple={false} accept="image/*">
+               <ImageField source="src" title="новое лого" />
+            </ImageInput>
             <TextInput source="name" title="name" />
-            <TextInput source="image" title="name" />
-            <CustomSelectInput />
          </SimpleForm>
       </Edit>
    );
