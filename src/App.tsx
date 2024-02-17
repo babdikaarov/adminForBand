@@ -5,7 +5,6 @@ import { MyLayout } from "./components/Layout/MyLayout";
 import { rcs } from "./Resources/rcs";
 import BandPage from "./components/ReviewPage/ReviewPage";
 import { dataProvider } from "./dataProvider";
-import { ProfileEdit } from "./Profile";
 
 const App = () => {
    // const token = JSON.parse(localStorage.user).token;

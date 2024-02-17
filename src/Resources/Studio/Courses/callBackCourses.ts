@@ -7,13 +7,14 @@ import createFormData from "../../../modules/createFormData";
 const callBack = async (params: Partial<any>) => {
    let objectURL;
 
+   params.orientation = "LANDSCAPE";
+
    if (params.newImage) {
       objectURL = URL.createObjectURL(params.newImage.rawFile);
       const bluerHash = await encodeImageToBlurhash(objectURL);
       params.bluer = bluerHash;
    }
 
-   console.log(params);
 
    const formData = createFormData(params);
    objectURL && URL.revokeObjectURL(objectURL);
