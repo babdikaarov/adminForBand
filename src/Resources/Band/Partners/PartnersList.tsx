@@ -1,4 +1,4 @@
-import { List, Datagrid, TextField, EditButton, DeleteButton, UrlField } from "react-admin";
+import { List, Datagrid, TextField, EditButton, DeleteButton, /* UrlField */ } from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
 
 export const PartnersList = () => {
@@ -18,7 +18,7 @@ export const PartnersList = () => {
             <TextField source="id" />
             <ModalImage source="image" />
             <TextField source="bluer" />
-            <UrlField source="url" />
+            {/* <UrlField source="url" /> */}
             <EditButton />
             <DeleteButton />
          </Datagrid>

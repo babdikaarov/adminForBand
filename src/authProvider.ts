@@ -12,7 +12,13 @@ export const authProvider: AuthProvider = {
          body: JSON.stringify({ email: username, password }),
       });
       if (json) {
-         localStorage.setItem("user", JSON.stringify({ ...json, fullName: json.role }));
+         /* 
+           user?: {
+        authenticated?: boolean;
+        token?: string;
+    };
+         */
+         localStorage.setItem("user", JSON.stringify({ ...json, authenticated: true, fullName: json.role }));
          return Promise.resolve();
       }
 

@@ -1,4 +1,4 @@
-import { Edit, ImageField, ImageInput, SimpleForm, TextInput } from "react-admin";
+import { Edit, ImageField, ImageInput, SimpleForm, /* TextInput */ } from "react-admin";
 
 export const PartnersEdit = () => {
    return (
@@ -7,7 +7,7 @@ export const PartnersEdit = () => {
          <ImageInput source="newImage" label="Logo клиента" multiple={false} accept="image/*">
                <ImageField source="src" title="новое лого" />
             </ImageInput>
-            <TextInput source="url" title="name" />
+            {/* <TextInput source="url" title="name" /> */}
          </SimpleForm>
       </Edit>
    );

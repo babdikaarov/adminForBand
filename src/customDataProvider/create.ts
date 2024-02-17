@@ -9,8 +9,8 @@ export const create = async (url: string, resource: string, params: CreateParams
       const jsonData = JSON.stringify(data);
       const contentLength = encoder.encode(jsonData).length;
 
-      const headers = new Headers();
       let parameters;
+      const headers = new Headers();
       headers.set("Authorization", `Bearer ${token}`);
       headers.set("Content-Length", contentLength.toString());
 

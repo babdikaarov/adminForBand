@@ -1,22 +1,35 @@
-import { MenuItem } from "@mui/material";
-import { UserMenu, Logout, useUserMenu, MenuItemLink } from "react-admin";
-import icons from "../../Resources/icons";
-import ListItemIcon from "@mui/material/ListItemIcon/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText/ListItemText";
+import { UserMenu, useUserMenu, Logout,  MenuItemLink } from "react-admin";
+import SettingsIcon from '@mui/icons-material/Settings';
+import { ListItemIcon, ListItemText } from "@mui/material";
 
 const MyUserMenu = () => {
+
+ 
+
   return (
-    <UserMenu>
-        
-      <MenuItemLink
-      to="users"
-      primaryText="Profile"
-      leftIcon={<icons.settings />}
-      >
-      </MenuItemLink>
+    <UserMenu >
+      <ConfigurationMenu  />
       <Logout />
     </UserMenu>
   );
 };
+
+
+const ConfigurationMenu = () => {
+       const { onClose } = useUserMenu();
+       return (
+           <MenuItemLink
+               to="/auth"
+               onClick={onClose}
+           >
+               <ListItemIcon>
+                   <SettingsIcon />
+               </ListItemIcon>
+               <ListItemText>Users</ListItemText>
+           </MenuItemLink>
+       );
+   };
+  
+
 
 export default MyUserMenu;

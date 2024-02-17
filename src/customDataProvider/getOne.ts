@@ -5,6 +5,9 @@ export const getOne = async (url: string, resource: string, params: GetOneParams
    // console.log(resource);
 
    try {
+      const token = JSON.parse(localStorage.user).token;
+      const headers = new Headers();
+      headers.set("Authorization", `Bearer ${token}`);
       let response;
       switch (resource) {
          case "contacts":
@@ -14,6 +17,9 @@ export const getOne = async (url: string, resource: string, params: GetOneParams
          case "hero_studio":
             response = await fetch(`${url}/${resource}`);
             break;
+         case "auth":
+            response = await fetch(`${url}/${resource}/getAllUsers`, {headers});
+            break;
          default:
             response = await fetch(`${url}/${resource}/${id}`);
             break;
@@ -22,15 +28,18 @@ export const getOne = async (url: string, resource: string, params: GetOneParams
       const data = await response.json();
       // console.log(data);
 
-      // //   console.log(id);
-      // const response = await fetch(`${url}/${resource}/${id}`);
-      // if (!response.ok) {
-      //    throw Error;
-      // }
-      // const json = response.json();
-      return {
-         data,
-      };
+     if(resource === "auth"){
+      console.log(id)
+      const dataFiltered = data.filter((el: { id: number; })=> el.id == id)
+      console.log({data: dataFiltered[0]})
+      return {data: 
+         dataFiltered[0]
+      }
+     } else {
+        return {
+           data,
+         };
+      }
       // return data;
    } catch (error) {
       console.error("Error in getOne:", error);
@@ -46,3 +55,13 @@ export const getOne = async (url: string, resource: string, params: GetOneParams
 //   .catch((error) => {
 //     console.error("Error:", error);
 //   });
+
+
+/* 
+GET: /auth              getAll
+GET: /auth/:id          getOne
+PATCH: /auth/:id        path как у других
+POST: /auth             create new USER
+
+
+*/

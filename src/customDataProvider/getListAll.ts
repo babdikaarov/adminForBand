@@ -3,9 +3,23 @@ import { fetchUtils, GetListParams, GetListResult, Options } from "react-admin";
 export const getListAll = async (url: string, resource: string, params?: GetListParams): Promise<GetListResult> => {
   
    try {
-      
-      const { json } = await fetchUtils.fetchJson(`${url}/${resource}`, params as Options);
 
+      const token = JSON.parse(localStorage.user).token;
+      const headers = new Headers();
+      headers.set("Authorization", `Bearer ${token}`);
+      let response;
+      
+      switch (resource) {
+         case "auth":
+            response = await fetchUtils.fetchJson(`${url}/${resource}/getAllUsers`, {...params, headers} as Options);
+            break;
+         default:
+            response = await fetchUtils.fetchJson(`${url}/${resource}`, params as Options);
+            break;
+      }
+
+
+      const { json } = response
       if (Array.isArray(json)) {
          return {
             data: json,
