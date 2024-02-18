@@ -10,7 +10,7 @@ export const ModalImage = (props: UseRecordContextParams<RaRecord<Identifier>> |
    const id = `${record.id}${record[props?.source]}`;
    return record ? (
       <>
-         <div onClick={() => openModal(id)} className={styles.div}>
+         <div onClick={() => openModal(id)} title="click to view Image" className={styles.div}>
             <img src={record[props?.source]} alt="" />
          </div>
          <dialog

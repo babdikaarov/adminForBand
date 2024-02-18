@@ -3,14 +3,14 @@ import { CreateParams, CreateResult } from "react-admin";
 export const create = async (url: string, resource: string, params: CreateParams): Promise<CreateResult> => {
    try {
       const { data } = params;
-      console.log(params);
+      // console.log(params);
       const token = JSON.parse(localStorage.user).token;
       const encoder = new TextEncoder();
       const jsonData = JSON.stringify(data);
       const contentLength = encoder.encode(jsonData).length;
 
-      const headers = new Headers();
       let parameters;
+      const headers = new Headers();
       headers.set("Authorization", `Bearer ${token}`);
       headers.set("Content-Length", contentLength.toString());
 
@@ -27,7 +27,7 @@ export const create = async (url: string, resource: string, params: CreateParams
             headers,
             body: jsonData,
          };
-         console.log(parameters);
+         // console.log(parameters);
       }
 
       const response = await fetch(`${url}/${resource}`, parameters);

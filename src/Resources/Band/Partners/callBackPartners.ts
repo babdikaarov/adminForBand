@@ -12,7 +12,7 @@ const callBack = async (params: Partial<any>) => {
       const bluerHash = await encodeImageToBlurhash(objectURL);
       params.bluer = bluerHash;
    }
-
+   params.url = "https://www.google.com/search?q=coolband+bishkek"
    console.log(params);
 
    const formData = createFormData(params);

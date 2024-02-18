@@ -6,6 +6,7 @@ import createFormData from "../../../modules/createFormData";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const callBack = async (params: Partial<any>) => {
    let objectURL;
+   params.orientation = "PORTRAIT";
 
    if (params.newImage) {
       objectURL = URL.createObjectURL(params.newImage.rawFile);

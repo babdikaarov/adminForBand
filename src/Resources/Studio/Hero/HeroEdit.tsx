@@ -1,5 +1,6 @@
-import { Edit, FileField, FileInput, SimpleForm, TextInput, UrlField, useRecordContext } from "react-admin";
+import { Edit, FileField, FileInput, SimpleForm, TextInput, useRecordContext } from "react-admin";
 import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
+import { ClickVideo } from "../../../shared/ClickVideo";
 
 export const HeroEdit = () => {
    const record = useRecordContext();
@@ -13,8 +14,8 @@ export const HeroEdit = () => {
             <FileInput source="newVideo" accept="video/*" multiple={false}>
                <FileField source="src" title="title" target="blank" />
             </FileInput>
-            <h3> current data INFO:</h3>
-            <UrlField source="video" title="На сервере" target="blank" />
+            <h3> На сервере:</h3>
+            <ClickVideo source="video" label="Видео"/>
          </SimpleForm>
       </Edit>
    );
