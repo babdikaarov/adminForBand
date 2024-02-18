@@ -4,11 +4,9 @@ import styles from "./style.module.css";
 const BandPage = () => {
    let page = "https://coolband.netlify.app";
    const { pathname } = useLocation();
-   if (pathname === "/cool_band") {
-      page = "https://coolband.netlify.app";
-   } else {
+   if (pathname !== "/cool_band") {
       page = page + "/studio";
-   }
+   } 
 
    return (
       <div className={styles.div}>

@@ -29,12 +29,8 @@ export const getOne = async (url: string, resource: string, params: GetOneParams
       // console.log(data);
 
      if(resource === "auth"){
-      console.log(id)
-      const dataFiltered = data.filter((el: { id: number; })=> el.id == id)
-      console.log({data: dataFiltered[0]})
-      return {data: 
-         dataFiltered[0]
-      }
+      const dataFiltered = data ? data.filter((el: { id: number; })=> el.id == id)[0] : {}
+      return {data: dataFiltered}
      } else {
         return {
            data,

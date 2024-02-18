@@ -2,7 +2,7 @@ import { HttpError, UpdateParams, UpdateResult } from "react-admin";
 
 export const updateOne = async (url: string, resource: string, params: UpdateParams): Promise<UpdateResult> => {
    const { id, data } = params;
-   console.log(params);
+   // console.log(url);
    // console.log(data);
 
    try {
@@ -50,8 +50,13 @@ export const updateOne = async (url: string, resource: string, params: UpdatePar
             console.log(parameters);
             response = await fetch(`${url}/${resource}`, parameters);
             break;
+         case "auth":
+            parameters.method = "PUT"
+            response = await fetch(`${url}/${resource}/${id}`, parameters);
+            break;
          default:
             console.log(parameters);
+            console.log(resource)
             response = await fetch(`${url}/${resource}/${id}`, parameters);
             break;
       }
@@ -65,11 +70,19 @@ export const updateOne = async (url: string, resource: string, params: UpdatePar
          );
       } else {
          const responseData = await response.json();
-         console.log(responseData);
 
-         return {
-            data: responseData,
-         };
+
+         if(resource === "auth" ){
+            return {data: {
+               id: id,
+               ...responseData
+               }
+            }
+           } else {
+              return {
+                 data,
+               };
+            }
       }
    } catch (error) {
       console.error("Error in updateOne:", error);

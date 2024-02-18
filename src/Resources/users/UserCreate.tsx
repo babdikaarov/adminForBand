@@ -1,17 +1,17 @@
-import { Edit, SimpleForm, TextInput } from "react-admin";
+import { TextInput } from "react-admin";
+import { Create, SimpleForm } from "react-admin";
 import CustomSaveToolBar from "../../shared/CustomSaveToolBar";
 
-
-export const UsersEdit = () => {
+export const UserCreate = () => {
 
    return (
-      <Edit title="Authorization → изменить" redirect="list">
-         <SimpleForm toolbar={<CustomSaveToolBar />}>
+      <Create resource="auth/signUp" title="User создать" redirect="list">
+          <SimpleForm toolbar={<CustomSaveToolBar />}>
             <TextInput source="firstName" />
             <TextInput source="lastName" />
             <TextInput source="email" />
             <TextInput source="password" />
          </SimpleForm>
-      </Edit>
+      </Create>
    );
 };

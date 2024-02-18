@@ -7,6 +7,7 @@ import BandPage from "./components/ReviewPage/ReviewPage";
 import { dataProvider } from "./dataProvider";
 import { UsersList } from "./Resources/users/UsersList";
 import { UsersEdit } from "./Resources/users/UsersEdit";
+import { UserCreate } from "./Resources/users/UserCreate";
 
 const App = () => {
    // const token = JSON.parse(localStorage.user).token;
@@ -14,6 +15,7 @@ const App = () => {
 
    return (
       <Admin
+      
          disableTelemetry
          requireAuth
          title="Cool Band Admin"
@@ -27,11 +29,11 @@ const App = () => {
          <CustomRoutes>
             <Route path="cool_band" element={<BandPage />} />
             <Route path="cool_studio" element={<BandPage />} />
-            <Route path="configuration" element={<UsersList/>} />
          </CustomRoutes>
          {/* CoolStudio */}
+         <Resource name=""/>
          <Resource name="cool_band" /> {/* initial page */}
-         <Resource name="auth" list={<UsersList/>} edit={<UsersEdit />}/>
+         <Resource name="auth" list={<UsersList/>} edit={<UsersEdit />} create={<UserCreate />}/>
          <Resource 
             name={rcs.Studio.heroS.resource}
             list={<rcs.Studio.heroS.list />} 

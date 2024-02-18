@@ -1,15 +1,14 @@
-import { List, Datagrid, EditButton, ChipField, UrlField } from "react-admin";
-/*
- */
+import { List, Datagrid, EditButton } from "react-admin";
+import { ClickVideo } from "../../../shared/ClickVideo";
+
+
 export const HeroList = () => {
-   /*
-    */
+ 
+   
    return (
-      <List title="Coll Band → Банер" hasCreate={false}>
+      <List title="Coll Band → Банер" pagination={false} exporter={false} hasCreate={false}>
          <Datagrid bulkActionButtons={false}>
-            <UrlField source="video" target="blank" />
-            {/* delete on production chipfield */}
-            <ChipField source="orientation" />
+         <ClickVideo source="video" label="Видео"/>
             <EditButton />
          </Datagrid>
       </List>

@@ -2,7 +2,6 @@ import { AuthProvider, HttpError, fetchUtils } from "react-admin";
 
 const httpClient = fetchUtils.fetchJson;
 const apiUrl = import.meta.env.VITE_COOL_API;
-
 // FIXME what to do whith role: USER functionality
 
 export const authProvider: AuthProvider = {
@@ -19,6 +18,7 @@ export const authProvider: AuthProvider = {
     };
          */
          localStorage.setItem("user", JSON.stringify({ ...json, authenticated: true, fullName: json.role }));
+         localStorage.setItem("role", json.role)
          return Promise.resolve();
       }
 
@@ -32,6 +32,7 @@ export const authProvider: AuthProvider = {
 
    logout: () => {
       localStorage.removeItem("user");
+      localStorage.removeItem("role");
       return Promise.resolve();
    },
 
@@ -39,7 +40,8 @@ export const authProvider: AuthProvider = {
 
    checkAuth: () => (localStorage.getItem("user") ? Promise.resolve() : Promise.reject()),
    getPermissions: () => {
-      return Promise.resolve(undefined);
+      const role = localStorage.getItem("role")
+      return Promise.resolve(role);
    },
 
    getIdentity: () => {

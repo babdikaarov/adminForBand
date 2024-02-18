@@ -1,30 +1,23 @@
-import { List, Datagrid, TextField, EditButton, DeleteButton, ChipField } from "react-admin";
+import { List, Datagrid, TextField, EditButton, DeleteButton, SimpleShowLayout, RichTextField } from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
 
 export const TeacherList = () => {
-   /* 
-     {
-    "id": 0,
-    "name": "string",
-    "image": "string",
-    "urlInstagram": "string",
-    "position": "string",
-    "description": "string",
-    "orientation": "PORTRAIT"
-  }
-   */
+ 
+   const DescriptionShow = () => (
+   <SimpleShowLayout>
+       <RichTextField source="description" />
+   </SimpleShowLayout>
+);
+
    return (
-      <List title="Cool Studio → Преподаватели" hasCreate={true}>
-         <Datagrid>
-            <TextField source="id" />
+      <List title="Cool Studio → Преподаватели" pagination={false} exporter={false} hasCreate={true}>
+         <Datagrid bulkActionButtons={false} expand={<DescriptionShow/>} title="click to expand description!"  expandSingle rowClick="expand">
             <TextField source="name"  />
             <ModalImage source="image"  />
             <TextField source="urlInstagram"  />
             <TextField source="position"  />
-            <TextField source="description"  />
-            <ChipField source="orientation"  />
             <EditButton />
-            <DeleteButton />
+            <DeleteButton mutationMode="pessimistic"/>
          </Datagrid>
       </List>
    );

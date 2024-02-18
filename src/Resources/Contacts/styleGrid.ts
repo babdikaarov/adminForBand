@@ -2,15 +2,21 @@ export default {
    "& a": {
       minWidth: "30px",
       position: "absolute",
-      top: "-30px",
-      right: "90px",
+      top: "-25px",
+      right: "10px",
       fontSize: "11.1429px",
       fontWeight: "500",
    },
    "@media (max-width: 600px)": {
       "& a": {
-         top: "-45px",
-         right: "50px",
+         top: "-40px",
+         right: "10px",
+      },
+   },
+   "@media (max-width: 500px)": {
+      "& a": {
+         top: "-35px",
+         right: "10px",
       },
    },
    "& .RaDatagrid-headerCell": {

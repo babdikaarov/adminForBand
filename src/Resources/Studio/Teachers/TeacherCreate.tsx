@@ -1,10 +1,10 @@
 import { Create, ImageField, ImageInput, SimpleForm, TextInput } from "react-admin";
-import CustomSelectInput from "../../../shared/CustomSelectInput";
+import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
 
 export const TeacherCreate = () => {
    return (
       <Create title="Cool Studio → Преподаватели → создать" redirect="list">
-         <SimpleForm>
+         <SimpleForm toolbar={<CustomSaveToolBar />}>
             <TextInput source="name" title="name" />
             <ImageInput source="newImage" label="Постер" multiple={false} accept="image/*">
                <ImageField source="src" title="" />
@@ -12,7 +12,6 @@ export const TeacherCreate = () => {
             <TextInput source="urlInstagram" title="name" />
             <TextInput source="position" title="name" />
             <TextInput source="description" title="name" />
-            <CustomSelectInput />
          </SimpleForm>
       </Create>
    );

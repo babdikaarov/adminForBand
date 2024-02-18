@@ -1,18 +1,16 @@
 import { SaveButton, Toolbar } from "react-admin";
 import { useNavigate } from "react-router-dom";
+import styles from "./saveToolBar.module.css"
 
-interface CustomSaveToolBarProps {
-   transform?: (data: any, options?: any) => FormData;
-}
 
-const CustomSaveToolBar: React.FC<CustomSaveToolBarProps> = () => {
+const CustomSaveToolBar = () => {
    const navigate = useNavigate();
    return (
-      <Toolbar>
+      <Toolbar >
          <SaveButton label="Save" />
-         <div> postav style suda</div>
-         <button type="button" onClick={() => navigate("../")}>
-            Go back
+         
+         <button className={styles.button} type="button" onClick={() => navigate("../")}>
+            Назад
          </button>
       </Toolbar>
    );

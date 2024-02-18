@@ -1,29 +1,20 @@
 import { Edit, ImageField, ImageInput, SimpleForm, TextInput } from "react-admin";
-import CustomSelectInput from "../../../shared/CustomSelectInput";
+import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
 
 export const TeacherEdit = () => {
-   /*
-   {
-  "name": "string",
-  "image": "string",
-  "urlInstagram": "string",
-  "position": "string",
-  "description": "string",
-  "orientation": "PORTRAIT"
-} 
-    */
+
    return (
-      <Edit title="Cool Studio → Преподаватели → изменить" redirect="list">
-         <SimpleForm>
+      <Edit title="Cool Studio → Преподаватели → изменить" redirect="list" >
+         <SimpleForm toolbar={<CustomSaveToolBar />}>
             <TextInput source="name"  />
             <ImageInput source="newImage" label="Постер" multiple={false} accept="image/*">
                <ImageField source="src" title="" />
             </ImageInput>
             <TextInput source="urlInstagram"  />
             <TextInput source="position"  />
-            <TextInput source="description"  />
-            <CustomSelectInput />
+            <TextInput source="description" fullWidth/>
          </SimpleForm>
       </Edit>
+     
    );
 };

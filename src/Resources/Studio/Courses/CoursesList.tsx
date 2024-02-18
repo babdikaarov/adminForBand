@@ -4,13 +4,13 @@ import { ModalImage } from "../../../shared/ModalImage";
 export const CoursesList = () => {
 
    return (
-      <List title="Cool Studio → Направления" hasCreate={true}>
-         <Datagrid>
+      <List title="Cool Studio → Направления" pagination={false} exporter={false} hasCreate={true}>
+         <Datagrid bulkActionButtons={false}>
             <TextField source="name" />
             <ModalImage source="image" />
-            <TextField source="bluer" />
+            {/* <TextField source="bluer" /> */}
             <EditButton />
-            <DeleteButton />
+            <DeleteButton mutationMode="pessimistic"/>
          </Datagrid>
       </List>
    );

@@ -8,7 +8,7 @@ export const AboutEdit = () => {
             <ImageInput source="newImage" label="Постер" multiple={false} accept="image/*">
                <ImageField source="src" title="" />
             </ImageInput>
-            <h3> server data INFO:</h3>
+            <h3> На сервере:</h3>
             <ImageField source="image" title="На сервере" />
          </SimpleForm>
       </Edit>

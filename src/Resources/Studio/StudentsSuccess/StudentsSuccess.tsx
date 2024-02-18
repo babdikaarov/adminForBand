@@ -1,21 +1,16 @@
-import { List, Datagrid, TextField, EditButton, DeleteButton, UrlField } from "react-admin";
+import { List, Datagrid, EditButton, DeleteButton, UrlField } from "react-admin";
 import { Create, Edit, SimpleForm, TextInput } from "react-admin";
+import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
 
 export const StudentsSuccessList = () => {
-   /* 
-     {
-    "id": 0,
-    "url": "string"
-  }
-   */
+
+
    return (
-      <List title="Cool Studio → История успехов студентов" hasCreate={true}>
-         {/* <CreateButton /> */}
-         <Datagrid>
-            <TextField source="id" />
+      <List title="Cool Studio → История успехов студентов" pagination={false} exporter={false} hasCreate={true}>
+         <Datagrid bulkActionButtons={false}>
             <UrlField source="url" title="name" />
             <EditButton />
-            <DeleteButton />
+            <DeleteButton mutationMode="pessimistic"/>
          </Datagrid>
       </List>
    );
@@ -24,8 +19,7 @@ export const StudentsSuccessList = () => {
 export const StudentsSuccessCreate = () => {
    return (
       <Create title="Cool Studio → История успехов студентов → создать" redirect="list">
-         <SimpleForm>
-            <TextInput source="id" disabled />
+          <SimpleForm toolbar={<CustomSaveToolBar />}>
             <TextInput source="url" label="url">
                <UrlField source="src" title="title" />
             </TextInput>
@@ -37,8 +31,7 @@ export const StudentsSuccessCreate = () => {
 export const StudentsSuccessEdit = () => {
    return (
       <Edit title="Cool Studio → История успехов студентов → изменить" redirect="list">
-         <SimpleForm>
-            <TextInput source="id" disabled />
+         <SimpleForm toolbar={<CustomSaveToolBar />}>
             <TextInput source="url" label="url">
                <UrlField source="src" title="title" />
             </TextInput>

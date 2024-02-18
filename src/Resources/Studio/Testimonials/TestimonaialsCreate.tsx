@@ -1,6 +1,6 @@
-import { ImageField, ImageInput, SaveButton } from "react-admin";
+import { ImageField, ImageInput } from "react-admin";
 import { Create, SimpleForm, TextInput } from "react-admin";
-import CustomSelectInput from "../../../shared/CustomSelectInput";
+import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
 
 
 export const TestimonaialsCreate = () => {
@@ -16,13 +16,12 @@ export const TestimonaialsCreate = () => {
    */
    return (
       <Create title="Cool Studio → Отзывы учеников → создать" redirect="list">
-         <SimpleForm toolbar={<SaveButton />}>
+         <SimpleForm toolbar={<CustomSaveToolBar />}>
          <ImageInput source="newImage" label="Фото ученика" multiple={false} accept="image/*">
                <ImageField source="src" title="Фото ученика" />
             </ImageInput>
             <TextInput source="name" title="name" />
             <TextInput source="reviews" title="name" />
-            <CustomSelectInput />
          </SimpleForm>
       </Create>
    );
