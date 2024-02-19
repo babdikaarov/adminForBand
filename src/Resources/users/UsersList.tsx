@@ -1,7 +1,8 @@
-import { List, Datagrid, TextField, EditButton} from "react-admin";
+import { List, Datagrid, TextField, EditButton, useAuthenticated} from "react-admin";
 
 
 export const UsersList = () => {
+   useAuthenticated()
    return (
       <List title="Настройки пользователей" pagination={false} hasCreate={true} exporter={false}>
          <Datagrid bulkActionButtons={false} >

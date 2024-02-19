@@ -45,7 +45,6 @@ const customDataProvider = (url: string): DataProvider => {
       update: (resource: string, params: UpdateParams<any>) => updateOne(url, resource, params),
 
       // update a list of records based on an array of ids and a common patch
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       // eslint ignore
       updateMany: () => updateMany(),
       // updateMany: (resource: string, params: UpdateManyParams<any>) => updateMany(),

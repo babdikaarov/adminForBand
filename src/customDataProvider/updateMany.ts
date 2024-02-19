@@ -1,6 +1,5 @@
 // import { UpdateManyParams, UpdateManyResult } from "react-admin";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const updateMany = async () => {
    // export const updateMany = async (url: string, resource: string, params: UpdateManyParams): Promise<UpdateManyResult> => {
    // const { ids } = params;
