@@ -8,14 +8,17 @@ import { dataProvider } from "./dataProvider";
 import { UsersList } from "./Resources/users/UsersList";
 import { UsersEdit } from "./Resources/users/UsersEdit";
 import { UserCreate } from "./Resources/users/UserCreate";
+import CustomLogIn from "./Resources/Login/CustomLogIn";
+import Reset from "./Resources/ResetPassword/Reset";
 
 const App = () => {
    // const token = JSON.parse(localStorage.user).token;
    // console.log(token);
+   
 
    return (
       <Admin
-      
+         loginPage={<CustomLogIn/>}
          disableTelemetry
          requireAuth
          title="Cool Band Admin"
@@ -31,9 +34,11 @@ const App = () => {
             <Route path="cool_studio" element={<BandPage />} />
          </CustomRoutes>
          {/* CoolStudio */}
-         <Resource name=""/>
+         <CustomRoutes noLayout>
+            <Route path="change_password" element={<Reset />} />
+         </CustomRoutes>
          <Resource name="cool_band" /> {/* initial page */}
-         <Resource name="auth" list={<UsersList/>} edit={<UsersEdit />} create={<UserCreate />}/>
+         <Resource name="auth" list={<UsersList/>} edit={<UsersEdit />} create={<UserCreate />} />
          <Resource 
             name={rcs.Studio.heroS.resource}
             list={<rcs.Studio.heroS.list />} 

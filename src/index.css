@@ -1,3 +1,11 @@
+#login_background, #reset_background {
+   background-image: url("/src/Resources/Login/logo.png"), radial-gradient(circle at 50% 14em, #313264 0%, #00023b 60%, #00023b 100%);
+   background-size: 25%, cover;
+   background-repeat: repeat, no-repeat;
+}
+
+
+
 body {
    margin: 0;
 }
