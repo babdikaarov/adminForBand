@@ -1,4 +1,4 @@
-import { Create, ImageField, ImageInput, SimpleForm, /* TextInput */ } from "react-admin";
+import { Create, ImageField, ImageInput, SimpleForm, TextInput } from "react-admin";
 import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
 
 export const PartnersCreate = () => {
@@ -8,7 +8,7 @@ export const PartnersCreate = () => {
          <ImageInput source="newImage" label="Logo клиента" multiple={false} accept="image/*">
                <ImageField source="src" title="новое лого" />
             </ImageInput>
-            {/* <TextInput source="url" title="name" /> */}
+            <TextInput source="url" label="name" />
          </SimpleForm>
       </Create>
    );
