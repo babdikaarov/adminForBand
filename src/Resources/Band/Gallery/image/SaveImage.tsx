@@ -1,29 +1,27 @@
-import { useState } from "react";
-import { SaveButton, Toolbar } from "react-admin";
+import { SaveButton, Toolbar, useNotify } from "react-admin";
+import { useNavigate } from "react-router-dom";
 
-const SaveImage: React.FC<{ onClick: () => void }> = ({ onClick }) => {
-    const [isSuccess, setIsSuccess] = useState(false);
-    // const notify = useNotify();
+const SaveImage: React.FC = () => {
+    const notify = useNotify();
+    const navigate = useNavigate();
 
     return (
         <Toolbar>
-            {!isSuccess && (
-                <SaveButton
-                    label="Сохранить"
-                    mutationOptions={{
-                        onSuccess: () => {
-                            setIsSuccess(true);
-                            onClick();
-                        },
-                    }}
-                    type="button"
-                    variant="text"
-                />
-            )}
+            <SaveButton
+                label="Сохранить"
+                mutationOptions={{
+                    onSuccess: () => {
+                        notify("Успешно сохранено");
+                    },
+                }}
+                type="button"
+                variant="text"
+            />
+
             <button
                 className="custom_ape_button"
                 type="button"
-                onClick={onClick}
+                onClick={() => navigate("/event_band")}
             >
                 Назад
             </button>

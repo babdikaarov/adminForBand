@@ -41,7 +41,6 @@ export const ImageEdit = () => {
                         albumId={idToNavigate}
                         handleSave={handleSave}
                     />
-                    
                 }
                 sanitizeEmptyValues
             >
@@ -73,7 +72,7 @@ const SaveImage = ({ albumId, handleSave }: { albumId: number | null; handleSave
     const navigate = useNavigate();
     const handleNavigate = () => {
         if (!albumId) return;
-        navigate(`/event_band/${albumId}`);
+        navigate(`/event_band/${albumId}/1`);
     };
 
     return (

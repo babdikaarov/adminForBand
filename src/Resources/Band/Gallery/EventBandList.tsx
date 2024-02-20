@@ -15,6 +15,7 @@ export const EventBandList = () => {
                 <TextField source="date" />
                 <TextField source="name" />
                 <EditButton />
+                {/* if photo exist do notify user it cant be deleted */}
                 <DeleteButton mutationMode="pessimistic" />
             </Datagrid>
         </List>

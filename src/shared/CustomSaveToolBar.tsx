@@ -1,16 +1,21 @@
 import { SaveButton, Toolbar } from "react-admin";
 import { useNavigate } from "react-router-dom";
 
-const CustomSaveToolBar = () => {
+const CustomSaveToolBar = ({to = "../"}) => {
     const navigate = useNavigate();
     return (
-        <Toolbar>
-            <SaveButton label="Save" />
+        <Toolbar
+            sx={{
+                position: "sticky",
+                bottom: "0px",
+            }}
+        >
+            <SaveButton label="Сохранить" />
 
             <button
                 className="custom_ape_button"
                 type="button"
-                onClick={() => navigate("../")}
+                onClick={() => navigate(to)}
             >
                 Назад
             </button>

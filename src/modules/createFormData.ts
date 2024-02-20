@@ -5,6 +5,7 @@ export default (object: object): FormData => {
         console.log(`${key}: ${value}`);
         if (key === "newImage" || key === "newVideo") {
             const temp = key === "newImage" ? "image" : "video";
+
             formData.append(temp, value.rawFile);
         } else {
             formData.append(key, value);

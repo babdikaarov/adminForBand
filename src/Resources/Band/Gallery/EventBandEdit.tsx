@@ -3,7 +3,6 @@ import {
     SimpleForm,
     DateInput,
     TextInput,
-    // List,
     Datagrid,
     EditButton,
     Create,
@@ -18,138 +17,102 @@ import {
     useList,
     ListContextProvider,
     BulkDeleteButton,
+    TabbedShowLayout,
+    Show,
+    List,
 } from "react-admin";
 import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
 import { useGetRecordId } from "react-admin";
-import { CreateButton } from "react-admin";
-import { Fragment, useState } from "react";
+import { Fragment} from "react";
 import CustomSelectInput from "../../../shared/CustomSelectInput";
 import SaveImage from "./image/SaveImage";
 import { ModalImage } from "../../../shared/ModalImage";
-import { actionState } from "./actionState";
-import { TActionStateType } from "./TActionStateType";
 
 export const EventBandEdit = () => {
-    const [action, setAction] = useState<TActionStateType>(actionState.list);
     const recordId = useGetRecordId();
-    // console.log(recordId);
     const { data, isLoading } = useGetList("event_band_images");
-
     const listContext = useList({ data, isLoading, filter: { albumId: recordId } });
 
-    // console.log(listContext);
+    return (
+        <Show title=" ">
+            <TabbedShowLayout>
+                <TabbedShowLayout.Tab label="Album detail">
+                    <Edit title="Coll Band → Галерея → Альбом → изменить">
+                        <SimpleForm toolbar={<CustomSaveToolBar to="../../" />}>
+                            <TextInput
+                                source="id"
+                                disabled
+                                label="albumId"
+                            />
+                            <TextInput source="name" />
+                            <DateInput source="date" />
+                        </SimpleForm>
+                    </Edit>
+                </TabbedShowLayout.Tab>
 
-    return action == actionState.list ? (
-        <>
-            <Edit title="Coll Band → Галерея → изменить">
-                <SimpleForm toolbar={<CustomSaveToolBar />}>
-                    <TextInput
-                        source="id"
-                        disabled
-                        label="albumId"
-                    />
-                    <TextInput source="name" />
-                    <DateInput source="date" />
-                </SimpleForm>
-            </Edit>
-            <br />
-            <CreateButton
-                resource="event_band_images"
-                variant="outlined"
-                label="Добавить фото"
-                onClick={() => setAction(actionState.create)}
-                to=""
-            />
-            <ListContextProvider value={listContext}>
-                {/* FiX_ME bulck deletion not working fix it */}
-                <Datagrid bulkActionButtons={
-                    <Fragment>
-
-                <BulkDeleteButton resource="event_band_images" mutationMode="pessimistic"  />
-                    </Fragment>
-                }>
-                    {/* <TextField source="id" />
-                    <TextField source="albumId" />   */}
-                    {/* <ModalImage source="image" /> */}
-                    <ModalImage source="originalImage" />
-                    <ChipField source="orientation" />
-                    <BooleanField source="coverImage" />
-                    <EditButton resource="event_band_images" />
-                    <DeleteButton
+                <TabbedShowLayout.Tab label="Photo list">
+                    <List title="Coll Band → Галерея → Альбом → Фотографии" hasCreate={false} exporter={false} pagination={false}
+                    sx={{
+                        height: 0
+                    }}
+                    >
+                        <></>
+                    </List>
+                    <ListContextProvider value={listContext}>
+                        <Datagrid
+                            bulkActionButtons={
+                                <Fragment>
+                                    <BulkDeleteButton
+                                        resource="event_band_images"
+                                        mutationMode="pessimistic"
+                                    />
+                                </Fragment>
+                            }
+                            title=" asdasd"
+                        >
+                            <ModalImage source="originalImage" />
+                            <ChipField source="orientation" />
+                            <BooleanField source="coverImage" />
+                            <EditButton resource="event_band_images" />
+                            <DeleteButton
+                                resource="event_band_images"
+                                redirect="#"
+                                mutationMode="pessimistic"
+                            />
+                        </Datagrid>
+                    </ListContextProvider>
+                </TabbedShowLayout.Tab>
+                <TabbedShowLayout.Tab label="Добавить фото">
+                    <Create
                         resource="event_band_images"
-                        redirect="#"
-                        mutationMode="pessimistic"
-                    />
-                </Datagrid>
-            </ListContextProvider>
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-        </>
-    ) : (
-        // action == actionState.create ?
-        <Create
-            resource="event_band_images"
-            title="Coll Band → Альбом → Фото → добавить test"
-        >
-            <SimpleForm
-                toolbar={<SaveImage onClick={() => setAction(actionState.list)} />}
-                sanitizeEmptyValues
-            >
-                <TextInput
-                    source="albumId"
-                    defaultValue={recordId}
-                    disabled
-                />
-                <ImageInput
-                    source="newImage"
-                    label="Постер"
-                    multiple={false}
-                    accept="image/*"
-                >
-                    <ImageField
-                        source="src"
-                        title=""
-                    />
-                </ImageInput>
-                <CustomSelectInput />
-                <BooleanInput source="coverImage" />
-            </SimpleForm>
-        </Create>
+                        title="Coll Band → Галерея → Альбом → Фотографии → добавить фото"
+                    >
+                        <SimpleForm
+                            toolbar={<SaveImage />}
+                            sanitizeEmptyValues
+                        >
+                            <TextInput
+                                source="albumId"
+                                defaultValue={recordId}
+                                disabled
+                            />
+                            <ImageInput
+                                source="newImage"
+                                label="Постер"
+                                multiple={false}
+                                accept="image/*"
+                            >
+                                <ImageField
+                                    source="src"
+                                    title=""
+                                />
+                            </ImageInput>
+                            <CustomSelectInput />
+                            <BooleanInput source="coverImage" />
+                        </SimpleForm>
+                    </Create>
+                </TabbedShowLayout.Tab>
+            </TabbedShowLayout>
+        </Show>
     );
-
-    // : //edit will render
-    // <Edit resource="event_band_images">
-    //    <SimpleForm toolbar={<SaveImage onClick={() => setAction(actionState.list)} />} >
-    //       <TextInput source="albumId" defaultValue={recordId} disabled />
-    //       <ImageInput source="newImage" label="Постер" multiple={false} accept="image/*">
-    //          <ImageField source="src" title="" />
-    //       </ImageInput>
-    //       <CustomSelectInput />
-    //       <BooleanInput source="coverImage" />
-    //    </SimpleForm>
-    // </Edit>
 };
-
-{
-    /* <TabbedForm toolbar={<CustomSaveButton transform={transformTeam} />}>
-            <TabbedForm.Tab label="Карточка спереди">
-               <ImageInput format={handlePreview} source="image" label="Постер" multiple={false} accept="image/*">
-                  <ImageField source="src" title="" />
-               </ImageInput>
-               <CustomSelectInput />
-            </TabbedForm.Tab>
-            <TabbedForm.Tab label="Карточка сзади">
-               <FileInput source="video" accept="video/*" multiple={false}>
-                  <FileField source="src" title="title" target="blank" />
-               </FileInput>
-            </TabbedForm.Tab>
-            <TabbedForm.Tab label="Текст">
-               <TextInput source="instrument" label="Роль" defaultValue={() => emptyStringValue} />
-               <TextInput source="name" label="Имя" />
-            </TabbedForm.Tab>
-         </TabbedForm> */
-}
