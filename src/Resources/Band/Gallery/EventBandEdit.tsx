@@ -17,11 +17,12 @@ import {
     useGetList,
     useList,
     ListContextProvider,
+    BulkDeleteButton,
 } from "react-admin";
 import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
 import { useGetRecordId } from "react-admin";
 import { CreateButton } from "react-admin";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import CustomSelectInput from "../../../shared/CustomSelectInput";
 import SaveImage from "./image/SaveImage";
 import { ModalImage } from "../../../shared/ModalImage";
@@ -61,9 +62,14 @@ export const EventBandEdit = () => {
             />
             <ListContextProvider value={listContext}>
                 {/* FiX_ME bulck deletion not working fix it */}
-                <Datagrid>
+                <Datagrid bulkActionButtons={
+                    <Fragment>
+
+                <BulkDeleteButton resource="event_band_images" mutationMode="pessimistic"  />
+                    </Fragment>
+                }>
                     {/* <TextField source="id" />
-                    <TextField source="albumId" /> */}
+                    <TextField source="albumId" />   */}
                     {/* <ModalImage source="image" /> */}
                     <ModalImage source="originalImage" />
                     <ChipField source="orientation" />

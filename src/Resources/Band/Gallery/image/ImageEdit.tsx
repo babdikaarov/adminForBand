@@ -41,6 +41,7 @@ export const ImageEdit = () => {
                         albumId={idToNavigate}
                         handleSave={handleSave}
                     />
+                    
                 }
                 sanitizeEmptyValues
             >
