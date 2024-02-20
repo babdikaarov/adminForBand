@@ -13,7 +13,7 @@ import {
     ChipField,
     BooleanField,
     DeleteButton,
-    TextField,
+    // TextField,
     useGetList,
     useList,
     ListContextProvider,
@@ -60,20 +60,28 @@ export const EventBandEdit = () => {
                 to=""
             />
             <ListContextProvider value={listContext}>
+                {/* FiX_ME bulck deletion not working fix it */}
                 <Datagrid>
-                    <TextField source="id" />
-                    <TextField source="albumId" />
-                    <ModalImage source="image" />
+                    {/* <TextField source="id" />
+                    <TextField source="albumId" /> */}
+                    {/* <ModalImage source="image" /> */}
                     <ModalImage source="originalImage" />
                     <ChipField source="orientation" />
                     <BooleanField source="coverImage" />
                     <EditButton resource="event_band_images" />
                     <DeleteButton
+                        resource="event_band_images"
                         redirect="#"
                         mutationMode="pessimistic"
                     />
                 </Datagrid>
             </ListContextProvider>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
         </>
     ) : (
         // action == actionState.create ?
@@ -119,3 +127,23 @@ export const EventBandEdit = () => {
     //    </SimpleForm>
     // </Edit>
 };
+
+{
+    /* <TabbedForm toolbar={<CustomSaveButton transform={transformTeam} />}>
+            <TabbedForm.Tab label="Карточка спереди">
+               <ImageInput format={handlePreview} source="image" label="Постер" multiple={false} accept="image/*">
+                  <ImageField source="src" title="" />
+               </ImageInput>
+               <CustomSelectInput />
+            </TabbedForm.Tab>
+            <TabbedForm.Tab label="Карточка сзади">
+               <FileInput source="video" accept="video/*" multiple={false}>
+                  <FileField source="src" title="title" target="blank" />
+               </FileInput>
+            </TabbedForm.Tab>
+            <TabbedForm.Tab label="Текст">
+               <TextInput source="instrument" label="Роль" defaultValue={() => emptyStringValue} />
+               <TextInput source="name" label="Имя" />
+            </TabbedForm.Tab>
+         </TabbedForm> */
+}

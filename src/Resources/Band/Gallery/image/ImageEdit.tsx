@@ -60,10 +60,7 @@ export const ImageEdit = () => {
                     />
                 </ImageInput>
                 <CustomSelectInput />
-                <ModalImage
-                    source="image"
-                   
-                />
+                <ModalImage source="image" />
                 <BooleanInput source="coverImage" />
             </SimpleForm>
         </Edit>
