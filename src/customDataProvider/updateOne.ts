@@ -5,6 +5,7 @@ export const updateOne = async (url: string, resource: string, params: UpdatePar
     // console.log(url);
     // console.log(data);
     console.log(params);
+    console.log(resource);
 
     try {
         const token = JSON.parse(localStorage.user).token;
@@ -62,7 +63,7 @@ export const updateOne = async (url: string, resource: string, params: UpdatePar
                 break;
         }
 
-        console.log(response.ok);
+        // console.log(response.ok);
         if (!response.ok) {
             return Promise.reject(
                 new HttpError("Server Error", response.status, {

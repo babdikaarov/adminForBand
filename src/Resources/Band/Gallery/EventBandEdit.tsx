@@ -52,7 +52,6 @@ export const EventBandEdit = () => {
                 </SimpleForm>
             </Edit>
             <br />
-            <br />
             <CreateButton
                 resource="event_band_images"
                 variant="outlined"
