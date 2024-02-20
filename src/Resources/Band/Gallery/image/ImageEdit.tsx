@@ -14,6 +14,7 @@ import {
 import CustomSelectInput from "../../../../shared/CustomSelectInput";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { ModalImage } from "../../../../shared/ModalImage";
 
 export const ImageEdit = () => {
     const [idToNavigate, setIdToNavigate] = useState<number | null>(null);
@@ -33,7 +34,7 @@ export const ImageEdit = () => {
     }, [albumId]);
 
     return (
-        <Edit>
+        <Edit resource="event_band_images">
             <SimpleForm
                 toolbar={
                     <SaveImage
@@ -59,9 +60,9 @@ export const ImageEdit = () => {
                     />
                 </ImageInput>
                 <CustomSelectInput />
-                <ImageField
+                <ModalImage
                     source="image"
-                    title=""
+                   
                 />
                 <BooleanInput source="coverImage" />
             </SimpleForm>

@@ -3,7 +3,8 @@ import {
     SimpleForm,
     DateInput,
     TextInput,
-    /* List, */ Datagrid,
+    // List,
+    Datagrid,
     EditButton,
     Create,
     ImageInput,
@@ -41,6 +42,11 @@ export const EventBandEdit = () => {
         <>
             <Edit title="Coll Band → Галерея → изменить">
                 <SimpleForm toolbar={<CustomSaveToolBar />}>
+                    <TextInput
+                        source="id"
+                        disabled
+                        label="albumId"
+                    />
                     <TextInput source="name" />
                     <DateInput source="date" />
                 </SimpleForm>
@@ -54,11 +60,7 @@ export const EventBandEdit = () => {
                 onClick={() => setAction(actionState.create)}
                 to=""
             />
-            <ListContextProvider
-                /* resource={`event_band_images`} */ value={
-                    listContext
-                } /* pagination={false}  exporter={false} hasCreate={false} */
-            >
+            <ListContextProvider value={listContext}>
                 <Datagrid>
                     <TextField source="id" />
                     <TextField source="albumId" />
@@ -66,7 +68,7 @@ export const EventBandEdit = () => {
                     <ModalImage source="originalImage" />
                     <ChipField source="orientation" />
                     <BooleanField source="coverImage" />
-                    <EditButton />
+                    <EditButton resource="event_band_images" />
                     <DeleteButton
                         redirect="#"
                         mutationMode="pessimistic"
