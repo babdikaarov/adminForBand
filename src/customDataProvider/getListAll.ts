@@ -1,41 +1,41 @@
 import { fetchUtils, GetListParams, GetListResult, Options } from "react-admin";
 
 export const getListAll = async (url: string, resource: string, params?: GetListParams): Promise<GetListResult> => {
-  
-   try {
+    try {
+        const token = JSON.parse(localStorage.user).token;
+        const headers = new Headers();
+        headers.set("Authorization", `Bearer ${token}`);
+        let response;
 
-      const token = JSON.parse(localStorage.user).token;
-      const headers = new Headers();
-      headers.set("Authorization", `Bearer ${token}`);
-      let response;
-      
-      switch (resource) {
-         case "auth":
-            response = await fetchUtils.fetchJson(`${url}/${resource}/getAllUsers`, {...params, headers} as Options);
-            break;
-         default:
-            response = await fetchUtils.fetchJson(`${url}/${resource}`, params as Options);
-            break;
-      }
+        switch (resource) {
+            case "auth":
+                response = await fetchUtils.fetchJson(`${url}/${resource}/getAllUsers`, {
+                    ...params,
+                    headers,
+                } as Options);
+                break;
+            default:
+                response = await fetchUtils.fetchJson(`${url}/${resource}`, params as Options);
+                break;
+        }
 
-
-      const { json } = response
-      if (Array.isArray(json)) {
-         return {
-            data: json,
-            total: json.length,
-         };
-      } else {
-         const data = [json];
-         return {
-            data,
-            total: data.length,
-         };
-      }
-   } catch (error) {
-      console.error("Error in getList:", error);
-      return Promise.reject(error);
-   }
+        const { json } = response;
+        if (Array.isArray(json)) {
+            return {
+                data: json,
+                total: json.length,
+            };
+        } else {
+            const data = [json];
+            return {
+                data,
+                total: data.length,
+            };
+        }
+    } catch (error) {
+        console.error("Error in getList:", error);
+        return Promise.reject(error);
+    }
 };
 
 // getListAll("http://209.38.228.54:8080/api", "about_us_studio", {

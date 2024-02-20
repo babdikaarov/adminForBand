@@ -10,20 +10,25 @@ import { MenuStudio } from "./MenuStudio";
 import { useNavigate } from "react-router-dom";
 
 export const MyMenu = () => {
-   const navigate = useNavigate();
+    const navigate = useNavigate();
 
-   return (
-      <Menu>
-         <TreeView
-            aria-label="file system navigator"
-            defaultCollapseIcon={<ExpandMoreIcon />}
-            defaultExpandIcon={<ChevronRightIcon />}
-            sx={styles.treeView}
+    return (
+        <Menu>
+            <TreeView
+                aria-label="file system navigator"
+                defaultCollapseIcon={<ExpandMoreIcon />}
+                defaultExpandIcon={<ChevronRightIcon />}
+                sx={styles.treeView}
             >
-            <MenuBand />
-            <MenuStudio />
-            <TreeItem nodeId="3" label="Контакты" icon={<icons.contacts />} onClick={() => navigate("/contacts")} />
-         </TreeView>
-      </Menu>
-   );
+                <MenuBand />
+                <MenuStudio />
+                <TreeItem
+                    nodeId="3"
+                    label="Контакты"
+                    icon={<icons.contacts />}
+                    onClick={() => navigate("/contacts")}
+                />
+            </TreeView>
+        </Menu>
+    );
 };

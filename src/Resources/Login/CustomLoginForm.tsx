@@ -1,38 +1,31 @@
-import { useState } from 'react';
-import { styled } from '@mui/material/styles';
-import PropTypes from 'prop-types';
-import { Link, Button, CardContent, CircularProgress } from '@mui/material';
-import {
-    Form,
-    required,
-    useLogin,
-    useNotify,
-    useSafeSetState,
-} from 'ra-core';
-import { TextInput } from 'react-admin';
-
+import { useState } from "react";
+import { styled } from "@mui/material/styles";
+import PropTypes from "prop-types";
+import { Link, Button, CardContent, CircularProgress } from "@mui/material";
+import { Form, required, useLogin, useNotify, useSafeSetState } from "ra-core";
+import { TextInput } from "react-admin";
 
 export const CustomLoginForm = (props: LoginFormProps) => {
     const { redirectTo, className } = props;
-    const [mail, setMail] = useState<string>("")
+    const [mail, setMail] = useState<string>("");
     const [loading, setLoading] = useSafeSetState(false);
     const login = useLogin();
     const notify = useNotify();
     const handleForgotPassword = () => {
-        if(!mail){
-            notify("Нужно заполнить поле - почта ")
-            return
+        if (!mail) {
+            notify("Нужно заполнить поле - почта ");
+            return;
         }
 
         const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail);
-        if(!isValidEmail){
-            notify("Пожалуйста введите почту которая была в пользовании Админ панели - пример 'myEmail@gmail.com'")
+        if (!isValidEmail) {
+            notify("Пожалуйста введите почту которая была в пользовании Админ панели - пример 'myEmail@gmail.com'");
         } else {
-            sendResetLink()
+            sendResetLink();
         }
-        async function sendResetLink () {
+        async function sendResetLink() {
             try {
-                if(!mail)return
+                if (!mail) return;
 
                 const formdata = new FormData();
                 formdata.append("email", mail);
@@ -42,21 +35,20 @@ export const CustomLoginForm = (props: LoginFormProps) => {
                 const requestOptions = {
                     method: "PUT",
                     body: formdata,
-                  };
-                const response = await fetch(`${import.meta.env.VITE_COOL_API}/auth/forgotPassword`,
-                requestOptions)
-                if(response.ok){
-                    notify("Проверьте почту и перейдите по ссылке")
+                };
+                const response = await fetch(`${import.meta.env.VITE_COOL_API}/auth/forgotPassword`, requestOptions);
+                if (response.ok) {
+                    notify("Проверьте почту и перейдите по ссылке");
                 } else {
-                    notify("На сервере нет зарегистрированной почты проверьте правильность данных и попробуйте еще раз, если возникли трудости обратитесь к разработчикам")
+                    notify(
+                        "На сервере нет зарегистрированной почты проверьте правильность данных и попробуйте еще раз, если возникли трудости обратитесь к разработчикам",
+                    );
                 }
             } catch {
-                throw Error("something went wrong while sending reset link to the email")
+                throw Error("something went wrong while sending reset link to the email");
             }
         }
-    }
-
-    
+    };
 
     const submit = (values: unknown) => {
         setLoading(true);
@@ -64,32 +56,27 @@ export const CustomLoginForm = (props: LoginFormProps) => {
             .then(() => {
                 setLoading(false);
             })
-            .catch(error => {
+            .catch((error) => {
                 setLoading(false);
                 notify(
-                    typeof error === 'string'
+                    typeof error === "string"
                         ? error
-                        : typeof error === 'undefined' || !error.message
-                        ? 'ra.auth.sign_in_error'
-                        : error.message,
+                        : typeof error === "undefined" || !error.message
+                          ? "ra.auth.sign_in_error"
+                          : error.message,
                     {
-                        type: 'error',
+                        type: "error",
                         messageArgs: {
-                            _:
-                                typeof error === 'string'
-                                    ? error
-                                    : error && error.message
-                                    ? error.message
-                                    : undefined,
+                            _: typeof error === "string" ? error : error && error.message ? error.message : undefined,
                         },
-                    }
+                    },
                 );
             });
     };
 
     return (
         <StyledForm
-            onSubmit={submit} 
+            onSubmit={submit}
             mode="onChange"
             noValidate
             className={className}
@@ -102,7 +89,7 @@ export const CustomLoginForm = (props: LoginFormProps) => {
                     autoComplete="username"
                     validate={required()}
                     fullWidth
-                    onChange={(e)=> setMail(e.target.value)}
+                    onChange={(e) => setMail(e.target.value)}
                 />
                 <TextInput
                     source="password"
@@ -113,16 +100,14 @@ export const CustomLoginForm = (props: LoginFormProps) => {
                     fullWidth
                 />
 
-
-
                 <Link
                     href="#"
-                    variant='body1'
+                    variant="body1"
                     color="inherit"
-                    underline='none'
+                    underline="none"
                     onClick={handleForgotPassword}
                 >
-                Забыли пароль
+                    Забыли пароль
                 </Link>
                 <Button
                     variant="contained"
@@ -147,7 +132,7 @@ export const CustomLoginForm = (props: LoginFormProps) => {
     );
 };
 
-const PREFIX = 'RaLoginForm';
+const PREFIX = "RaLoginForm";
 
 const LoginFormClasses = {
     content: `${PREFIX}-content`,

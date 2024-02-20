@@ -1,16 +1,16 @@
 // import { GetManyReferenceParams, GetManyReferenceResult } from "react-admin";
 
 export const getManyReference = async () => {
-   // export const getManyReference = async (url: string, resource: string, params?: GetManyReferenceParams): Promise<GetManyReferenceResult> => {
-   // console.log(url, resource, params);
-   try {
-      return {
-         data: [],
-      };
-   } catch (error) {
-      console.error("Error in getManyReference:", error);
-      return Promise.reject(error);
-   }
+    // export const getManyReference = async (url: string, resource: string, params?: GetManyReferenceParams): Promise<GetManyReferenceResult> => {
+    // console.log(url, resource, params);
+    try {
+        return {
+            data: [],
+        };
+    } catch (error) {
+        console.error("Error in getManyReference:", error);
+        return Promise.reject(error);
+    }
 };
 
 // const options = {
