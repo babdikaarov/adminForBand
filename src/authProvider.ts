@@ -2,7 +2,6 @@ import { AuthProvider, HttpError, fetchUtils } from "react-admin";
 
 const httpClient = fetchUtils.fetchJson;
 const apiUrl = import.meta.env.VITE_COOL_API;
-// FIXME what to do whith role: USER functionality
 
 export const authProvider: AuthProvider = {
     login: async ({ username, password }) => {
@@ -11,12 +10,6 @@ export const authProvider: AuthProvider = {
             body: JSON.stringify({ email: username, password }),
         });
         if (json) {
-            /* 
-           user?: {
-        authenticated?: boolean;
-        token?: string;
-    };
-         */
             localStorage.setItem("user", JSON.stringify({ ...json, authenticated: true, fullName: json.role }));
             localStorage.setItem("role", json.role);
             return Promise.resolve();

@@ -1,9 +1,6 @@
 // import { UpdateManyParams, UpdateManyResult } from "react-admin";
 
 export const updateMany = async () => {
-    // export const updateMany = async (url: string, resource: string, params: UpdateManyParams): Promise<UpdateManyResult> => {
-    // const { ids } = params;
-    // console.log(params, "FIXME", resource);
     try {
         return { data: [] };
         //   const token = JSON.parse(localStorage.user).token;
