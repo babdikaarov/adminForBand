@@ -1,41 +1,45 @@
 import { DeleteManyParams, DeleteManyResult } from "react-admin";
 
-export const deleteMany = async (url: string, resource: string, params: DeleteManyParams): Promise<DeleteManyResult> => {
+export const deleteMany = async (
+    url: string,
+    resource: string,
+    params: DeleteManyParams,
+): Promise<DeleteManyResult> => {
     const { ids } = params;
     // console.log(ids);
 
     try {
-      const token = JSON.parse(localStorage.user).token;
-      const encoder = new TextEncoder();
-      const jsonData = JSON.stringify(ids);
-      const contentLength = encoder.encode(jsonData).length;
+        const token = JSON.parse(localStorage.user).token;
+        const encoder = new TextEncoder();
+        const jsonData = JSON.stringify(ids);
+        const contentLength = encoder.encode(jsonData).length;
 
-      const headers = {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-        "Content-Length": contentLength.toString(),
-      };
+        const headers = {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+            "Content-Length": contentLength.toString(),
+        };
 
-      const parameters = {
-        method: "DELETE",
-        headers,
-        body: jsonData,
-      };
+        const parameters = {
+            method: "DELETE",
+            headers,
+            body: jsonData,
+        };
 
-      const promises = ids.map(async (id) => {
-        const response = await fetch(`${url}/${resource}/${id}`, parameters);
-        const responseData = await response.json();
-        return responseData;
-      });
+        const promises = ids.map(async (id) => {
+            const response = await fetch(`${url}/${resource}/${id}`, parameters);
+            const responseData = await response.json();
+            return responseData;
+        });
 
-      const data = await Promise.all(promises);
-      //   console.log(data);
-      return {
-        data,
-      };
+        const data = await Promise.all(promises);
+        //   console.log(data);
+        return {
+            data,
+        };
     } catch (error) {
-      console.error("Error in deleteMany:", error);
-      return Promise.reject(error);
+        console.error("Error in deleteMany:", error);
+        return Promise.reject(error);
     }
 };
 

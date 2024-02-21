@@ -1,22 +1,44 @@
-import { Edit, FileField, FileInput, SimpleForm, TextInput, useRecordContext } from "react-admin";
-import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
+import { Edit, FileField, FileInput, SaveButton, SimpleForm, TextInput, useRecordContext } from "react-admin";
 import { ClickVideo } from "../../../shared/ClickVideo";
 
 export const HeroEdit = () => {
-   const record = useRecordContext();
-   console.log(record);
+    const record = useRecordContext();
+    console.log(record);
 
-   return (
-      <Edit title="Cool Studio → Баннер → изменить">
-         <SimpleForm toolbar={<CustomSaveToolBar />}>
-            <TextInput source="title" title="name" />
-            <TextInput source="text" title="name" />
-            <FileInput source="newVideo" accept="video/*" multiple={false}>
-               <FileField source="src" title="title" target="blank" />
-            </FileInput>
-            <h3> На сервере:</h3>
-            <ClickVideo source="video" label="Видео"/>
-         </SimpleForm>
-      </Edit>
-   );
+    return (
+        <Edit title="Cool Studio → Баннер"
+        id={1}
+        >
+            <SimpleForm 
+            toolbar={<SaveButton label="Сохранить изменения"/>}
+            >
+                <TextInput
+                    source="title"
+                    title="name"
+                    fullWidth
+                />
+                <TextInput
+                    source="text"
+                    title="name"
+                    fullWidth
+                />
+                <FileInput
+                    source="newVideo"
+                    accept="video/*"
+                    multiple={false}
+                >
+                    <FileField
+                        source="src"
+                        title="title"
+                        target="blank"
+                    />
+                </FileInput>
+                <h3> На сервере:</h3>
+                <ClickVideo
+                    source="video"
+                    label="Видео"
+                />
+            </SimpleForm>
+        </Edit>
+    );
 };

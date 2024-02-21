@@ -12,24 +12,26 @@ import contacts from "./Contacts/Contatcs";
 import heroB from "./Band/Hero/Hero";
 import partners from "./Band/Partners/Partners";
 import team from "./Band/Team/Team";
+import gallery from "./Band/Gallery/EventBand";
 
 export const rcs = {
-   Band: {
-      aboutB,
-      collaboration,
-      heroB,
-      partners,
-      team,
-   },
-   Studio: {
-      aboutS,
-      courses,
-      heroS,
-      studentsStory,
-      teacher,
-      testimonials,
-   },
-   Contacts: {
-      contacts,
-   },
+    Band: {
+        aboutB,
+        collaboration,
+        heroB,
+        partners,
+        team,
+        gallery,
+    },
+    Studio: {
+        aboutS,
+        courses,
+        heroS,
+        studentsStory,
+        teacher,
+        testimonials,
+    },
+    Contacts: {
+        contacts,
+    },
 };

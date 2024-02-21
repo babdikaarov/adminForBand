@@ -1,8 +1,6 @@
-import { ContactsEdit } from "./ContactsEdit";
-import { ContactsList } from "./ContactsList";
+import { ContactsListEdit } from "./ContactsListEdit";
 
 export default {
-   resource: "contacts",
-   list: ContactsList,
-   edit: ContactsEdit,
+    resource: "contacts",
+    listEdit: ContactsListEdit,
 };

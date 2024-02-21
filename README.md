@@ -1,12 +1,11 @@
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-
 how to run this project:
 
 after cloning project
 
 ```shell
-#run 
+#run
 npm install
 npm run dev
 #project will run on server

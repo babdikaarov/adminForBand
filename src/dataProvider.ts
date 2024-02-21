@@ -10,13 +10,25 @@ import { callBackCourses } from "./Resources/Studio/Courses/callBackCourses";
 import { callBackTestimonials } from "./Resources/Studio/Testimonials/callBackTestimonials";
 import { callBackCollaboration } from "./Resources/Band/Collaboration/callBackCollaboration";
 import { callBackTeacher } from "./Resources/Studio/Teachers/callBackTeacher";
+import { callBackImageBand } from "./Resources/Band/Gallery/image/callBackImageBand";
+import { callBackEventBand } from "./Resources/Band/Gallery/callBackEventBand";
 
 const baseDataProvider = customDataProvider(import.meta.env.VITE_COOL_API);
 
-const callBacks = [aboutCallBackStudio, aboutCallBackBand,
-     callBackTeam, callBackHero, callBackHeroStudio, 
-     callBackPartners, callBackCourses, callBackTestimonials,
-     callBackCollaboration, callBackTeacher];
+const callBacks = [
+    aboutCallBackStudio,
+    aboutCallBackBand,
+    callBackTeam,
+    callBackHero,
+    callBackHeroStudio,
+    callBackPartners,
+    callBackCourses,
+    callBackTestimonials,
+    callBackCollaboration,
+    callBackTeacher,
+    callBackImageBand,
+    callBackEventBand,
+];
 
 // export const dataProvider = customDataProvider(import.meta.env.VITE_COOL_API);
 export const dataProvider = withLifecycleCallbacks(baseDataProvider, callBacks);

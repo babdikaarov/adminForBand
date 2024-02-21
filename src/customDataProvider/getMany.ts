@@ -4,18 +4,18 @@ export const getMany = async (url: string, resource: string, params: GetManyPara
     const { ids } = params;
 
     try {
-      const promises = ids.map(async (id) => {
-        const { json } = await fetchUtils.fetchJson(`${url}/${resource}/${id}`);
-        return json;
-      });
-      const data = await Promise.all(promises);
-      console.log(data);
-      return {
-        data,
-      };
+        const promises = ids.map(async (id) => {
+            const { json } = await fetchUtils.fetchJson(`${url}/${resource}/${id}`);
+            return json;
+        });
+        const data = await Promise.all(promises);
+        console.log(data);
+        return {
+            data,
+        };
     } catch (error) {
-      console.error("Error in getMany:", error);
-      return Promise.reject(error);
+        console.error("Error in getMany:", error);
+        return Promise.reject(error);
     }
 };
 

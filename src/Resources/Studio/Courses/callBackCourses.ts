@@ -5,23 +5,22 @@ import createFormData from "../../../modules/createFormData";
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const callBack = async (params: Partial<any>) => {
-   let objectURL;
+    let objectURL;
 
-   params.orientation = "LANDSCAPE";
+    params.orientation = "LANDSCAPE";
 
-   if (params.newImage) {
-      objectURL = URL.createObjectURL(params.newImage.rawFile);
-      const bluerHash = await encodeImageToBlurhash(objectURL);
-      params.bluer = bluerHash;
-   }
+    if (params.newImage) {
+        objectURL = URL.createObjectURL(params.newImage.rawFile);
+        const bluerHash = await encodeImageToBlurhash(objectURL);
+        params.bluer = bluerHash;
+    }
 
-
-   const formData = createFormData(params);
-   objectURL && URL.revokeObjectURL(objectURL);
-   return formData;
+    const formData = createFormData(params);
+    objectURL && URL.revokeObjectURL(objectURL);
+    return formData;
 };
 
 export const callBackCourses: ResourceCallbacks = {
-   resource: "direction",
-   beforeSave: callBack,
+    resource: "direction",
+    beforeSave: callBack,
 };

@@ -1,40 +1,44 @@
-#login_background, #reset_background {
-   background-image: url("/src/Resources/Login/logo.png"), radial-gradient(circle at 50% 14em, #313264 0%, #00023b 60%, #00023b 100%);
-   background-size: 25%, cover;
-   background-repeat: repeat, no-repeat;
+#login_background,
+#reset_background {
+    background-image: url("/src/Resources/Login/logo.png"),
+        radial-gradient(circle at 50% 14em, #313264 0%, #00023b 60%, #00023b 100%);
+    background-size: 25%, cover;
+    background-repeat: repeat, no-repeat;
 }
 
-
-
 body {
-   margin: 0;
+    margin: 0;
 }
 .MuiTreeItem-root {
 }
 
 .MuiTreeItem-content {
-   padding: 0 !important;
-   margin-block: 5px;
+    /* padding: 0 !important;
+    margin-block: 5px; */
 }
 .MuiTreeItem-iconContainer {
-   width: 40px !important;
-   /* margin-right: 20px !important; */
-   /* margin-left: 0px; */
+    /* width: 40px !important;
+    margin-right: 20px !important; */
+    /* margin-right: 0px !important; */
 }
 
 .MuiListItemIcon-root {
-   /* padding-inline: 10px; */
-   /* margin-left: -25px; */
-   /* min-width: 28px; */
+    /* padding-inline: 10px; */
+    /* margin-left: -25px; */
+    /* min-width: 28px; */
 }
 .MuiTreeItem-label {
-   font-size: 24px !important;
-   font-weight: 700 !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
 }
 
 .input_image_preview {
-   height: 200px;
-   width: 300px;
-   object-fit: contain;
+    height: 200px;
+    width: 300px;
+    object-fit: contain;
 }
 
+.custom_ape_button {
+    position: absolute;
+    right: 10px;
+}
