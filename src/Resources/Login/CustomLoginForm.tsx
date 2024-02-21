@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { styled } from "@mui/material/styles";
 import PropTypes from "prop-types";
-import { Link, Button, CardContent, CircularProgress } from "@mui/material";
+import { Button, CardContent, CircularProgress } from "@mui/material";
 import { Form, required, useLogin, useNotify, useSafeSetState } from "ra-core";
 import { TextInput } from "react-admin";
 
@@ -108,17 +108,8 @@ export const CustomLoginForm = (props: LoginFormProps) => {
                     fullWidth
                 />
 
-                <Link
-                    href="#"
-                    variant="body1"
-                    color="inherit"
-                    underline="none"
-                    onClick={handleForgotPassword}
-                >
-                    Забыли пароль
-                </Link>
                 <Button
-                    variant="contained"
+                    variant="outlined"
                     type="submit"
                     color="primary"
                     disabled={loading}
@@ -134,6 +125,16 @@ export const CustomLoginForm = (props: LoginFormProps) => {
                     ) : (
                         "Вход"
                     )}
+                </Button>
+                <Button
+                    variant="outlined"
+                    color="primary"
+                    type="button"
+                    onClick={handleForgotPassword}
+                    fullWidth
+                    className={LoginFormClasses.button}
+                >
+                    Забыл пароль
                 </Button>
             </CardContent>
         </StyledForm>

@@ -2,7 +2,6 @@ import { Edit, FileField, FileInput, SaveButton, SimpleForm, TextInput } from "r
 import { ClickVideo } from "../../../shared/ClickVideo";
 
 export const HeroEdit = () => {
-
     return (
         <Edit
             title="Cool Studio → Баннер"
