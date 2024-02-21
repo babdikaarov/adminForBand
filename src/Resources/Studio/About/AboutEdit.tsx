@@ -10,9 +10,7 @@ export const AboutEdit = () => {
             title="Cool Studio → О нас"
             id={1}
         >
-            <SimpleForm 
-            toolbar={<SaveButton label="Сохранить изменения"/>}
-            >
+            <SimpleForm toolbar={<SaveButton label="Сохранить изменения" />}>
                 <TextInput
                     source="youtubeUrl"
                     title="youtubeUrl"
