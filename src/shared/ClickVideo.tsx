@@ -10,7 +10,7 @@ export const ClickVideo: React.FC<ClickVideoProps> = ({ text = "Посмотре
 
     return record ? (
         <Link
-            href={record[props?.source]}
+            href={record.video}
             target="_blank"
             variant="body2"
         >

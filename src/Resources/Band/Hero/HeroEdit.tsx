@@ -1,4 +1,5 @@
-import { Edit, SimpleForm, FileInput, UrlField, FileField, SaveButton } from "react-admin";
+import { Edit, SimpleForm, FileInput, FileField, SaveButton } from "react-admin";
+import { ClickVideo } from "../../../shared/ClickVideo";
 
 export const HeroEdit = () => {
     return (
@@ -18,11 +19,10 @@ export const HeroEdit = () => {
                         target="blank"
                     />
                 </FileInput>
-                <h3> На сервере сейчас:</h3>
-                <UrlField
+                <h3> На сервере:</h3>
+                <ClickVideo
                     source="video"
-                    title="На сервере"
-                    target="blank"
+                    label="Видео"
                 />
             </SimpleForm>
         </Edit>

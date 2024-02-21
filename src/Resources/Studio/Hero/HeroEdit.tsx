@@ -1,9 +1,7 @@
-import { Edit, FileField, FileInput, SaveButton, SimpleForm, TextInput, useRecordContext } from "react-admin";
+import { Edit, FileField, FileInput, SaveButton, SimpleForm, TextInput } from "react-admin";
 import { ClickVideo } from "../../../shared/ClickVideo";
 
 export const HeroEdit = () => {
-    const record = useRecordContext();
-    console.log(record);
 
     return (
         <Edit
