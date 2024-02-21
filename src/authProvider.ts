@@ -33,6 +33,7 @@ export const authProvider: AuthProvider = {
     logout: () => {
         localStorage.removeItem("user");
         localStorage.removeItem("role");
+        localStorage.removeItem("reset");
         return Promise.resolve();
     },
 

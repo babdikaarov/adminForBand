@@ -30,15 +30,23 @@ export const CustomLoginForm = (props: LoginFormProps) => {
                 const formdata = new FormData();
                 formdata.append("email", mail);
                 // deploy FIX_ME change the value linkToChangePassword to value from new .env = url
-                // FIX_ME how the server knows which password to change LOGIC?
-                formdata.append("linkToChangePassword", "http://localhost:5173/change_password");
+                formdata.append("linkToChangePassword", `${import.meta.env.VITE_COOL_URL}/auth-callback`);
                 const requestOptions = {
                     method: "PUT",
                     body: formdata,
                 };
                 const response = await fetch(`${import.meta.env.VITE_COOL_API}/auth/forgotPassword`, requestOptions);
                 if (response.ok) {
-                    notify("Проверьте почту и перейдите по ссылке");
+                    // const expireAt = new Date(new Date().getTime() + 1) // 0.01 sec
+                    const expireAt = new Date(new Date().getTime() + 20 * 60 * 1000); // 20 min
+                    notify("Проверьте почту и перейдите по ссылке она будет активна в течении 20-мин");
+                    const data = await response.json();
+                    localStorage.setItem("reset", JSON.stringify({ token: data["token"], expireAt }));
+
+                    // console.log(expireAt > new Date())
+                    // const reset = localStorage.getItem("reset")
+
+                    // console.log(JSON.parse(reset!))
                 } else {
                     notify(
                         "На сервере нет зарегистрированной почты проверьте правильность данных и попробуйте еще раз, если возникли трудости обратитесь к разработчикам",

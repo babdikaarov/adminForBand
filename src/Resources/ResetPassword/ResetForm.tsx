@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 export const ResetForm = (props: LoginFormProps) => {
     const { className } = props;
     const [loading, setLoading] = useSafeSetState(false);
-    const [success, setSuccess] = useState(false);
+    const [toLogIn, setToLogIn] = useState(false);
     const notify = useNotify();
     const navigate = useNavigate();
 
@@ -17,34 +17,62 @@ export const ResetForm = (props: LoginFormProps) => {
         const { newPassword, verifyPassword } = values as { newPassword: string; verifyPassword: string };
         if (newPassword === verifyPassword) {
             setLoading(true);
-            requestReset().then(() => {
-                notify("Пароль успешно зарегистрирован");
-                setSuccess(true);
-            });
+            requestReset();
         } else {
             notify("введенные поля должны быть идентичны");
         }
 
         async function requestReset() {
             try {
-                const formdata = new FormData();
-                formdata.append("newPassword", newPassword);
-                formdata.append("verifyPassword", verifyPassword);
+                const body = {
+                    newPassword,
+                    verifyPassword,
+                };
+                const headers = new Headers();
+                const encoder = new TextEncoder();
+                const jsonData = JSON.stringify(body);
+                const contentLength = encoder.encode(jsonData).length;
+                const reset = localStorage.getItem("reset");
+                const verify: { token: string; expireAt: string; role: string } = JSON.parse(reset!);
+                // console.log(verify)
+                headers.set("Authorization", `Bearer ${verify.token}`);
+                headers.set("Content-Type", `application/json`);
+                headers.set("Content-Length", contentLength.toString());
                 const requestOptions = {
                     method: "PUT",
-                    body: formdata,
+                    headers,
+                    body: JSON.stringify(body),
                 };
-                // FIX_ME how the server knows which password to change
-                const response = await fetch(`${import.meta.env.VITE_COOL_API}/auth/changePassword`, requestOptions);
 
-                if (response.ok) {
-                    console.log("vse ok");
+                // console.log( headers)
+                // console.log(verify);
+
+                if (new Date(verify.expireAt) < new Date()) {
+                    notify("Ваша ссылка expired already");
+                    setLoading(false);
+
+                    setToLogIn(true);
                 } else {
-                    notify(
-                        "Что то пошло не так повторите запрос если это сообщение повторяется обратитесь разработчикам",
+                    const response = await fetch(
+                        `${import.meta.env.VITE_COOL_API}/auth/changePassword`,
+                        requestOptions,
                     );
+                    if (response.ok) {
+                        setLoading(false);
+                        setToLogIn(true);
+                        notify("Пароль успешно зарегистрирован");
+
+                        localStorage.removeItem("reset");
+                    } else {
+                        setLoading(false);
+                        notify(
+                            "Что то пошло не так повторите запрос если это сообщение повторяется обратитесь разработчикам",
+                        );
+                    }
                 }
-            } catch {
+            } catch (error) {
+                setLoading(false);
+                // console.log(error)
                 throw Error("Something went wrong on ResetForm.tsx");
             }
         }
@@ -57,7 +85,7 @@ export const ResetForm = (props: LoginFormProps) => {
             noValidate
             className={className}
         >
-            {!success ? (
+            {!toLogIn ? (
                 <CardContent className={LoginFormClasses.content}>
                     <TextInput
                         autoFocus

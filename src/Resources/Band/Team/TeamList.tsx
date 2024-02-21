@@ -1,8 +1,12 @@
 import { List, Datagrid, TextField, EditButton, DeleteButton, ChipField } from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
 import { ClickVideo } from "../../../shared/ClickVideo";
+import { useMediaQuery } from "@mui/material";
 
 export const TeamList = () => {
+    const is870 = useMediaQuery("(max-width:870px)");
+    const is660 = useMediaQuery("(max-width:660px)");
+    const is450 = useMediaQuery("(max-width:450px)");
     return (
         <List
             title="Coll Band → Наша команда"
@@ -11,7 +15,10 @@ export const TeamList = () => {
             exporter={false}
             hasCreate={true}
         >
-            <Datagrid bulkActionButtons={false}>
+            <Datagrid
+                bulkActionButtons={false}
+                rowClick={is450 ? "edit" : false}
+            >
                 <TextField
                     source="name"
                     label="Имя"
@@ -24,14 +31,20 @@ export const TeamList = () => {
                 <ClickVideo
                     source="video"
                     label="Видео"
+                    text="видео"
                 />
-                <TextField
-                    source="instrument"
-                    label="Роль"
+                {!is660 ? (
+                    <TextField
+                        source="instrument"
+                        label="Роль"
+                    />
+                ) : null}
+                {!is870 ? <ChipField source="orientation" /> : null}
+                {!is450 ? <EditButton label={is870 ? "" : "Изменить"} /> : null}
+                <DeleteButton
+                    mutationMode="pessimistic"
+                    label={is870 ? "" : "Удалить"}
                 />
-                <ChipField source="orientation" />
-                <EditButton />
-                <DeleteButton mutationMode="pessimistic" />
             </Datagrid>
         </List>
     );

@@ -3,7 +3,10 @@ import { ResetForm } from "./ResetForm";
 
 const Reset = () => {
     return (
-        <Login id="reset_background">
+        <Login
+            id="reset_background"
+            resource="change_password"
+        >
             <ResetForm />
         </Login>
     );

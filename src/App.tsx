@@ -12,12 +12,13 @@ import CustomLogIn from "./Resources/Login/CustomLogIn";
 import Reset from "./Resources/ResetPassword/Reset";
 
 const App = () => {
-    const token = JSON.parse(localStorage.user).token;
-    console.log(token);
+    // const token = JSON.parse(localStorage.user).token;
+    // console.log(token);
 
     return (
         <Admin
-            loginPage={<CustomLogIn />}
+            authCallbackPage={Reset}
+            loginPage={CustomLogIn}
             disableTelemetry
             requireAuth
             title="Cool Band Admin"
@@ -39,12 +40,12 @@ const App = () => {
                 />
             </CustomRoutes>
             {/* CoolStudio */}
-            <CustomRoutes noLayout>
+            {/* <CustomRoutes noLayout>
                 <Route
                     path="change_password"
                     element={<Reset />}
                 />
-            </CustomRoutes>
+            </CustomRoutes> */}
             <Resource name="cool_band" /> {/* initial page */}
             <Resource
                 name="auth"
