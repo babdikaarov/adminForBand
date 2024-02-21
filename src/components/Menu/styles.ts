@@ -8,14 +8,14 @@ export default {
         fontSize: "24px",
         fontWeight: 700,
         border: "0px",
-        "img": {
+        img: {
             width: "24px",
-            height: "24px"
-        }
+            height: "24px",
+        },
     },
-    item: { 
-        color: "inherit", 
+    item: {
+        color: "inherit",
         border: "none",
-        background: "none"    
-    }
+        background: "none",
+    },
 };

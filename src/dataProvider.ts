@@ -12,6 +12,8 @@ import { callBackCollaboration } from "./Resources/Band/Collaboration/callBackCo
 import { callBackTeacher } from "./Resources/Studio/Teachers/callBackTeacher";
 import { callBackImageBand } from "./Resources/Band/Gallery/image/callBackImageBand";
 import { callBackEventBand } from "./Resources/Band/Gallery/callBackEventBand";
+import { callBackImageStudio } from "./Resources/Studio/Gallery/image/callBackImageStudio";
+import { callBackEventStudio } from "./Resources/Studio/Gallery/callBackEventStudio";
 
 const baseDataProvider = customDataProvider(import.meta.env.VITE_COOL_API);
 
@@ -28,6 +30,8 @@ const callBacks = [
     callBackTeacher,
     callBackImageBand,
     callBackEventBand,
+    callBackImageStudio,
+    callBackEventStudio,
 ];
 
 // export const dataProvider = customDataProvider(import.meta.env.VITE_COOL_API);

@@ -13,6 +13,7 @@ import heroB from "./Band/Hero/Hero";
 import partners from "./Band/Partners/Partners";
 import team from "./Band/Team/Team";
 import gallery from "./Band/Gallery/EventBand";
+import studioGallery from "./Studio/Gallery/EventStudio";
 
 export const rcs = {
     Band: {
@@ -30,6 +31,7 @@ export const rcs = {
         studentsStory,
         teacher,
         testimonials,
+        studioGallery,
     },
     Contacts: {
         contacts,

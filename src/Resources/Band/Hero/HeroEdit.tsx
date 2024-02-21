@@ -2,10 +2,11 @@ import { Edit, SimpleForm, FileInput, UrlField, FileField, SaveButton } from "re
 
 export const HeroEdit = () => {
     return (
-        <Edit title="Coll Band → Банер" id={1}>
-            <SimpleForm 
-            toolbar={<SaveButton label="Сохранить изменения"/>}
-            >
+        <Edit
+            title="Coll Band → Банер"
+            id={1}
+        >
+            <SimpleForm toolbar={<SaveButton label="Сохранить изменения" />}>
                 <FileInput
                     source="newVideo"
                     accept="video/*"

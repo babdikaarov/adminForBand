@@ -11,11 +11,9 @@ import { UserCreate } from "./Resources/users/UserCreate";
 import CustomLogIn from "./Resources/Login/CustomLogIn";
 import Reset from "./Resources/ResetPassword/Reset";
 
-
 const App = () => {
-    // const token = JSON.parse(localStorage.user).token;
-    // console.log(token);
-
+    const token = JSON.parse(localStorage.user).token;
+    console.log(token);
 
     return (
         <Admin
@@ -88,12 +86,14 @@ const App = () => {
                 edit={<rcs.Studio.courses.edit />}
             />
             <Resource
-                name="event_studio_images"
-                list={<div>make ra-CRUD compoents</div>}
+                name={rcs.Studio.studioGallery.resource}
+                list={rcs.Studio.studioGallery.list}
+                create={rcs.Studio.studioGallery.create}
+                edit={rcs.Studio.studioGallery.edit}
             />
             <Resource
-                name="event_studio"
-                list={<div>make ra-CRUD compoents</div>}
+                name={rcs.Studio.studioGallery.resource2}
+                edit={rcs.Studio.studioGallery.ImageEdit}
             />
             {/* CoolBand */}
             <Resource

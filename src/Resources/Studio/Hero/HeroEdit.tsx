@@ -6,12 +6,11 @@ export const HeroEdit = () => {
     console.log(record);
 
     return (
-        <Edit title="Cool Studio → Баннер"
-        id={1}
+        <Edit
+            title="Cool Studio → Баннер"
+            id={1}
         >
-            <SimpleForm 
-            toolbar={<SaveButton label="Сохранить изменения"/>}
-            >
+            <SimpleForm toolbar={<SaveButton label="Сохранить изменения" />}>
                 <TextInput
                     source="title"
                     title="name"

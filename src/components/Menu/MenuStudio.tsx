@@ -6,7 +6,7 @@ import styles from "./styles";
 
 export const MenuStudio = () => {
     return (
-       <>
+        <>
             <Menu.Item
                 to="cool_studio"
                 primaryText="Cool Studio"
@@ -50,13 +50,18 @@ export const MenuStudio = () => {
                 leftIcon={<icons.success />}
                 sx={styles.item}
             />
-             <Menu.Item
+            <Menu.Item
+                to={rcs.Studio.studioGallery.resource}
+                primaryText="Галерея"
+                leftIcon={<icons.gallery />}
+                sx={styles.item}
+            />
+            <Menu.Item
                 to="contacts"
                 primaryText="Контакты"
                 leftIcon={<icons.contacts />}
                 sx={styles.treeView}
             />
-             </>
-
+        </>
     );
 };

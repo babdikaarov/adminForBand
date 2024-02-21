@@ -6,9 +6,8 @@ import styles from "./styles";
 
 const MenuBand = () => {
     return (
-     
         <>
-             <Menu.Item
+            <Menu.Item
                 to="cool_band"
                 primaryText="Cool Band"
                 leftIcon={<img src={BandIcon} />}

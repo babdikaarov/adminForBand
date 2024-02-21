@@ -20,8 +20,6 @@ export const getListAll = async (url: string, resource: string, params?: GetList
 
         const { json } = response;
 
-        console.log(json);
-
         //   const transformedArray = Object.keys(json).map((key) => {
         //     return { id: json[key], [key]: null };
         //   });
