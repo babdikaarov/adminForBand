@@ -4,7 +4,6 @@ import styles from "./modalImage.module.css";
 import { useRecordContext } from "react-admin";
 
 export const ModalImage = (props: UseRecordContextParams<RaRecord<Identifier>> | undefined) => {
-    
     const { dialogRef, handleClose, openModal } = useModalCotroller();
     const record = useRecordContext(props);
     // console.log(record);

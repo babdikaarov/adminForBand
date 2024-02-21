@@ -6,7 +6,6 @@ export const getListAll = async (url: string, resource: string, params?: GetList
         const headers = new Headers();
         headers.set("Authorization", `Bearer ${token}`);
         let response;
-
         switch (resource) {
             case "auth":
                 response = await fetchUtils.fetchJson(`${url}/${resource}/getAllUsers`, {
@@ -20,6 +19,15 @@ export const getListAll = async (url: string, resource: string, params?: GetList
         }
 
         const { json } = response;
+
+        console.log(json);
+
+        //   const transformedArray = Object.keys(json).map((key) => {
+        //     return { id: json[key], [key]: null };
+        //   });
+
+        //   console.log(transformedArray);
+
         if (Array.isArray(json)) {
             return {
                 data: json,
@@ -73,7 +81,7 @@ export const getListAll = async (url: string, resource: string, params?: GetList
 // [
 //    {
 //       id: 1,
-//       ids: 1,
+//       _id: 1,
 //    },
 //    {
 //       id: 2,

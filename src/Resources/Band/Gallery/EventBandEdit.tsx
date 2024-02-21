@@ -23,7 +23,7 @@ import {
 } from "react-admin";
 import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
 import { useGetRecordId } from "react-admin";
-import { Fragment} from "react";
+import { Fragment } from "react";
 import CustomSelectInput from "../../../shared/CustomSelectInput";
 import SaveImage from "./image/SaveImage";
 import { ModalImage } from "../../../shared/ModalImage";
@@ -51,10 +51,14 @@ export const EventBandEdit = () => {
                 </TabbedShowLayout.Tab>
 
                 <TabbedShowLayout.Tab label="Photo list">
-                    <List title="Coll Band → Галерея → Альбом → Фотографии" hasCreate={false} exporter={false} pagination={false}
-                    sx={{
-                        height: 0
-                    }}
+                    <List
+                        title="Coll Band → Галерея → Альбом → Фотографии"
+                        hasCreate={false}
+                        exporter={false}
+                        pagination={false}
+                        sx={{
+                            height: 0,
+                        }}
                     >
                         <></>
                     </List>

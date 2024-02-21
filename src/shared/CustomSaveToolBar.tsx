@@ -1,7 +1,7 @@
 import { SaveButton, Toolbar } from "react-admin";
 import { useNavigate } from "react-router-dom";
 
-const CustomSaveToolBar = ({to = "../"}) => {
+const CustomSaveToolBar = ({ to = "../" }) => {
     const navigate = useNavigate();
     return (
         <Toolbar

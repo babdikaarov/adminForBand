@@ -7,7 +7,7 @@ export const ContactsEdit = () => {
     // custom form check https://marmelab.com/react-admin/Form.html
     // https://marmelab.com/react-admin/SimpleForm.html#complex-input-layout
     return (
-        <Edit title="Coll Band → Контакты → изменить">
+        <Edit title="Coll Band → Контакты → изменить" id={1}>
             <SimpleForm
                 sx={{ maxWidth: 700 }}
                 toolbar={<CustomSaveToolBar />}
