@@ -1,4 +1,4 @@
-import { Admin, nanoLightTheme, nanoDarkTheme, Resource, CustomRoutes } from "react-admin";
+import { Admin, Resource, CustomRoutes, houseLightTheme, houseDarkTheme } from "react-admin";
 import { Route } from "react-router-dom";
 import authProvider from "./authProvider";
 import { MyLayout } from "./components/Layout/MyLayout";
@@ -11,9 +11,11 @@ import { UserCreate } from "./Resources/users/UserCreate";
 import CustomLogIn from "./Resources/Login/CustomLogIn";
 import Reset from "./Resources/ResetPassword/Reset";
 
+
 const App = () => {
     // const token = JSON.parse(localStorage.user).token;
     // console.log(token);
+
 
     return (
         <Admin
@@ -24,8 +26,8 @@ const App = () => {
             dataProvider={dataProvider}
             authProvider={authProvider}
             layout={MyLayout}
-            lightTheme={nanoLightTheme}
-            darkTheme={nanoDarkTheme}
+            lightTheme={houseLightTheme}
+            darkTheme={houseDarkTheme}
         >
             {/* Dashboard */}
             <CustomRoutes>
@@ -54,13 +56,11 @@ const App = () => {
             />
             <Resource
                 name={rcs.Studio.heroS.resource}
-                list={<rcs.Studio.heroS.list />}
-                edit={<rcs.Studio.heroS.edit />}
+                list={<rcs.Studio.heroS.edit />}
             />
             <Resource
                 name={rcs.Studio.aboutS.resource}
-                list={<rcs.Studio.aboutS.list />}
-                edit={<rcs.Studio.aboutS.edit />}
+                list={<rcs.Studio.aboutS.edit />}
             />
             <Resource
                 name={rcs.Studio.studentsStory.resource}
@@ -114,8 +114,7 @@ const App = () => {
             />
             <Resource
                 name={rcs.Band.heroB.resource}
-                list={<rcs.Band.heroB.list />}
-                edit={<rcs.Band.heroB.edit />}
+                list={<rcs.Band.heroB.edit />}
             />
             <Resource
                 name={rcs.Band.collaboration.resource}
@@ -126,7 +125,6 @@ const App = () => {
             <Resource
                 name={rcs.Band.aboutB.resource}
                 list={<rcs.Band.aboutB.list />}
-                edit={<rcs.Band.aboutB.edit />}
             />
             <Resource
                 name={rcs.Band.team.resource}
@@ -137,8 +135,7 @@ const App = () => {
             {/* Contacts */}
             <Resource
                 name={rcs.Contacts.contacts.resource}
-                list={<rcs.Contacts.contacts.list />}
-                edit={<rcs.Contacts.contacts.edit />}
+                list={<rcs.Contacts.contacts.listEdit />}
             />
         </Admin>
     );

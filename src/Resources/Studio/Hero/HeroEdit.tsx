@@ -1,5 +1,4 @@
-import { Edit, FileField, FileInput, SimpleForm, TextInput, useRecordContext } from "react-admin";
-import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
+import { Edit, FileField, FileInput, SaveButton, SimpleForm, TextInput, useRecordContext } from "react-admin";
 import { ClickVideo } from "../../../shared/ClickVideo";
 
 export const HeroEdit = () => {
@@ -7,15 +6,21 @@ export const HeroEdit = () => {
     console.log(record);
 
     return (
-        <Edit title="Cool Studio → Баннер → изменить">
-            <SimpleForm toolbar={<CustomSaveToolBar />}>
+        <Edit title="Cool Studio → Баннер"
+        id={1}
+        >
+            <SimpleForm 
+            toolbar={<SaveButton label="Сохранить изменения"/>}
+            >
                 <TextInput
                     source="title"
                     title="name"
+                    fullWidth
                 />
                 <TextInput
                     source="text"
                     title="name"
+                    fullWidth
                 />
                 <FileInput
                     source="newVideo"

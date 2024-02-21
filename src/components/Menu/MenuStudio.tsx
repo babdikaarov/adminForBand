@@ -1,18 +1,18 @@
 import { Menu } from "react-admin";
-import { TreeItem } from "@mui/x-tree-view";
 import StudioIcon from "./StudioIcon.svg";
 import icons from "../../Resources/icons";
 import { rcs } from "../../Resources/rcs";
 import styles from "./styles";
-import HandleNavigate from "../../modules/HandleNavigate";
 
 export const MenuStudio = () => {
     return (
-        <TreeItem
-            nodeId="2"
-            label={HandleNavigate("cool_studio")}
-            icon={<img src={StudioIcon} />}
-        >
+       <>
+            <Menu.Item
+                to="cool_studio"
+                primaryText="Cool Studio"
+                leftIcon={<img src={StudioIcon}></img>}
+                sx={styles.treeView}
+            />
             {/*  CoolStudio  */}
             <Menu.Item
                 to={rcs.Studio.heroS.resource}
@@ -50,20 +50,13 @@ export const MenuStudio = () => {
                 leftIcon={<icons.success />}
                 sx={styles.item}
             />
-            {/* <Menu.Item
-   to="event_studio_images"
-   primaryText="Галерея"
-   leftIcon={<icons.gallery />}
-   sx={styles.item}
-   
-/>
-<Menu.Item
-   to="event_studio"
-   primaryText="Коллаж"
-   leftIcon={<icons.collage />}
-   sx={styles.item}
-   
-/> */}
-        </TreeItem>
+             <Menu.Item
+                to="contacts"
+                primaryText="Контакты"
+                leftIcon={<icons.contacts />}
+                sx={styles.treeView}
+            />
+             </>
+
     );
 };

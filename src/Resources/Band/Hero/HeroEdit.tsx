@@ -1,10 +1,11 @@
-import { Edit, SimpleForm, FileInput, UrlField, FileField } from "react-admin";
-import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
+import { Edit, SimpleForm, FileInput, UrlField, FileField, SaveButton } from "react-admin";
 
 export const HeroEdit = () => {
     return (
-        <Edit title="Coll Band → Банер → изменить">
-            <SimpleForm toolbar={<CustomSaveToolBar />}>
+        <Edit title="Coll Band → Банер" id={1}>
+            <SimpleForm 
+            toolbar={<SaveButton label="Сохранить изменения"/>}
+            >
                 <FileInput
                     source="newVideo"
                     accept="video/*"

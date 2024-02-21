@@ -1,18 +1,19 @@
 import { Menu } from "react-admin";
-import { TreeItem } from "@mui/x-tree-view";
 import BandIcon from "./BandIcon.svg";
 import icons from "../../Resources/icons";
 import { rcs } from "../../Resources/rcs";
 import styles from "./styles";
-import HandleNavigate from "../../modules/HandleNavigate";
 
 const MenuBand = () => {
     return (
-        <TreeItem
-            nodeId="0"
-            label={HandleNavigate("cool_band")}
-            icon={<img src={BandIcon} />}
-        >
+     
+        <>
+             <Menu.Item
+                to="cool_band"
+                primaryText="Cool Band"
+                leftIcon={<img src={BandIcon} />}
+                sx={styles.treeView}
+            />
             {/* Cool Band*/}
             <Menu.Item
                 to={rcs.Band.heroB.resource}
@@ -50,7 +51,7 @@ const MenuBand = () => {
                 leftIcon={<icons.gallery />}
                 sx={styles.item}
             />
-        </TreeItem>
+        </>
     );
 };
 

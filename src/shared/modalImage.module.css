@@ -15,7 +15,7 @@
 .div {
     display: flex;
     /* margin: 0.25rem; */
-    max-width: 200px;
+    max-width: 100px;
     height: 100px;
 }
 .div img {

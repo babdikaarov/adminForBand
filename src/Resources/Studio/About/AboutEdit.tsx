@@ -1,6 +1,5 @@
-import { UrlField } from "react-admin";
+import { SaveButton, UrlField } from "react-admin";
 import { Edit, SimpleForm, TextInput } from "react-admin";
-import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
 /*
  */
 export const AboutEdit = () => {
@@ -8,13 +7,16 @@ export const AboutEdit = () => {
      */
     return (
         <Edit
-            title="Cool Studio → О нас → изменить"
-            redirect="list"
+            title="Cool Studio → О нас"
+            id={1}
         >
-            <SimpleForm toolbar={<CustomSaveToolBar />}>
+            <SimpleForm 
+            toolbar={<SaveButton label="Сохранить изменения"/>}
+            >
                 <TextInput
                     source="youtubeUrl"
                     title="youtubeUrl"
+                    fullWidth
                 />
                 <h3> На сервере:</h3>
                 <UrlField

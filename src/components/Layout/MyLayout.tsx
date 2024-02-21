@@ -8,6 +8,7 @@ export const MyLayout = (props: LayoutProps) => (
             {...props}
             menu={MyMenu}
             appBar={MyAppBar}
+            appBarAlwaysOn
         />
     </>
 );
