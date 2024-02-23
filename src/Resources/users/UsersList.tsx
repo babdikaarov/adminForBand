@@ -9,7 +9,7 @@ export const UsersList = () => {
             hasCreate={true}
             exporter={false}
         >
-            <Datagrid bulkActionButtons={false}>
+            <Datagrid bulkActionButtons={false} rowClick={"edit"}>
                 <TextField source="email" />
                 <TextField source="fullName" />
                 <TextField source="role" />
