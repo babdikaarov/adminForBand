@@ -14,7 +14,7 @@ export const EventBandList = () => {
         >
             <Datagrid
                 bulkActionButtons={false}
-                rowClick={is500 ? "edit" : false}
+                rowClick={"edit"}
             >
                 {!is500 ? <TextField source="id" /> : null}
                 <ModalImage source="coverImage" />

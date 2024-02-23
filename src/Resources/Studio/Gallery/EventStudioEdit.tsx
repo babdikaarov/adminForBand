@@ -91,6 +91,7 @@ export const EventStudioEdit = () => {
                     <Create
                         resource="event_studio_images"
                         title="Coll Band → Галерея → Альбом → Фотографии → добавить фото"
+                        
                     >
                         <SimpleForm
                             toolbar={<SaveImage />}

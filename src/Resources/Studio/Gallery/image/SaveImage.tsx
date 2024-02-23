@@ -21,7 +21,7 @@ const SaveImage: React.FC = () => {
             <button
                 className="custom_ape_button"
                 type="button"
-                onClick={() => navigate("/event_band")}
+                onClick={() => navigate("/event_studio")}
             >
                 Назад
             </button>
