@@ -10,18 +10,20 @@ export const HeroEdit = () => {
             <SimpleForm toolbar={<SaveButton label="Сохранить изменения" />}>
                 <TextInput
                     source="title"
-                    title="name"
+                    label="Загаловок"
                     fullWidth
                 />
                 <TextInput
                     source="text"
-                    title="name"
+                    label="Подзаголовок"
                     fullWidth
                 />
                 <FileInput
                     source="newVideo"
                     accept="video/*"
                     multiple={false}
+                    label="Новое видео"
+                    placeholder={<p>Перетащите изображение для загрузки или щелкните, чтобы выбрать его.</p>}
                 >
                     <FileField
                         source="src"

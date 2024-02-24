@@ -46,6 +46,7 @@ export const EventBandEdit = () => {
                             />
                             <TextInput source="name" />
                             <DateInput source="date" />
+                            <DeleteButton disabled={listContext.data && listContext.data.length > 0 ? true : false} />
                         </SimpleForm>
                     </Edit>
                 </TabbedShowLayout.Tab>

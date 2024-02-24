@@ -26,6 +26,7 @@ export const ContactsListEdit = () => {
                         <TextInput
                             type="tel"
                             source="bandNumber"
+                            label="Номер Cool Band"
                             inputMode="numeric"
                             isRequired
                             fullWidth
@@ -38,6 +39,7 @@ export const ContactsListEdit = () => {
                         <TextInput
                             type="tel"
                             source="studioNumber"
+                            label="Номер Cool Studio"
                             inputMode="numeric"
                             isRequired
                             fullWidth
@@ -52,6 +54,7 @@ export const ContactsListEdit = () => {
                         <TextInput
                             type="tel"
                             source="whatsapp"
+                            label="Номер Whatsapp"
                             isRequired
                             fullWidth
                         />
@@ -63,6 +66,7 @@ export const ContactsListEdit = () => {
                         <TextInput
                             type="text"
                             source="telegram"
+                            label="Телеграм номер или id"
                             isRequired
                             fullWidth
                         />
@@ -71,6 +75,7 @@ export const ContactsListEdit = () => {
                 <TextInput
                     type="email"
                     source="email"
+                    label="Почта"
                     isRequired
                     fullWidth
                 />
@@ -89,6 +94,7 @@ export const ContactsListEdit = () => {
                         <TextInput
                             type="url"
                             source="instagram"
+                            label="Ссылка на Instagram Cool Band"
                             isRequired
                             fullWidth
                         />
@@ -100,6 +106,7 @@ export const ContactsListEdit = () => {
                         <TextInput
                             type="url"
                             source="tiktok"
+                            label="Ссылка на tiktok"
                             isRequired
                             fullWidth
                         />
@@ -108,6 +115,7 @@ export const ContactsListEdit = () => {
                 <TextInput
                     type="url"
                     source="youtube"
+                    label="Ссылка на youtube"
                     isRequired
                     fullWidth
                 />
@@ -124,9 +132,10 @@ export const ContactsListEdit = () => {
                         mr={{ xs: 0, sm: "0.5em" }}
                     >
                         <TextInput
-                            type="number"
-                            inputMode="numeric"
+                            type="text"
+                            // inputMode="numeric"
                             source="longitude"
+                            label="Координаты долготы"
                             isRequired
                             fullWidth
                         />
@@ -136,9 +145,10 @@ export const ContactsListEdit = () => {
                         ml={{ xs: 0, sm: "0.5em" }}
                     >
                         <TextInput
-                            type="number"
-                            inputMode="numeric"
+                            type="text"
+                            // inputMode="numeric"
                             source="latitude"
+                            label="Координаты широты"
                             isRequired
                             fullWidth
                         />
@@ -150,6 +160,7 @@ export const ContactsListEdit = () => {
                         <TextInput
                             type="text"
                             source="city"
+                            label="Горол"
                             isRequired
                             fullWidth
                         />
@@ -159,9 +170,10 @@ export const ContactsListEdit = () => {
                         ml={{ xs: 0, sm: "0.5em" }}
                     >
                         <TextInput
-                            type="number"
-                            inputMode="numeric"
+                            type="text"
+                            // inputMode="numeric"
                             source="organizationId"
+                            label="id организации"
                             isRequired
                             fullWidth
                         />
@@ -170,10 +182,13 @@ export const ContactsListEdit = () => {
                 <TextInput
                     type="text"
                     source="address"
+                    label="Адресс"
                     isRequired
                     fullWidth
                 />
             </SimpleForm>
+            <br />
+            <br />
         </Edit>
     );
 };

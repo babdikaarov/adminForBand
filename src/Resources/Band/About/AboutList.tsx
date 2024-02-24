@@ -10,9 +10,10 @@ export const AboutList = () => {
             <SimpleForm toolbar={<SaveButton label="Сохранить изменения" />}>
                 <ImageInput
                     source="newImage"
-                    label="Постер"
+                    label="Новое изображение"
                     multiple={false}
                     accept="image/*"
+                    placeholder={<p>Перетащите изображение для загрузки или щелкните, чтобы выбрать его.</p>}
                 >
                     <ImageField
                         source="src"

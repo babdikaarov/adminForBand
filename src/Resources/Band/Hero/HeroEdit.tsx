@@ -12,6 +12,8 @@ export const HeroEdit = () => {
                     source="newVideo"
                     accept="video/*"
                     multiple={false}
+                    label="Новое видео"
+                    placeholder={<p>Перетащите изображение для загрузки или щелкните, чтобы выбрать его.</p>}
                 >
                     <FileField
                         source="src"

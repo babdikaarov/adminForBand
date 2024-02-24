@@ -11,9 +11,10 @@ export const TestimonaialsEdit = () => {
             <SimpleForm toolbar={<CustomSaveToolBar />}>
                 <ImageInput
                     source="newImage"
-                    label="Фото ученика"
                     multiple={false}
                     accept="image/*"
+                    label="Новое изображение"
+                    placeholder={<p>Перетащите изображение для загрузки или щелкните, чтобы выбрать его.</p>}
                 >
                     <ImageField
                         source="src"
@@ -22,11 +23,11 @@ export const TestimonaialsEdit = () => {
                 </ImageInput>
                 <TextInput
                     source="name"
-                    title="name"
+                    label="Имя"
                 />
                 <TextInput
                     source="reviews"
-                    title="name"
+                    label="Отзыв"
                 />
             </SimpleForm>
         </Edit>

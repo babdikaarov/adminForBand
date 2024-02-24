@@ -8,22 +8,33 @@ export const TeacherEdit = () => {
             redirect="list"
         >
             <SimpleForm toolbar={<CustomSaveToolBar />}>
-                <TextInput source="name" />
+                <TextInput
+                    source="name"
+                    label="Имя"
+                />
                 <ImageInput
                     source="newImage"
-                    label="Постер"
                     multiple={false}
                     accept="image/*"
+                    label="Новое изображение"
+                    placeholder={<p>Перетащите изображение для загрузки или щелкните, чтобы выбрать его.</p>}
                 >
                     <ImageField
                         source="src"
                         title=""
                     />
                 </ImageInput>
-                <TextInput source="urlInstagram" />
-                <TextInput source="position" />
+                <TextInput
+                    source="urlInstagram"
+                    label="Ссылка на instagram"
+                />
+                <TextInput
+                    source="position"
+                    label="Позиция"
+                />
                 <TextInput
                     source="description"
+                    label="Описание"
                     fullWidth
                 />
             </SimpleForm>

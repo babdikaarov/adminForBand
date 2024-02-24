@@ -1,4 +1,4 @@
-import { List, Datagrid, EditButton, DeleteButton, TextField } from "react-admin";
+import { List, Datagrid, EditButton, DeleteButton, TextField, Labeled, CreateButton } from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
 import { useMediaQuery } from "@mui/material";
 
@@ -11,17 +11,33 @@ export const CoursesList = () => {
             pagination={false}
             exporter={false}
             hasCreate={true}
+            actions={<CreateButton label="Добавить" />}
         >
             <Datagrid
                 bulkActionButtons={false}
-                rowClick={is500 ? "edit" : false}
+                // rowClick="edit"
             >
-                <TextField source="name" />
-                <ModalImage source="image" />
+                <TextField
+                    source="name"
+                    label="Напрваление"
+                />
+                <Labeled label="Изображение">
+                    <ModalImage
+                        source="image"
+                        label={false}
+                    />
+                </Labeled>
                 {/* <TextField source="bluer" /> */}
-                {!is500 ? <EditButton /> : null}
-                <DeleteButton mutationMode="pessimistic" />
+                {!is500 ? <EditButton label="Изменить" /> : null}
+                <DeleteButton
+                    label="Удалить"
+                    mutationMode="pessimistic"
+                />
             </Datagrid>
+            <br />
+            <br />
+            <br />
+            <br />
         </List>
     );
 };

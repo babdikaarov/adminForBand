@@ -12,9 +12,10 @@ export const TeamEdit = () => {
                 <FieldTitle label="Карточка спереди" />
                 <ImageInput
                     source="newImage"
-                    label="Постер"
                     multiple={false}
                     accept="image/*"
+                    label="Новое изображение"
+                    placeholder={<p>Перетащите изображение для загрузки или щелкните, чтобы выбрать его.</p>}
                 >
                     <ImageField
                         source="src"
@@ -27,6 +28,8 @@ export const TeamEdit = () => {
                     source="newVideo"
                     accept="video/*"
                     multiple={false}
+                    label="Новое видео"
+                    placeholder={<p>Перетащите изображение для загрузки или щелкните, чтобы выбрать его.</p>}
                 >
                     <FileField
                         source="src"

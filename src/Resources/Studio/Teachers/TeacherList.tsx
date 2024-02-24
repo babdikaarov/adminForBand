@@ -1,4 +1,15 @@
-import { List, Datagrid, TextField, EditButton, DeleteButton, SimpleShowLayout, RichTextField } from "react-admin";
+import {
+    List,
+    Datagrid,
+    TextField,
+    EditButton,
+    DeleteButton,
+    SimpleShowLayout,
+    RichTextField,
+    Labeled,
+    CreateButton,
+    UrlField,
+} from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
 import { useMediaQuery } from "@mui/material";
 
@@ -10,10 +21,31 @@ export const TeacherList = () => {
 
     const DescriptionShow = () => (
         <SimpleShowLayout>
-            {is420 ? <ModalImage source="image" /> : null}
-            <RichTextField source="description" />
-            {is950 ? <TextField source="urlInstagram" /> : null}
-            {is550 ? <TextField source="position" /> : null}
+            {is420 ? (
+                <Labeled label="Изображение">
+                    <ModalImage
+                        source="image"
+                        label={false}
+                    />
+                </Labeled>
+            ) : null}
+            <RichTextField
+                source="description"
+                label="Описание"
+            />
+            {is950 ? (
+                <UrlField
+                    target="_blank"
+                    source="urlInstagram"
+                    label="Ссылка на instagram"
+                />
+            ) : null}
+            {is550 ? (
+                <TextField
+                    source="position"
+                    label="Позиция"
+                />
+            ) : null}
         </SimpleShowLayout>
     );
 
@@ -23,6 +55,7 @@ export const TeacherList = () => {
             pagination={false}
             exporter={false}
             hasCreate={true}
+            actions={<CreateButton label="Добавить" />}
         >
             <Datagrid
                 bulkActionButtons={false}
@@ -31,10 +64,31 @@ export const TeacherList = () => {
                 expandSingle
                 rowClick="expand"
             >
-                <TextField source="name" />
-                {!is420 ? <ModalImage source="image" /> : null}
-                {!is950 ? <TextField source="urlInstagram" /> : null}
-                {!is550 ? <TextField source="position" /> : null}
+                <TextField
+                    source="name"
+                    label="Имя"
+                />
+                {!is420 ? (
+                    <Labeled label="Изображение">
+                        <ModalImage
+                            source="image"
+                            label={false}
+                        />
+                    </Labeled>
+                ) : null}
+                {!is950 ? (
+                    <UrlField
+                        target="_blank"
+                        source="urlInstagram"
+                        label="Ссылка на instagram"
+                    />
+                ) : null}
+                {!is550 ? (
+                    <TextField
+                        source="position"
+                        label="Позиция"
+                    />
+                ) : null}
                 {/* <EditButton label=""/> */}
                 <EditButton label={is700 ? " " : "Изменить"} />
                 <DeleteButton
@@ -43,6 +97,10 @@ export const TeacherList = () => {
                 />
                 {/* <DeleteButton mutationMode="pessimistic" /> */}
             </Datagrid>
+            <br />
+            <br />
+            <br />
+            <br />
         </List>
     );
 };

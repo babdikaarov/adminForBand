@@ -11,9 +11,10 @@ export const CoursesCreate = () => {
             <SimpleForm toolbar={<CustomSaveToolBar />}>
                 <ImageInput
                     source="newImage"
-                    label="icon направления"
                     multiple={false}
                     accept="image/*"
+                    label="Новое изображение"
+                    placeholder={<p>Перетащите изображение для загрузки или щелкните, чтобы выбрать его.</p>}
                 >
                     <ImageField
                         source="src"
@@ -22,7 +23,7 @@ export const CoursesCreate = () => {
                 </ImageInput>
                 <TextInput
                     source="name"
-                    title="name"
+                    label="Напрваление"
                 />
             </SimpleForm>
         </Create>

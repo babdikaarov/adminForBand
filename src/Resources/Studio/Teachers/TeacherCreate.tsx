@@ -10,13 +10,14 @@ export const TeacherCreate = () => {
             <SimpleForm toolbar={<CustomSaveToolBar />}>
                 <TextInput
                     source="name"
-                    title="name"
+                    label="Имя"
                 />
                 <ImageInput
                     source="newImage"
-                    label="Постер"
                     multiple={false}
                     accept="image/*"
+                    label="Новое изображение"
+                    placeholder={<p>Перетащите изображение для загрузки или щелкните, чтобы выбрать его.</p>}
                 >
                     <ImageField
                         source="src"
@@ -25,15 +26,16 @@ export const TeacherCreate = () => {
                 </ImageInput>
                 <TextInput
                     source="urlInstagram"
-                    title="name"
+                    label="Ссылка на instagram"
                 />
                 <TextInput
                     source="position"
-                    title="name"
+                    label="Позиция"
                 />
                 <TextInput
                     source="description"
-                    title="name"
+                    label="Описание"
+                    fullWidth
                 />
             </SimpleForm>
         </Create>

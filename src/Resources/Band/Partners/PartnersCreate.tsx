@@ -10,9 +10,10 @@ export const PartnersCreate = () => {
             <SimpleForm toolbar={<CustomSaveToolBar />}>
                 <ImageInput
                     source="newImage"
-                    label="Logo клиента"
                     multiple={false}
                     accept="image/*"
+                    label="Новое изображение"
+                    placeholder={<p>Перетащите изображение для загрузки или щелкните, чтобы выбрать его.</p>}
                 >
                     <ImageField
                         source="src"
@@ -21,7 +22,7 @@ export const PartnersCreate = () => {
                 </ImageInput>
                 <TextInput
                     source="url"
-                    label="name"
+                    label="Наименование"
                 />
             </SimpleForm>
         </Create>

@@ -1,4 +1,4 @@
-import { List, Datagrid, EditButton, TextField, DeleteButton } from "react-admin";
+import { List, Datagrid, EditButton, TextField, CreateButton, Labeled } from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
 import { useMediaQuery } from "@mui/material";
 
@@ -11,19 +11,33 @@ export const EventBandList = () => {
             pagination={false}
             exporter={false}
             hasCreate={true}
+            actions={<CreateButton label="Добавить" />}
         >
             <Datagrid
                 bulkActionButtons={false}
-                rowClick={"edit"}
+                // rowClick={"edit"}
             >
                 {!is500 ? <TextField source="id" /> : null}
-                <ModalImage source="coverImage" />
-                <TextField source="date" />
-                <TextField source="name" />
-                {!is500 ? <EditButton /> : null}
-                {/* if photo exist do notify user it cant be deleted */}
-                <DeleteButton mutationMode="pessimistic" />
+                <Labeled label="Изображение">
+                    <ModalImage
+                        source="coverImage"
+                        label={false}
+                    />
+                </Labeled>
+                <TextField
+                    source="date"
+                    label="Дата"
+                />
+                <TextField
+                    source="name"
+                    label="Мероприятие"
+                />
+                {!is500 ? <EditButton label="Изменить" /> : null}
             </Datagrid>
+            <br />
+            <br />
+            <br />
+            <br />
         </List>
     );
 };

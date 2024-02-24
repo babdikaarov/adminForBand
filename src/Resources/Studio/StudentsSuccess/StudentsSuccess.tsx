@@ -1,4 +1,4 @@
-import { List, Datagrid, EditButton, DeleteButton, UrlField } from "react-admin";
+import { List, Datagrid, EditButton, DeleteButton, UrlField, CreateButton } from "react-admin";
 import { Create, Edit, SimpleForm, TextInput } from "react-admin";
 import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
 
@@ -9,15 +9,27 @@ export const StudentsSuccessList = () => {
             pagination={false}
             exporter={false}
             hasCreate={true}
+            actions={<CreateButton label="Добавить" />}
         >
-            <Datagrid bulkActionButtons={false}>
+            <Datagrid
+                bulkActionButtons={false}
+                rowClick="edit"
+            >
                 <UrlField
+                    target="_blank"
                     source="url"
-                    title="name"
+                    label="Ссылка на youtube видео"
                 />
-                <EditButton />
-                <DeleteButton mutationMode="pessimistic" />
+                <EditButton label="Изменить" />
+                <DeleteButton
+                    label="Удалить"
+                    mutationMode="pessimistic"
+                />
             </Datagrid>
+            <br />
+            <br />
+            <br />
+            <br />
         </List>
     );
 };
@@ -29,15 +41,12 @@ export const StudentsSuccessCreate = () => {
             redirect="list"
         >
             <SimpleForm toolbar={<CustomSaveToolBar />}>
+                <br />
+                <br />
                 <TextInput
                     source="url"
-                    label="url"
-                >
-                    <UrlField
-                        source="src"
-                        title="title"
-                    />
-                </TextInput>
+                    label="Ссылка на youtube видео"
+                ></TextInput>
             </SimpleForm>
         </Create>
     );
@@ -50,15 +59,12 @@ export const StudentsSuccessEdit = () => {
             redirect="list"
         >
             <SimpleForm toolbar={<CustomSaveToolBar />}>
+                <br />
+                <br />
                 <TextInput
                     source="url"
-                    label="url"
-                >
-                    <UrlField
-                        source="src"
-                        title="title"
-                    />
-                </TextInput>
+                    label="Ссылка на youtube видео"
+                ></TextInput>
             </SimpleForm>
         </Edit>
     );

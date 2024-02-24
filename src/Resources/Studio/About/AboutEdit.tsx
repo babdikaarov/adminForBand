@@ -13,7 +13,7 @@ export const AboutEdit = () => {
             <SimpleForm toolbar={<SaveButton label="Сохранить изменения" />}>
                 <TextInput
                     source="youtubeUrl"
-                    title="youtubeUrl"
+                    label="Ссылка на youtube видео"
                     fullWidth
                 />
                 <h3> На сервере:</h3>

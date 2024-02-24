@@ -32,7 +32,6 @@ export const EventStudioEdit = () => {
     const recordId = useGetRecordId();
     const { data, isLoading } = useGetList("event_studio_images");
     const listContext = useList({ data, isLoading, filter: { albumId: recordId } });
-
     return (
         <Show title=" ">
             <TabbedShowLayout>
@@ -47,6 +46,7 @@ export const EventStudioEdit = () => {
                             <TextInput source="name" />
                             <TextInput source="location" />
                             <DateInput source="date" />
+                            <DeleteButton disabled={listContext.data && listContext.data.length > 0 ? true : false} />
                         </SimpleForm>
                     </Edit>
                 </TabbedShowLayout.Tab>
@@ -91,7 +91,6 @@ export const EventStudioEdit = () => {
                     <Create
                         resource="event_studio_images"
                         title="Coll Band → Галерея → Альбом → Фотографии → добавить фото"
-                        
                     >
                         <SimpleForm
                             toolbar={<SaveImage />}

@@ -13,11 +13,14 @@
 }
 
 .div {
+    cursor: pointer;
     display: flex;
     /* margin: 0.25rem; */
+    position: relative;
     max-width: 100px;
     min-width: 65px;
     height: 100px;
+    z-index: 9999 !important;
 }
 .div img {
     width: 100%;

@@ -1,4 +1,14 @@
-import { List, Datagrid, TextField, EditButton, DeleteButton, SimpleShowLayout, RichTextField } from "react-admin";
+import {
+    List,
+    Datagrid,
+    TextField,
+    EditButton,
+    DeleteButton,
+    SimpleShowLayout,
+    RichTextField,
+    CreateButton,
+    Labeled,
+} from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
 import { useMediaQuery } from "@mui/material";
 
@@ -16,14 +26,32 @@ export const TestimonaialsList = () => {
             pagination={false}
             exporter={false}
             hasCreate={true}
+            actions={<CreateButton label="Добавить" />}
         >
             {!is700 ? (
-                <Datagrid bulkActionButtons={false}>
-                    <ModalImage source="image" />
-                    <TextField source="name" />
-                    <TextField source="reviews" />
-                    <EditButton />
-                    <DeleteButton mutationMode="pessimistic" />
+                <Datagrid
+                    bulkActionButtons={false}
+                    rowClick={is700 ? "" : "edit"}
+                >
+                    <Labeled label="Изображение">
+                        <ModalImage
+                            source="image"
+                            label={false}
+                        />
+                    </Labeled>
+                    <TextField
+                        source="name"
+                        label="Имя"
+                    />
+                    <TextField
+                        source="reviews"
+                        label="Отзыв"
+                    />
+                    <EditButton label="Изменить" />
+                    <DeleteButton
+                        label="Удалить"
+                        mutationMode="pessimistic"
+                    />
                 </Datagrid>
             ) : (
                 <Datagrid
@@ -33,12 +61,28 @@ export const TestimonaialsList = () => {
                     expandSingle
                     rowClick="expand"
                 >
-                    <ModalImage source="image" />
-                    <TextField source="name" />
-                    <EditButton />
-                    <DeleteButton mutationMode="pessimistic" />
+                    <Labeled label="Изображение">
+                        <ModalImage
+                            source="image"
+                            label={false}
+                        />
+                    </Labeled>
+                    <TextField
+                        source="name"
+                        label="Имя"
+                    />
+                    <EditButton label="Изменить" />
+                    <DeleteButton
+                        label="Удалить"
+                        mutationMode="pessimistic"
+                    />
                 </Datagrid>
             )}
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
         </List>
     );
 };

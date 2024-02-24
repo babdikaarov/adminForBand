@@ -1,4 +1,4 @@
-import { List, Datagrid, TextField, EditButton, DeleteButton, ChipField } from "react-admin";
+import { List, Datagrid, TextField, EditButton, DeleteButton, ChipField, Labeled, CreateButton } from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
 import { ClickVideo } from "../../../shared/ClickVideo";
 import { useMediaQuery } from "@mui/material";
@@ -10,23 +10,26 @@ export const TeamList = () => {
     return (
         <List
             title="Coll Band → Наша команда"
-            filter={{ id: 1 }}
+            // filter={{ id: 1 }}
             pagination={false}
             exporter={false}
             hasCreate={true}
+            actions={<CreateButton label="Добавить" />}
         >
             <Datagrid
                 bulkActionButtons={false}
-                rowClick={is450 ? "edit" : false}
+                // rowClick="edit"
             >
                 <TextField
                     source="name"
                     label="Имя"
                 />
-                <ModalImage
-                    source="image"
-                    label="photo"
-                />
+                <Labeled label="Изображение">
+                    <ModalImage
+                        source="image"
+                        label={false}
+                    />
+                </Labeled>
 
                 <ClickVideo
                     source="video"
@@ -46,6 +49,10 @@ export const TeamList = () => {
                     label={is870 ? "" : "Удалить"}
                 />
             </Datagrid>
+            <br />
+            <br />
+            <br />
+            <br />
         </List>
     );
 };
