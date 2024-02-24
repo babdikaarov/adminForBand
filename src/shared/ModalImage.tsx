@@ -23,7 +23,11 @@ export const ModalImage = (props: UseRecordContextParams<RaRecord<Identifier>> |
                         alt=""
                     />
                 ) : (
-                    <EditButton label="Добавить Фото" />
+                    <EditButton
+                        label="Добавить Фото"
+                        sx={{ textAlign: "center" }}
+                        icon={<></>}
+                    />
                 )}
             </div>
             <dialog

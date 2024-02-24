@@ -1,4 +1,4 @@
-import { List, Datagrid, TextField, EditButton, DeleteButton, ChipField, Labeled, CreateButton } from "react-admin";
+import { List, Datagrid, TextField, EditButton, DeleteButton, Labeled, CreateButton, SelectField } from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
 import { ClickVideo } from "../../../shared/ClickVideo";
 import { useMediaQuery } from "@mui/material";
@@ -42,7 +42,19 @@ export const TeamList = () => {
                         label="Роль"
                     />
                 ) : null}
-                {!is870 ? <ChipField source="orientation" /> : null}
+                {!is870 ? (
+                    <SelectField
+                        source="orientation"
+                        choices={[
+                            { id: "PORTRAIT", name: "Портретная" },
+                            { id: "LANDSCAPE", name: "Альбомная" },
+                        ]}
+                        label="Вариант"
+                        border={"1px solid"}
+                        padding="3px"
+                        borderRadius={50}
+                    />
+                ) : null}
                 {!is450 ? <EditButton label={is870 ? "" : "Изменить"} /> : null}
                 <DeleteButton
                     mutationMode="pessimistic"

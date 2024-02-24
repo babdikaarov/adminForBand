@@ -9,7 +9,6 @@ import {
     ImageInput,
     ImageField,
     BooleanInput,
-    ChipField,
     BooleanField,
     DeleteButton,
     // TextField,
@@ -22,6 +21,8 @@ import {
     List,
     TopToolbar,
     ListButton,
+    Labeled,
+    SelectField,
 } from "react-admin";
 import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
 import { useGetRecordId } from "react-admin";
@@ -54,11 +55,20 @@ export const EventBandEdit = () => {
                             <TextInput
                                 source="id"
                                 disabled
-                                label="albumId"
+                                label="Альбом id"
                             />
-                            <TextInput source="name" />
-                            <DateInput source="date" />
-                            <DeleteButton disabled={listContext.data && listContext.data.length > 0 ? true : false} />
+                            <TextInput
+                                source="name"
+                                label="Наименование"
+                            />
+                            <DateInput
+                                source="date"
+                                label="Дата"
+                            />
+                            <DeleteButton
+                                disabled={listContext.data && listContext.data.length > 0 ? true : false}
+                                label="Удалить Альбом"
+                            />
                         </SimpleForm>
                     </Edit>
                 </TabbedShowLayout.Tab>
@@ -87,15 +97,37 @@ export const EventBandEdit = () => {
                             }
                             title=" asdasd"
                         >
-                            <ModalImage source="originalImage" />
-                            <ChipField source="orientation" />
-                            <BooleanField source="coverImage" />
+                            <Labeled label="Изображение">
+                                <ModalImage
+                                    source="image"
+                                    label={false}
+                                />
+                            </Labeled>
+                            <SelectField
+                                source="orientation"
+                                choices={[
+                                    { id: "PORTRAIT", name: "Портретная" },
+                                    { id: "LANDSCAPE", name: "Альбомная" },
+                                ]}
+                                label="Вариант"
+                                border={"1px solid"}
+                                padding="3px"
+                                borderRadius={50}
+                            />
+                            <BooleanField
+                                source="coverImage"
+                                label="Обложка"
+                            />
                             {/* <BooleanField source="bluer" /> */}
-                            <EditButton resource="event_band_images" />
+                            <EditButton
+                                resource="event_band_images"
+                                label="Изменить"
+                            />
                             <DeleteButton
                                 resource="event_band_images"
                                 redirect="#"
                                 mutationMode="pessimistic"
+                                label="Удалить"
                             />
                         </Datagrid>
                     </ListContextProvider>
@@ -113,12 +145,16 @@ export const EventBandEdit = () => {
                                 source="albumId"
                                 defaultValue={recordId}
                                 disabled
+                                label="Альбом id"
                             />
                             <ImageInput
                                 source="newImage"
-                                label="Постер"
                                 multiple={false}
                                 accept="image/*"
+                                label="Новое изображение"
+                                placeholder={
+                                    <p>Перетащите изображение для загрузки или щелкните, чтобы выбрать его.</p>
+                                }
                             >
                                 <ImageField
                                     source="src"
@@ -126,7 +162,10 @@ export const EventBandEdit = () => {
                                 />
                             </ImageInput>
                             <CustomSelectInput />
-                            <BooleanInput source="coverImage" />
+                            <BooleanInput
+                                source="coverImage"
+                                label="Обложка"
+                            />
                         </SimpleForm>
                     </Create>
                 </TabbedShowLayout.Tab>
