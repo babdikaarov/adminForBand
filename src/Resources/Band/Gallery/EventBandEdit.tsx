@@ -36,13 +36,19 @@ export const EventBandEdit = () => {
     const listContext = useList({ data, isLoading, filter: { albumId: recordId } });
 
     return (
-        <Show title=" " actions={
-            <TopToolbar>
-                <ListButton label="В список" resource="event_band" />
+        <Show
+            title=" "
+            actions={
+                <TopToolbar>
+                    <ListButton
+                        label="В список"
+                        resource="event_band"
+                    />
                 </TopToolbar>
-        }>
+            }
+        >
             <TabbedShowLayout>
-                <TabbedShowLayout.Tab label="Album detail">
+                <TabbedShowLayout.Tab label="Альбом">
                     <Edit title="Coll Band → Галерея → Альбом → изменить">
                         <SimpleForm toolbar={<CustomSaveToolBar to="../../" />}>
                             <TextInput
@@ -57,7 +63,7 @@ export const EventBandEdit = () => {
                     </Edit>
                 </TabbedShowLayout.Tab>
 
-                <TabbedShowLayout.Tab label="Photo list">
+                <TabbedShowLayout.Tab label="Список">
                     <List
                         title="Coll Band → Галерея → Альбом → Фотографии"
                         hasCreate={false}
@@ -94,7 +100,7 @@ export const EventBandEdit = () => {
                         </Datagrid>
                     </ListContextProvider>
                 </TabbedShowLayout.Tab>
-                <TabbedShowLayout.Tab label="Добавить фото">
+                <TabbedShowLayout.Tab label="Добавить">
                     <Create
                         resource="event_band_images"
                         title="Coll Band → Галерея → Альбом → Фотографии → добавить фото"

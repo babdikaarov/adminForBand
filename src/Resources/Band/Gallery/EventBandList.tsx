@@ -1,4 +1,4 @@
-import { List, Datagrid, EditButton, TextField, CreateButton, Labeled} from "react-admin";
+import { List, Datagrid, EditButton, TextField, CreateButton, Labeled } from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
 import { useMediaQuery } from "@mui/material";
 
@@ -11,9 +11,7 @@ export const EventBandList = () => {
             pagination={false}
             exporter={false}
             hasCreate={true}
-            actions={
-            <CreateButton label="Добавить" />
-            }
+            actions={<CreateButton label="Добавить" />}
         >
             <Datagrid
                 bulkActionButtons={false}

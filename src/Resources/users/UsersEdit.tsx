@@ -10,11 +10,11 @@ export const UsersEdit = () => {
     // const role = listContext.data[0] && listContext.data[0].role;
     // console.log(listContext)
 
-    useEffect(()=>{
-        if(listContext.data[0].role){
-            setRole(listContext.data[0].role)
+    useEffect(() => {
+        if (listContext.data[0].role) {
+            setRole(listContext.data[0].role);
         }
-    },[listContext])
+    }, [listContext]);
     return (
         <Edit
             title="Authorization → изменить"
