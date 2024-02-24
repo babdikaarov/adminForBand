@@ -18,6 +18,7 @@ export const ModalImage = (props: UseRecordContextParams<RaRecord<Identifier>> |
             >
                 {record[props?.source] ? (
                     <img
+                        className="row_image"
                         src={record[props?.source]}
                         alt=""
                     />
@@ -32,6 +33,7 @@ export const ModalImage = (props: UseRecordContextParams<RaRecord<Identifier>> |
                 ref={dialogRef}
             >
                 <img
+                    className="modal_image"
                     src={record[props?.source]}
                     alt=""
                 />

@@ -20,6 +20,8 @@ import {
     TabbedShowLayout,
     Show,
     List,
+    TopToolbar,
+    ListButton,
 } from "react-admin";
 import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
 import { useGetRecordId } from "react-admin";
@@ -34,7 +36,11 @@ export const EventBandEdit = () => {
     const listContext = useList({ data, isLoading, filter: { albumId: recordId } });
 
     return (
-        <Show title=" ">
+        <Show title=" " actions={
+            <TopToolbar>
+                <ListButton label="В список" resource="event_band" />
+                </TopToolbar>
+        }>
             <TabbedShowLayout>
                 <TabbedShowLayout.Tab label="Album detail">
                     <Edit title="Coll Band → Галерея → Альбом → изменить">
@@ -78,6 +84,7 @@ export const EventBandEdit = () => {
                             <ModalImage source="originalImage" />
                             <ChipField source="orientation" />
                             <BooleanField source="coverImage" />
+                            {/* <BooleanField source="bluer" /> */}
                             <EditButton resource="event_band_images" />
                             <DeleteButton
                                 resource="event_band_images"

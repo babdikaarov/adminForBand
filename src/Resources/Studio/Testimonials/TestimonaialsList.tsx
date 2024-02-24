@@ -31,7 +31,7 @@ export const TestimonaialsList = () => {
             {!is700 ? (
                 <Datagrid
                     bulkActionButtons={false}
-                    rowClick={is700 ? "" : "edit"}
+                    // rowClick={is700 ? "" : "edit"}
                 >
                     <Labeled label="Изображение">
                         <ModalImage

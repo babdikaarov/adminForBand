@@ -5,7 +5,7 @@ import CustomSaveToolBar from "../../shared/CustomSaveToolBar";
 export const UserCreate = () => {
     return (
         <Create
-            resource="auth/signUp"
+            resource="auth/signUpForManager"
             title="User создать"
             redirect="list"
         >
