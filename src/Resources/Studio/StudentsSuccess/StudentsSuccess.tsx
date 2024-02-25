@@ -1,6 +1,7 @@
-import { List, Datagrid, EditButton, DeleteButton, UrlField, CreateButton } from "react-admin";
+import { List, Datagrid, EditButton, DeleteButton, UrlField, CreateButton, TopToolbar } from "react-admin";
 import { Create, Edit, SimpleForm, TextInput } from "react-admin";
-import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
+import CustomSaveCreate from "../../../shared/CustomSaveCreate";
+import CustomSaveEdit from "../../../shared/CustomSaveEdit";
 
 export const StudentsSuccessList = () => {
     return (
@@ -9,7 +10,11 @@ export const StudentsSuccessList = () => {
             pagination={false}
             exporter={false}
             hasCreate={true}
-            actions={<CreateButton label="Добавить" />}
+            actions={
+                <TopToolbar>
+                    <CreateButton label="Добавить" />
+                </TopToolbar>
+            }
         >
             <Datagrid
                 bulkActionButtons={false}
@@ -24,6 +29,8 @@ export const StudentsSuccessList = () => {
                 <DeleteButton
                     label="Удалить"
                     mutationMode="pessimistic"
+                    confirmTitle="Удаление"
+                    confirmContent="Подвердите что бы удалить"
                 />
             </Datagrid>
             <br />
@@ -40,7 +47,7 @@ export const StudentsSuccessCreate = () => {
             title="Cool Studio → История успехов студентов → добавить"
             redirect="list"
         >
-            <SimpleForm toolbar={<CustomSaveToolBar />}>
+            <SimpleForm toolbar={<CustomSaveCreate />}>
                 <br />
                 <br />
                 <TextInput
@@ -58,7 +65,7 @@ export const StudentsSuccessEdit = () => {
             title="Cool Studio → История успехов студентов → изменить"
             redirect="list"
         >
-            <SimpleForm toolbar={<CustomSaveToolBar />}>
+            <SimpleForm toolbar={<CustomSaveEdit resource="student_success_studio" />}>
                 <br />
                 <br />
                 <TextInput

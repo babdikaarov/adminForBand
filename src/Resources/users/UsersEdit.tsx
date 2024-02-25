@@ -9,8 +9,8 @@ import {
     FunctionField,
     Labeled,
 } from "react-admin";
-import CustomSaveToolBar from "../../shared/CustomSaveToolBar";
 import { useEffect, useState } from "react";
+import CustomSaveEdit from "../../shared/CustomSaveEdit";
 
 type TUser = {
     id: number;
@@ -41,7 +41,7 @@ export const UsersEdit = () => {
             redirect="list"
         >
             <SimpleForm
-                toolbar={<CustomSaveToolBar />}
+                toolbar={<CustomSaveEdit resource="auth" />}
                 defaultValues={{
                     firstName: user?.fullName.split(" ")[0],
                     lastName: user?.fullName.split(" ")[1],
@@ -61,8 +61,9 @@ export const UsersEdit = () => {
                 />
                 <TextInput
                     source="password"
-                    required
                     label="Пароль"
+                    type="password"
+                    required
                 />
                 <Labeled label="Тип">
                     <FunctionField

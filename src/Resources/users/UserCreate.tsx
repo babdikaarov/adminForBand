@@ -1,6 +1,6 @@
 import { TextInput } from "react-admin";
 import { Create, SimpleForm } from "react-admin";
-import CustomSaveToolBar from "../../shared/CustomSaveToolBar";
+import CustomSaveToolBar from "../../shared/CustomSaveCreate";
 
 export const UserCreate = () => {
     return (
@@ -13,14 +13,17 @@ export const UserCreate = () => {
                 <TextInput
                     source="firstName"
                     label="Имя"
+                    required
                 />
                 <TextInput
                     source="lastName"
                     label="Фамилия"
+                    required
                 />
                 <TextInput
                     source="email"
                     label="Почта"
+                    required
                 />
                 <TextInput
                     source="password"

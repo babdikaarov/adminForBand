@@ -1,6 +1,6 @@
 import { ImageField, ImageInput } from "react-admin";
 import { Edit, SimpleForm, TextInput } from "react-admin";
-import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
+import CustomSaveEdit from "../../../shared/CustomSaveEdit";
 
 export const TestimonaialsEdit = () => {
     return (
@@ -8,7 +8,7 @@ export const TestimonaialsEdit = () => {
             title="Cool Studio → Отзывы учеников → изменить"
             redirect="list"
         >
-            <SimpleForm toolbar={<CustomSaveToolBar />}>
+            <SimpleForm toolbar={<CustomSaveEdit resource="st_student_reviews" />}>
                 <ImageInput
                     source="newImage"
                     multiple={false}

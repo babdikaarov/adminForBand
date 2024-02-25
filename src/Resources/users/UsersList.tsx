@@ -1,4 +1,13 @@
-import { List, Datagrid, TextField, EditButton, useAuthenticated, FunctionField, CreateButton } from "react-admin";
+import {
+    List,
+    Datagrid,
+    TextField,
+    EditButton,
+    useAuthenticated,
+    FunctionField,
+    CreateButton,
+    TopToolbar,
+} from "react-admin";
 
 export const UsersList = () => {
     useAuthenticated();
@@ -6,9 +15,13 @@ export const UsersList = () => {
         <List
             title="Настройки пользователей"
             pagination={false}
-            hasCreate={true}
             exporter={false}
-            actions={<CreateButton label="Создать" />}
+            hasCreate={true}
+            actions={
+                <TopToolbar>
+                    <CreateButton label="Добавить" />
+                </TopToolbar>
+            }
         >
             <Datagrid
                 bulkActionButtons={false}

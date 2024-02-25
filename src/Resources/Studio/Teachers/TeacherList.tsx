@@ -9,9 +9,11 @@ import {
     Labeled,
     CreateButton,
     UrlField,
+    TopToolbar,
 } from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
 import { useMediaQuery } from "@mui/material";
+import { ClickUrl } from "../../../shared/ClickUrl";
 
 export const TeacherList = () => {
     const is420 = useMediaQuery("(max-width:420px)");
@@ -55,7 +57,11 @@ export const TeacherList = () => {
             pagination={false}
             exporter={false}
             hasCreate={true}
-            actions={<CreateButton label="Добавить" />}
+            actions={
+                <TopToolbar>
+                    <CreateButton label="Добавить" />
+                </TopToolbar>
+            }
         >
             <Datagrid
                 bulkActionButtons={false}
@@ -77,10 +83,9 @@ export const TeacherList = () => {
                     </Labeled>
                 ) : null}
                 {!is950 ? (
-                    <UrlField
-                        target="_blank"
+                    <ClickUrl
                         source="urlInstagram"
-                        label="Ссылка на instagram"
+                        label="Ссылка"
                     />
                 ) : null}
                 {!is550 ? (

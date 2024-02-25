@@ -1,6 +1,6 @@
 import { Edit, FieldTitle, FileField, FileInput, ImageField, ImageInput, SimpleForm, TextInput } from "react-admin";
 import CustomSelectInput from "../../../shared/CustomSelectInput";
-import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
+import CustomSaveEdit from "../../../shared/CustomSaveEdit";
 /*
  */
 export const TeamEdit = () => {
@@ -8,7 +8,7 @@ export const TeamEdit = () => {
      */
     return (
         <Edit title="Coll Band → Наша команда → изменить карточку">
-            <SimpleForm toolbar={<CustomSaveToolBar />}>
+            <SimpleForm toolbar={<CustomSaveEdit resource="team_band" />}>
                 <FieldTitle label="Карточка спереди" />
                 <ImageInput
                     source="newImage"

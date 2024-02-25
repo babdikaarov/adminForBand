@@ -1,5 +1,5 @@
 import { Edit, ImageField, ImageInput, SimpleForm, TextInput } from "react-admin";
-import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
+import CustomSaveEdit from "../../../shared/CustomSaveEdit";
 
 export const PartnersEdit = () => {
     return (
@@ -7,7 +7,7 @@ export const PartnersEdit = () => {
             title="Coll Band → Клиенты → изменить"
             redirect="list"
         >
-            <SimpleForm toolbar={<CustomSaveToolBar />}>
+            <SimpleForm toolbar={<CustomSaveEdit resource="partners_band" />}>
                 <ImageInput
                     source="newImage"
                     multiple={false}

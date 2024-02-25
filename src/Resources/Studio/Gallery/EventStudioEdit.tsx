@@ -11,7 +11,6 @@ import {
     BooleanInput,
     BooleanField,
     DeleteButton,
-    // TextField,
     useGetList,
     useList,
     ListContextProvider,
@@ -24,11 +23,13 @@ import {
     Labeled,
     SelectField,
 } from "react-admin";
-import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
+import CustomSaveCreate from "../../../shared/CustomSaveCreate";
 import { useGetRecordId } from "react-admin";
 import { Fragment } from "react";
 import CustomSelectInput from "../../../shared/CustomSelectInput";
 import { ModalImage } from "../../../shared/ModalImage";
+import CustomSaveEdit from "../../../shared/CustomSaveEdit";
+import CustomEmpty from "../../../shared/CustomEmpty";
 
 export const EventStudioEdit = () => {
     const recordId = useGetRecordId();
@@ -49,7 +50,14 @@ export const EventStudioEdit = () => {
             <TabbedShowLayout>
                 <TabbedShowLayout.Tab label="Альбом">
                     <Edit title="Coll Studio → Галерея → Альбом → изменить">
-                        <SimpleForm toolbar={<CustomSaveToolBar to="../../" />}>
+                        <SimpleForm
+                            toolbar={
+                                <CustomSaveEdit
+                                    resource="event_studio"
+                                    goBack="../../"
+                                />
+                            }
+                        >
                             <TextInput
                                 source="id"
                                 disabled
@@ -98,7 +106,7 @@ export const EventStudioEdit = () => {
                                     />
                                 </Fragment>
                             }
-                            title=" asdasd"
+                            empty={<CustomEmpty />}
                         >
                             <Labeled label="Изображение">
                                 <ModalImage
@@ -140,7 +148,12 @@ export const EventStudioEdit = () => {
                         title="Coll Band → Галерея → Альбом → Фотографии → добавить фото"
                     >
                         <SimpleForm
-                            toolbar={<CustomSaveToolBar to="/event_studio" />}
+                            toolbar={
+                                <CustomSaveCreate
+                                    nameTo="В список фотографий"
+                                    to={`/event_studio/${recordId}/1`}
+                                />
+                            }
                             sanitizeEmptyValues
                         >
                             <TextInput

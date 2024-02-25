@@ -1,4 +1,13 @@
-import { List, Datagrid, EditButton, DeleteButton, TextField /* UrlField */, Labeled, CreateButton } from "react-admin";
+import {
+    List,
+    Datagrid,
+    EditButton,
+    DeleteButton,
+    TextField /* UrlField */,
+    Labeled,
+    CreateButton,
+    TopToolbar,
+} from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
 
 export const PartnersList = () => {
@@ -8,7 +17,11 @@ export const PartnersList = () => {
             pagination={false}
             exporter={false}
             hasCreate={true}
-            actions={<CreateButton label="Добавить" />}
+            actions={
+                <TopToolbar>
+                    <CreateButton label="Добавить" />
+                </TopToolbar>
+            }
         >
             <Datagrid
                 bulkActionButtons={false}

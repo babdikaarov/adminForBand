@@ -6,9 +6,10 @@ import { useRecordContext } from "react-admin";
 export const ModalImage = (props: UseRecordContextParams<RaRecord<Identifier>> | undefined) => {
     const { dialogRef, handleClose, openModal } = useModalCotroller();
     const record = useRecordContext(props);
+
     // console.log(record);
     const id = `${record.id}${record[props?.source]}`;
-    // console.log(record[props?.source])
+
     return record ? (
         <span>
             <div
@@ -27,6 +28,7 @@ export const ModalImage = (props: UseRecordContextParams<RaRecord<Identifier>> |
                         label="Добавить Фото"
                         sx={{ textAlign: "center" }}
                         icon={<></>}
+                        to={`/${props?.to}/${record.id}/2`}
                     />
                 )}
             </div>
