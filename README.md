@@ -2,11 +2,11 @@
 
 how to run this project:
 
-after cloning project
+
 
 ```shell
 #configure .env variables
-VITE_COOL_API - base backend url
+VITE_COOL_API - base backend url this project suitable for Cool Band back end for reuse adjust data provider and gallery reasources
 VITE_COOL_URL - base domain
 
 #run
