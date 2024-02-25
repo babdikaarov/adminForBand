@@ -10,6 +10,7 @@ import {
     useGetOne,
     useUpdate,
     useGetRecordId,
+    Button,
 } from "react-admin";
 import CustomSelectInput from "../../../../shared/CustomSelectInput";
 import { useNavigate } from "react-router-dom";
@@ -34,7 +35,10 @@ export const ImageEdit = () => {
     }, [albumId]);
 
     return (
-        <Edit resource="event_band_images">
+        <Edit
+            resource="event_band_images"
+            title={`Coll Band → Галерея → Альбом → Фотографии → изменить фото`}
+        >
             <SimpleForm
                 toolbar={
                     <SaveImage
@@ -47,12 +51,14 @@ export const ImageEdit = () => {
                 <TextInput
                     source="albumId"
                     disabled
+                    label="Альбом id"
                 />
                 <ImageInput
                     source="newImage"
-                    label="Постер"
                     multiple={false}
                     accept="image/*"
+                    label="Новое изображение"
+                    placeholder={<p>Перетащите изображение для загрузки или щелкните, чтобы выбрать его.</p>}
                 >
                     <ImageField
                         source="src"
@@ -60,8 +66,12 @@ export const ImageEdit = () => {
                     />
                 </ImageInput>
                 <CustomSelectInput />
+                <span style={{ opacity: "0.7", fontSize: 14 }}> На сервере:</span>
                 <ModalImage source="image" />
-                <BooleanInput source="coverImage" />
+                <BooleanInput
+                    source="coverImage"
+                    label="Обложка"
+                />
             </SimpleForm>
         </Edit>
     );
@@ -76,26 +86,30 @@ const SaveImage = ({ albumId, handleSave }: { albumId: number | null; handleSave
     };
 
     return (
-        <Toolbar>
+        <Toolbar
+            sx={{
+                position: "sticky",
+                bottom: "0px",
+                justifyContent: "space-between",
+            }}
+        >
             <SaveButton
                 label="Сохранить"
+                type="button"
+                variant="text"
                 mutationOptions={{
                     onSuccess: (data) => {
                         handleSave(data);
                         handleNavigate();
                     },
                 }}
-                type="button"
-                variant="text"
             />
 
-            <button
-                className="custom_ape_button"
-                type="button"
+            <Button
+                label="Назад"
+                size="large"
                 onClick={handleNavigate}
-            >
-                Назад
-            </button>
+            />
         </Toolbar>
     );
 };

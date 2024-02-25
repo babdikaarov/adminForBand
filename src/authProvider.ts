@@ -10,7 +10,7 @@ export const authProvider: AuthProvider = {
             body: JSON.stringify({ email: username, password }),
         });
         if (json) {
-            localStorage.setItem("user", JSON.stringify({ ...json, authenticated: true, fullName: json.role }));
+            localStorage.setItem("user", JSON.stringify({ ...json, authenticated: true, fullName: json.fullName }));
             localStorage.setItem("role", json.role);
             return Promise.resolve();
         }

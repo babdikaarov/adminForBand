@@ -23,7 +23,7 @@ const CustomSelectInput = () => {
         <RadioButtonGroupInput
             source="orientation"
             choices={choices}
-            label="Фотография"
+            label="Тип"
             value={value}
             onChange={handleChange}
             defaultChecked={true}

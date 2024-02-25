@@ -1,38 +1,81 @@
-import { Edit, SimpleForm, TextInput, DeleteButton, useGetList, useGetRecordId, useList } from "react-admin";
+import {
+    Edit,
+    SimpleForm,
+    TextInput,
+    DeleteButton,
+    useGetList,
+    useGetRecordId,
+    useList,
+    FunctionField,
+    Labeled,
+} from "react-admin";
 import CustomSaveToolBar from "../../shared/CustomSaveToolBar";
 import { useEffect, useState } from "react";
+
+type TUser = {
+    id: number;
+    fullName: string;
+    email: string;
+    role: string;
+};
 
 export const UsersEdit = () => {
     const recordId = useGetRecordId();
     const { data, isLoading } = useGetList("auth");
-    const [role, setRole] = useState("");
+    const [user, setUser] = useState<TUser | null>(null);
     const listContext = useList({ data, isLoading, filter: { id: recordId } });
-    // const role = listContext.data[0] && listContext.data[0].role;
-    // console.log(listContext)
 
     useEffect(() => {
-        if (listContext.data[0].role) {
-            setRole(listContext.data[0].role);
+        if (listContext.data) {
+            setUser(listContext.data[0] && listContext.data[0]);
         }
-    }, [listContext]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        return () => {
+            setUser(null);
+        };
+    }, [listContext, user]);
+
     return (
         <Edit
             title="Authorization → изменить"
             redirect="list"
         >
-            <SimpleForm toolbar={<CustomSaveToolBar />}>
+            <SimpleForm
+                toolbar={<CustomSaveToolBar />}
+                defaultValues={{
+                    firstName: user?.fullName.split(" ")[0],
+                    lastName: user?.fullName.split(" ")[1],
+                }}
+            >
                 <TextInput
-                    source="fullName"
-                    disabled
+                    source="firstName"
+                    label="Имя"
                 />
-                <TextInput source="email" />
-                <TextInput source="password" />
                 <TextInput
-                    disabled
-                    source="role"
+                    source="lastName"
+                    label="Фамилия"
                 />
-                <DeleteButton />
-                <DeleteButton disabled={role === "ADMIN" ? true : false} />
+                <TextInput
+                    source="email"
+                    label="Почта"
+                />
+                <TextInput
+                    source="password"
+                    required
+                    label="Пароль"
+                />
+                <Labeled label="Тип">
+                    <FunctionField
+                        render={(record: { role: string }) => `${record.role === "ADMIN" ? "Владелец" : "Пользотель"}`}
+                        padding="3px"
+                        borderRadius={50}
+                    />
+                </Labeled>
+
+                <DeleteButton
+                    disabled={user?.role !== "ADMIN" ? false : true}
+                    mutationMode="pessimistic"
+                />
             </SimpleForm>
         </Edit>
     );

@@ -14,6 +14,7 @@ import { callBackImageBand } from "./Resources/Band/Gallery/image/callBackImageB
 import { callBackEventBand } from "./Resources/Band/Gallery/callBackEventBand";
 import { callBackImageStudio } from "./Resources/Studio/Gallery/image/callBackImageStudio";
 import { callBackEventStudio } from "./Resources/Studio/Gallery/callBackEventStudio";
+import { callBackUser } from "./Resources/users/callBackUser";
 
 const baseDataProvider = customDataProvider(import.meta.env.VITE_COOL_API);
 
@@ -32,6 +33,7 @@ const callBacks = [
     callBackEventBand,
     callBackImageStudio,
     callBackEventStudio,
+    callBackUser,
 ];
 
 // export const dataProvider = customDataProvider(import.meta.env.VITE_COOL_API);

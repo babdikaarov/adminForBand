@@ -7,7 +7,7 @@ export const EventBandList = () => {
 
     return (
         <List
-            title="Coll Band → Gallery"
+            title="Coll Band → Галерея"
             pagination={false}
             exporter={false}
             hasCreate={true}

@@ -1,4 +1,4 @@
-import { List, Datagrid, TextField, EditButton, useAuthenticated } from "react-admin";
+import { List, Datagrid, TextField, EditButton, useAuthenticated, FunctionField, CreateButton } from "react-admin";
 
 export const UsersList = () => {
     useAuthenticated();
@@ -8,15 +8,26 @@ export const UsersList = () => {
             pagination={false}
             hasCreate={true}
             exporter={false}
+            actions={<CreateButton label="Создать" />}
         >
             <Datagrid
                 bulkActionButtons={false}
-                // rowClick={"edit"}
+                rowClick={"edit"}
             >
-                <TextField source="email" />
-                <TextField source="fullName" />
-                <TextField source="role" />
-                <EditButton />
+                <TextField
+                    source="email"
+                    label="Почта"
+                />
+                <TextField
+                    source="fullName"
+                    label="Полное имя"
+                />
+                {/* <TextField source="role" /> */}
+                <FunctionField
+                    label="Тип"
+                    render={(record: { role: string }) => `${record.role === "ADMIN" ? "Владелец" : "Пользотель"}`}
+                />
+                <EditButton label="Изменить" />
             </Datagrid>
         </List>
     );

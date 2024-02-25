@@ -37,7 +37,7 @@ export const StudentsSuccessList = () => {
 export const StudentsSuccessCreate = () => {
     return (
         <Create
-            title="Cool Studio → История успехов студентов → создать"
+            title="Cool Studio → История успехов студентов → добавить"
             redirect="list"
         >
             <SimpleForm toolbar={<CustomSaveToolBar />}>

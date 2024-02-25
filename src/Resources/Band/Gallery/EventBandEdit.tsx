@@ -28,7 +28,6 @@ import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
 import { useGetRecordId } from "react-admin";
 import { Fragment } from "react";
 import CustomSelectInput from "../../../shared/CustomSelectInput";
-import SaveImage from "./image/SaveImage";
 import { ModalImage } from "../../../shared/ModalImage";
 
 export const EventBandEdit = () => {
@@ -68,6 +67,7 @@ export const EventBandEdit = () => {
                             <DeleteButton
                                 disabled={listContext.data && listContext.data.length > 0 ? true : false}
                                 label="Удалить Альбом"
+                                mutationMode="pessimistic"
                             />
                         </SimpleForm>
                     </Edit>
@@ -138,7 +138,7 @@ export const EventBandEdit = () => {
                         title="Coll Band → Галерея → Альбом → Фотографии → добавить фото"
                     >
                         <SimpleForm
-                            toolbar={<SaveImage />}
+                            toolbar={<CustomSaveToolBar to="/event_band" />}
                             sanitizeEmptyValues
                         >
                             <TextInput

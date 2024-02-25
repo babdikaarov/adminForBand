@@ -95,7 +95,6 @@ export const TeacherList = () => {
                     mutationMode="pessimistic"
                     label={is700 ? "" : "Удалить"}
                 />
-                {/* <DeleteButton mutationMode="pessimistic" /> */}
             </Datagrid>
             <br />
             <br />

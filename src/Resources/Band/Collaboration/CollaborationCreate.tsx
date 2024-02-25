@@ -3,7 +3,7 @@ import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
 export const CollaborationCreate = () => {
     return (
         <Create
-            title="Coll Band → Коллаборация → создать"
+            title="Coll Band → Коллаборация → добавить"
             redirect="list"
         >
             <SimpleForm toolbar={<CustomSaveToolBar />}>

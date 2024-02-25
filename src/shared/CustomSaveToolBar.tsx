@@ -1,24 +1,33 @@
-import { SaveButton, Toolbar } from "react-admin";
+import { Button, SaveButton, Toolbar, useNotify } from "react-admin";
 import { useNavigate } from "react-router-dom";
 
 const CustomSaveToolBar = ({ to = "../" }) => {
     const navigate = useNavigate();
+    const notify = useNotify();
     return (
         <Toolbar
             sx={{
                 position: "sticky",
                 bottom: "0px",
+                justifyContent: "space-between",
             }}
         >
-            <SaveButton label="Сохранить" />
-
-            <button
-                className="custom_ape_button"
+            <SaveButton
+                label="Сохранить"
                 type="button"
+                variant="text"
+                mutationOptions={{
+                    onSuccess: () => {
+                        notify("Успешно сохранено");
+                    },
+                }}
+            />
+
+            <Button
+                label="Назад"
+                size="large"
                 onClick={() => navigate(to)}
-            >
-                Назад
-            </button>
+            />
         </Toolbar>
     );
 };

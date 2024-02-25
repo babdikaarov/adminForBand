@@ -5,10 +5,25 @@ how to run this project:
 after cloning project
 
 ```shell
+#configure .env variables
+VITE_COOL_API - base backend url
+VITE_COOL_URL - base domain
+
 #run
 npm install
 npm run dev
 #project will run on server
+
+#production build
+npm run build
+
+#error checking
+npx eslint .
+
+#prettier
+npm run format
+
+
 ```
 
-<!-- style Band project according this demo https://github.com/marmelab/react-admin/tree/master/examples/demo -->
+[@babdikaarov](https://github.com/babdikaarov)

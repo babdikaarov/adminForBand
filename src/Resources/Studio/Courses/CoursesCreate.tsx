@@ -5,7 +5,7 @@ import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
 export const CoursesCreate = () => {
     return (
         <Create
-            title="Cool Studio → Направления → создать"
+            title="Cool Studio → Направления → добавить"
             redirect="list"
         >
             <SimpleForm toolbar={<CustomSaveToolBar />}>

@@ -6,14 +6,27 @@ export const UserCreate = () => {
     return (
         <Create
             resource="auth/signUpForManager"
-            title="User создать"
+            title="Пользователь добавить"
             redirect="list"
         >
             <SimpleForm toolbar={<CustomSaveToolBar />}>
-                <TextInput source="firstName" />
-                <TextInput source="lastName" />
-                <TextInput source="email" />
-                <TextInput source="password" />
+                <TextInput
+                    source="firstName"
+                    label="Имя"
+                />
+                <TextInput
+                    source="lastName"
+                    label="Фамилия"
+                />
+                <TextInput
+                    source="email"
+                    label="Почта"
+                />
+                <TextInput
+                    source="password"
+                    required
+                    label="Пароль"
+                />
             </SimpleForm>
         </Create>
     );
