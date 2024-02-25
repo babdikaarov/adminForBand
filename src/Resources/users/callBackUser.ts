@@ -1,7 +1,7 @@
 import { ResourceCallbacks } from "react-admin";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const callBack = async (params: Partial<any>) => {
-    console.log(params.lastName);
+    // console.log(params.lastName);
     const data = {
         id: params.id,
         firstName: params.firstName ?? "",
@@ -9,6 +9,7 @@ const callBack = async (params: Partial<any>) => {
         email: params.email,
         password: params.password,
     };
+
     return data;
 };
 

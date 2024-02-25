@@ -2,8 +2,6 @@
 
 how to run this project:
 
-
-
 ```shell
 #configure .env variables
 VITE_COOL_API - base backend url this project suitable for Cool Band back end for reuse adjust data provider and gallery reasources

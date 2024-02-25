@@ -1,6 +1,6 @@
 import { Create, FieldTitle, FileField, FileInput, ImageField, ImageInput, SimpleForm, TextInput } from "react-admin";
 import CustomSelectInput from "../../../shared/CustomSelectInput";
-import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
+import CustomSaveCreate from "../../../shared/CustomSaveCreate";
 
 export const TeamCreate = () => {
     return (
@@ -8,7 +8,7 @@ export const TeamCreate = () => {
             title="Coll Band → Наша команда → добавить карточку"
             redirect="list"
         >
-            <SimpleForm toolbar={<CustomSaveToolBar />}>
+            <SimpleForm toolbar={<CustomSaveCreate />}>
                 <FieldTitle label="Карточка спереди" />
                 <ImageInput
                     source="newImage"

@@ -1,5 +1,5 @@
 import { Edit, SimpleForm, TextInput, ImageInput, ImageField } from "react-admin";
-import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
+import CustomSaveEdit from "../../../shared/CustomSaveEdit";
 
 export const CollaborationEdit = () => {
     return (
@@ -7,7 +7,7 @@ export const CollaborationEdit = () => {
             title="Coll Band → Коллаборация → изменить"
             redirect="list"
         >
-            <SimpleForm toolbar={<CustomSaveToolBar />}>
+            <SimpleForm toolbar={<CustomSaveEdit resource="collaborations_band" />}>
                 <ImageInput
                     source="newImage"
                     multiple={false}

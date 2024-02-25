@@ -1,5 +1,5 @@
 import { Edit, ImageField, ImageInput, SimpleForm, TextInput } from "react-admin";
-import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
+import CustomSaveEdit from "../../../shared/CustomSaveEdit";
 
 export const TeacherEdit = () => {
     return (
@@ -7,7 +7,7 @@ export const TeacherEdit = () => {
             title="Cool Studio → Преподаватели → изменить"
             redirect="list"
         >
-            <SimpleForm toolbar={<CustomSaveToolBar />}>
+            <SimpleForm toolbar={<CustomSaveEdit resource="st_teachers" />}>
                 <TextInput
                     source="name"
                     label="Имя"

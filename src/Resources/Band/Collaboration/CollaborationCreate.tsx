@@ -1,12 +1,12 @@
 import { Create, ImageField, ImageInput, SimpleForm, TextInput } from "react-admin";
-import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
+import CustomSaveCreate from "../../../shared/CustomSaveCreate";
 export const CollaborationCreate = () => {
     return (
         <Create
             title="Coll Band → Коллаборация → добавить"
             redirect="list"
         >
-            <SimpleForm toolbar={<CustomSaveToolBar />}>
+            <SimpleForm toolbar={<CustomSaveCreate />}>
                 <ImageInput
                     source="newImage"
                     multiple={false}

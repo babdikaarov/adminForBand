@@ -3,7 +3,6 @@ import { GetOneParams, GetOneResult } from "react-admin";
 export const getOne = async (url: string, resource: string, params: GetOneParams): Promise<GetOneResult> => {
     const id = params?.id;
     // console.log(resource);
-
     try {
         const token = JSON.parse(localStorage.user).token;
         const headers = new Headers();

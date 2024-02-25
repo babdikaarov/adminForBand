@@ -1,4 +1,4 @@
-import { List, Datagrid, TextField, EditButton, DeleteButton, CreateButton, Labeled } from "react-admin";
+import { List, Datagrid, TextField, EditButton, DeleteButton, CreateButton, Labeled, TopToolbar } from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
 
 export const CollaborationList = () => {
@@ -8,7 +8,11 @@ export const CollaborationList = () => {
             pagination={false}
             exporter={false}
             hasCreate={true}
-            actions={<CreateButton label="Добавить" />}
+            actions={
+                <TopToolbar>
+                    <CreateButton label="Добавить" />
+                </TopToolbar>
+            }
         >
             <Datagrid
                 bulkActionButtons={false}

@@ -1,4 +1,14 @@
-import { List, Datagrid, TextField, EditButton, DeleteButton, Labeled, CreateButton, SelectField } from "react-admin";
+import {
+    List,
+    Datagrid,
+    TextField,
+    EditButton,
+    DeleteButton,
+    Labeled,
+    CreateButton,
+    SelectField,
+    TopToolbar,
+} from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
 import { ClickVideo } from "../../../shared/ClickVideo";
 import { useMediaQuery } from "@mui/material";
@@ -14,7 +24,11 @@ export const TeamList = () => {
             pagination={false}
             exporter={false}
             hasCreate={true}
-            actions={<CreateButton label="Добавить" />}
+            actions={
+                <TopToolbar>
+                    <CreateButton label="Добавить" />
+                </TopToolbar>
+            }
         >
             <Datagrid
                 bulkActionButtons={false}

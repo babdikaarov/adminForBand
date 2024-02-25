@@ -3,6 +3,7 @@ import createFormData from "../../../modules/createFormData";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const callBack = async (params: Partial<any>) => {
+    console.log(params);
     const newParams = {
         data: params.data.date,
         name: params.data.name,

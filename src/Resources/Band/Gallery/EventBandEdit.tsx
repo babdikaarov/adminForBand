@@ -23,18 +23,19 @@ import {
     ListButton,
     Labeled,
     SelectField,
+    useGetRecordId,
 } from "react-admin";
-import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
-import { useGetRecordId } from "react-admin";
 import { Fragment } from "react";
+import CustomSaveToolBar from "../../../shared/CustomSaveCreate";
 import CustomSelectInput from "../../../shared/CustomSelectInput";
 import { ModalImage } from "../../../shared/ModalImage";
+import CustomSaveEdit from "../../../shared/CustomSaveEdit";
+import CustomEmpty from "../../../shared/CustomEmpty";
 
 export const EventBandEdit = () => {
     const recordId = useGetRecordId();
     const { data, isLoading } = useGetList("event_band_images");
     const listContext = useList({ data, isLoading, filter: { albumId: recordId } });
-
     return (
         <Show
             title=" "
@@ -50,7 +51,14 @@ export const EventBandEdit = () => {
             <TabbedShowLayout>
                 <TabbedShowLayout.Tab label="Альбом">
                     <Edit title="Coll Band → Галерея → Альбом → изменить">
-                        <SimpleForm toolbar={<CustomSaveToolBar to="../../" />}>
+                        <SimpleForm
+                            toolbar={
+                                <CustomSaveEdit
+                                    resource="event_band"
+                                    goBack="../../"
+                                />
+                            }
+                        >
                             <TextInput
                                 source="id"
                                 disabled
@@ -95,7 +103,7 @@ export const EventBandEdit = () => {
                                     />
                                 </Fragment>
                             }
-                            title=" asdasd"
+                            empty={<CustomEmpty />}
                         >
                             <Labeled label="Изображение">
                                 <ModalImage
@@ -138,7 +146,12 @@ export const EventBandEdit = () => {
                         title="Coll Band → Галерея → Альбом → Фотографии → добавить фото"
                     >
                         <SimpleForm
-                            toolbar={<CustomSaveToolBar to="/event_band" />}
+                            toolbar={
+                                <CustomSaveToolBar
+                                    nameTo="В список фотографий"
+                                    to={`/event_band/${recordId}/1`}
+                                />
+                            }
                             sanitizeEmptyValues
                         >
                             <TextInput

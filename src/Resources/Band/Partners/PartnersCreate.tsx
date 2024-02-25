@@ -1,5 +1,5 @@
 import { Create, ImageField, ImageInput, SimpleForm, TextInput } from "react-admin";
-import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
+import CustomSaveCreate from "../../../shared/CustomSaveCreate";
 
 export const PartnersCreate = () => {
     return (
@@ -7,7 +7,7 @@ export const PartnersCreate = () => {
             title="Coll Band → Клиенты → добавить"
             redirect="list"
         >
-            <SimpleForm toolbar={<CustomSaveToolBar />}>
+            <SimpleForm toolbar={<CustomSaveCreate />}>
                 <ImageInput
                     source="newImage"
                     multiple={false}

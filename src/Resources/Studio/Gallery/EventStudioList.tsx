@@ -1,4 +1,4 @@
-import { List, Datagrid, EditButton, TextField, Labeled, CreateButton } from "react-admin";
+import { List, Datagrid, EditButton, TextField, Labeled, CreateButton, TopToolbar } from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
 import { useMediaQuery } from "@mui/material";
 
@@ -11,7 +11,11 @@ export const EventStudioList = () => {
             pagination={false}
             exporter={false}
             hasCreate={true}
-            actions={<CreateButton label="Добавить" />}
+            actions={
+                <TopToolbar>
+                    <CreateButton label="Добавить" />
+                </TopToolbar>
+            }
         >
             <Datagrid
                 bulkActionButtons={false}
@@ -22,6 +26,7 @@ export const EventStudioList = () => {
                     <ModalImage
                         source="coverImage"
                         label={false}
+                        to="event_studio"
                     />
                 </Labeled>
                 <TextField

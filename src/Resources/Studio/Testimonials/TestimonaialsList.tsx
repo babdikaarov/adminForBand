@@ -8,6 +8,7 @@ import {
     RichTextField,
     CreateButton,
     Labeled,
+    TopToolbar,
 } from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
 import { useMediaQuery } from "@mui/material";
@@ -26,7 +27,11 @@ export const TestimonaialsList = () => {
             pagination={false}
             exporter={false}
             hasCreate={true}
-            actions={<CreateButton label="Добавить" />}
+            actions={
+                <TopToolbar>
+                    <CreateButton label="Добавить" />
+                </TopToolbar>
+            }
         >
             {!is700 ? (
                 <Datagrid
