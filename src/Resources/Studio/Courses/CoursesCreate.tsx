@@ -1,17 +1,31 @@
-import { TextInput } from "react-admin";
+import { ImageField, ImageInput, TextInput } from "react-admin";
 import { Create, SimpleForm } from "react-admin";
-import CustomSelectInput from "../../../shared/CustomSelectInput";
+import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
 
 export const CoursesCreate = () => {
-   // const postDefaultValue = () => ({ id: uuid(), created_at: new Date(), nb_views: 0 });
-   return (
-      <Create title="Cool Studio → Направления → создать" redirect="list">
-         {/* <SimpleForm toolbar={<SaveButton />} defaultValues={postDefaultValue}> */}
-         <SimpleForm>
-            <TextInput source="name" title="name" />
-            <TextInput source="image" title="name" />
-            <CustomSelectInput />
-         </SimpleForm>
-      </Create>
-   );
+    return (
+        <Create
+            title="Cool Studio → Направления → добавить"
+            redirect="list"
+        >
+            <SimpleForm toolbar={<CustomSaveToolBar />}>
+                <ImageInput
+                    source="newImage"
+                    multiple={false}
+                    accept="image/*"
+                    label="Новое изображение"
+                    placeholder={<p>Перетащите изображение для загрузки или щелкните, чтобы выбрать его.</p>}
+                >
+                    <ImageField
+                        source="src"
+                        title="новое лого"
+                    />
+                </ImageInput>
+                <TextInput
+                    source="name"
+                    label="Напрваление"
+                />
+            </SimpleForm>
+        </Create>
+    );
 };

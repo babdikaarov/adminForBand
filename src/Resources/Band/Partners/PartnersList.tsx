@@ -1,17 +1,39 @@
-import { List, Datagrid, TextField, EditButton, DeleteButton, ChipField } from "react-admin";
+import { List, Datagrid, EditButton, DeleteButton, TextField /* UrlField */, Labeled, CreateButton } from "react-admin";
+import { ModalImage } from "../../../shared/ModalImage";
 
 export const PartnersList = () => {
-   return (
-      <List title="Coll Band → Клиенты" hasCreate={true}>
-         {/* <CreateButton /> */}
-         <Datagrid>
-            <TextField source="id" />
-            <TextField source="image" title="name" />
-            <TextField source="url" title="name" />
-            <ChipField source="orientation" title="name" />
-            <EditButton />
-            <DeleteButton />
-         </Datagrid>
-      </List>
-   );
+    return (
+        <List
+            title="Coll Band → Клиенты"
+            pagination={false}
+            exporter={false}
+            hasCreate={true}
+            actions={<CreateButton label="Добавить" />}
+        >
+            <Datagrid
+                bulkActionButtons={false}
+                // rowClick="edit"
+            >
+                <Labeled label="Изображение">
+                    <ModalImage
+                        source="image"
+                        label={false}
+                    />
+                </Labeled>
+                <TextField
+                    source="url"
+                    label="Наименование"
+                />
+                <EditButton label="Изменить" />
+                <DeleteButton
+                    label="Удалить"
+                    mutationMode="pessimistic"
+                />
+            </Datagrid>
+            <br />
+            <br />
+            <br />
+            <br />
+        </List>
+    );
 };

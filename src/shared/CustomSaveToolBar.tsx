@@ -1,21 +1,35 @@
-import { SaveButton, Toolbar } from "react-admin";
+import { Button, SaveButton, Toolbar, useNotify } from "react-admin";
 import { useNavigate } from "react-router-dom";
 
-interface CustomSaveToolBarProps {
-   transform?: (data: any, options?: any) => FormData;
-}
+const CustomSaveToolBar = ({ to = "../" }) => {
+    const navigate = useNavigate();
+    const notify = useNotify();
+    return (
+        <Toolbar
+            sx={{
+                position: "sticky",
+                bottom: "0px",
+                justifyContent: "space-between",
+            }}
+        >
+            <SaveButton
+                label="Сохранить"
+                type="button"
+                variant="text"
+                mutationOptions={{
+                    onSuccess: () => {
+                        notify("Успешно сохранено");
+                    },
+                }}
+            />
 
-const CustomSaveToolBar: React.FC<CustomSaveToolBarProps> = () => {
-   const navigate = useNavigate();
-   return (
-      <Toolbar>
-         <SaveButton label="Save" />
-         <div> postav style suda</div>
-         <button type="button" onClick={() => navigate("../")}>
-            Go back
-         </button>
-      </Toolbar>
-   );
+            <Button
+                label="Назад"
+                size="large"
+                onClick={() => navigate(to)}
+            />
+        </Toolbar>
+    );
 };
 
 export default CustomSaveToolBar;

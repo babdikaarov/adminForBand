@@ -1,16 +1,31 @@
-import { List, Datagrid, TextField, EditButton, ChipField } from "react-admin";
+import { Edit, SimpleForm, ImageInput, ImageField, SaveButton } from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
 
 export const AboutList = () => {
-   return (
-      <List title="Coll Band → О нас" hasCreate={false}>
-         <Datagrid bulkActionButtons={false}>
-            <ModalImage source="image" label="Постер" />
-            {/* bluer orientation убрать потом на продакшне */}
-            <ChipField source="orientation" />
-            <TextField source="bluer" />
-            <EditButton />
-         </Datagrid>
-      </List>
-   );
+    return (
+        <Edit
+            title="Coll Band → О нас"
+            id={1}
+        >
+            <SimpleForm toolbar={<SaveButton label="Сохранить изменения" />}>
+                <ImageInput
+                    source="newImage"
+                    label="Новое изображение"
+                    multiple={false}
+                    accept="image/*"
+                    placeholder={<p>Перетащите изображение для загрузки или щелкните, чтобы выбрать его.</p>}
+                >
+                    <ImageField
+                        source="src"
+                        title=""
+                    />
+                </ImageInput>
+                <h3> На сервере:</h3>
+                <ModalImage
+                    source="image"
+                    title="На сервере"
+                />
+            </SimpleForm>
+        </Edit>
+    );
 };

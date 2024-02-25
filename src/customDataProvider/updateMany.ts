@@ -1,47 +1,43 @@
 // import { UpdateManyParams, UpdateManyResult } from "react-admin";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const updateMany = async () => {
-   // export const updateMany = async (url: string, resource: string, params: UpdateManyParams): Promise<UpdateManyResult> => {
-   // const { ids } = params;
-   // console.log(params, "FIXME", resource);
-   try {
-      return { data: [] };
-      //   const token = JSON.parse(localStorage.user).token;
-      //   const jsonData = JSON.stringify({ ids, ...data });
-      //   console.log({ jsonData });
-      //   const encoder = new TextEncoder();
-      //   const contentLength = encoder.encode(jsonData).length;
+    try {
+        return { data: [] };
+        //   const token = JSON.parse(localStorage.user).token;
+        //   const jsonData = JSON.stringify({ ids, ...data });
+        //   console.log({ jsonData });
+        //   const encoder = new TextEncoder();
+        //   const contentLength = encoder.encode(jsonData).length;
 
-      //   const headers = {
-      //     Authorization: `Bearer ${token}`,
-      //     "Content-Type": "application/json",
-      //     "Content-Length": contentLength.toString(),
-      //   };
+        //   const headers = {
+        //     Authorization: `Bearer ${token}`,
+        //     "Content-Type": "application/json",
+        //     "Content-Length": contentLength.toString(),
+        //   };
 
-      //   const parameters = {
-      //     method: "PUT",
-      //     headers,
-      //     // body: jsonData,
-      //   };
-      //   const promises = ids.map(async (id) => {
-      //     const promise = await fetch(`${url}/${resource}/${id}`, parameters);
-      //     return promise;
-      //   });
-      //   const response = await Promise.all(promises);
+        //   const parameters = {
+        //     method: "PUT",
+        //     headers,
+        //     // body: jsonData,
+        //   };
+        //   const promises = ids.map(async (id) => {
+        //     const promise = await fetch(`${url}/${resource}/${id}`, parameters);
+        //     return promise;
+        //   });
+        //   const response = await Promise.all(promises);
 
-      //   //   const response = await fetch(`${url}/${resource}/${id}`, parameters);
+        //   //   const response = await fetch(`${url}/${resource}/${id}`, parameters);
 
-      //   //   const responseData = await response.json();
-      //   console.log(response);
+        //   //   const responseData = await response.json();
+        //   console.log(response);
 
-      //   return {
-      //     data: [],
-      //   };
-   } catch (error) {
-      console.error("Error in updateMany:", error);
-      return Promise.reject(error);
-   }
+        //   return {
+        //     data: [],
+        //   };
+    } catch (error) {
+        console.error("Error in updateMany:", error);
+        return Promise.reject(error);
+    }
 };
 
 // const options = {

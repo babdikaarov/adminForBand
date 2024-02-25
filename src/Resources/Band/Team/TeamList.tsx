@@ -1,33 +1,70 @@
-import { List, Datagrid, TextField, EditButton, DeleteButton, ChipField, UrlField } from "react-admin";
+import { List, Datagrid, TextField, EditButton, DeleteButton, Labeled, CreateButton, SelectField } from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
+import { ClickVideo } from "../../../shared/ClickVideo";
+import { useMediaQuery } from "@mui/material";
 
 export const TeamList = () => {
-   /* 
-   {
-name	string
-image	string($binary)
-video	string($binary)
-bluer	string
-instrument	string
-orientation	string
-Enum:
-Array [ 2 ]
-}
-   */
-   return (
-      <List title="Coll Band → Наша команда" hasCreate={true}>
-         <Datagrid>
-            <TextField source="id" />
-            <TextField source="name" label="Имя" />
-            <ModalImage source="image" label="photo" />
-            {/* fixme after saveedit source for vide from context is invalid type */}
-            <UrlField source="video" label="video" target="blank" />
-            <TextField source="bluer" label="bluer" />
-            <TextField source="instrument" label="Роль" />
-            <ChipField source="orientation" />
-            <EditButton />
-            <DeleteButton />
-         </Datagrid>
-      </List>
-   );
+    const is870 = useMediaQuery("(max-width:870px)");
+    const is660 = useMediaQuery("(max-width:660px)");
+    const is450 = useMediaQuery("(max-width:450px)");
+    return (
+        <List
+            title="Coll Band → Наша команда"
+            // filter={{ id: 1 }}
+            pagination={false}
+            exporter={false}
+            hasCreate={true}
+            actions={<CreateButton label="Добавить" />}
+        >
+            <Datagrid
+                bulkActionButtons={false}
+                // rowClick="edit"
+            >
+                <TextField
+                    source="name"
+                    label="Имя"
+                />
+                <Labeled label="Изображение">
+                    <ModalImage
+                        source="image"
+                        label={false}
+                    />
+                </Labeled>
+
+                <ClickVideo
+                    source="video"
+                    label="Видео"
+                    text="видео"
+                />
+                {!is660 ? (
+                    <TextField
+                        source="instrument"
+                        label="Роль"
+                    />
+                ) : null}
+                {!is870 ? (
+                    <SelectField
+                        source="orientation"
+                        choices={[
+                            { id: "PORTRAIT", name: "Портретная" },
+                            { id: "LANDSCAPE", name: "Альбомная" },
+                        ]}
+                        label="Вариант"
+                        border={"1px solid"}
+                        padding="3px"
+                        borderRadius={50}
+                    />
+                ) : null}
+                {!is450 ? <EditButton label={is870 ? "" : "Изменить"} /> : null}
+                <DeleteButton
+                    mutationMode="pessimistic"
+                    label={is870 ? "" : "Удалить"}
+                />
+            </Datagrid>
+            <br />
+            <br />
+            <br />
+            <br />
+        </List>
+    );
 };

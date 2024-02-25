@@ -1,27 +1,47 @@
-import { Identifier, RaRecord, UseRecordContextParams } from "react-admin";
+import { EditButton, Identifier, RaRecord, UseRecordContextParams } from "react-admin";
 import { useModalCotroller } from "../modules/useModalCotroller";
 import styles from "./modalImage.module.css";
 import { useRecordContext } from "react-admin";
 
 export const ModalImage = (props: UseRecordContextParams<RaRecord<Identifier>> | undefined) => {
-   const { dialogRef, handleClose, openModal } = useModalCotroller();
-   const record = useRecordContext(props);
-   // console.log(record);
-   return record ? (
-      <>
-         <div onClick={() => openModal(`aboutStudio${record.id}`)} className={styles.div}>
-            <img src={record.image} alt="" />
-         </div>
-         <dialog
-            id={`aboutStudio${record.id}`}
-            className={styles.modal}
-            onClick={() => handleClose(`aboutStudio${record.id}`)}
-            ref={dialogRef}
-         >
-            <span>
-               <img src={record.image} alt="" />
-            </span>
-         </dialog>
-      </>
-   ) : null;
+    const { dialogRef, handleClose, openModal } = useModalCotroller();
+    const record = useRecordContext(props);
+    // console.log(record);
+    const id = `${record.id}${record[props?.source]}`;
+    // console.log(record[props?.source])
+    return record ? (
+        <span>
+            <div
+                onClick={() => openModal(id)}
+                title="click to view Image"
+                className={styles.div}
+            >
+                {record[props?.source] ? (
+                    <img
+                        className="row_image"
+                        src={record[props?.source]}
+                        alt=""
+                    />
+                ) : (
+                    <EditButton
+                        label="Добавить Фото"
+                        sx={{ textAlign: "center" }}
+                        icon={<></>}
+                    />
+                )}
+            </div>
+            <dialog
+                id={id}
+                className={styles.modal}
+                onClick={() => handleClose(id)}
+                ref={dialogRef}
+            >
+                <img
+                    className="modal_image"
+                    src={record[props?.source]}
+                    alt=""
+                />
+            </dialog>
+        </span>
+    ) : null;
 };

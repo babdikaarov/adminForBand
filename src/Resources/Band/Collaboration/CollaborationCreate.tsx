@@ -1,15 +1,29 @@
-import { Create, SimpleForm, TextInput } from "react-admin";
-import CustomSelectInput from "../../../shared/CustomSelectInput";
+import { Create, ImageField, ImageInput, SimpleForm, TextInput } from "react-admin";
+import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
 export const CollaborationCreate = () => {
-   // const postDefaultValue = () => ({ id: uuid(), created_at: new Date(), nb_views: 0 });
-   return (
-      <Create title="Coll Band → Коллаборация → создать" redirect="list">
-         {/* <SimpleForm toolbar={<SaveButton />} defaultValues={postDefaultValue}> */}
-         <SimpleForm>
-            <TextInput source="name" />
-            <TextInput source="image" />
-            <CustomSelectInput />
-         </SimpleForm>
-      </Create>
-   );
+    return (
+        <Create
+            title="Coll Band → Коллаборация → добавить"
+            redirect="list"
+        >
+            <SimpleForm toolbar={<CustomSaveToolBar />}>
+                <ImageInput
+                    source="newImage"
+                    multiple={false}
+                    accept="image/*"
+                    label="Новое изображение"
+                    placeholder={<p>Перетащите изображение для загрузки или щелкните, чтобы выбрать его.</p>}
+                >
+                    <ImageField
+                        source="src"
+                        title="Аватар"
+                    />
+                </ImageInput>
+                <TextInput
+                    source="name"
+                    label="Имя"
+                />
+            </SimpleForm>
+        </Create>
+    );
 };

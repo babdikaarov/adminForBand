@@ -1,17 +1,43 @@
-import { Edit, SimpleForm, TextInput } from "react-admin";
-import CustomSelectInput from "../../../shared/CustomSelectInput";
+import { Edit, ImageField, ImageInput, SimpleForm, TextInput } from "react-admin";
+import CustomSaveToolBar from "../../../shared/CustomSaveToolBar";
 
 export const TeacherEdit = () => {
-   return (
-      <Edit title="Cool Studio → Преподаватели → изменить" redirect="list">
-         <SimpleForm>
-            <TextInput source="name" title="name" />
-            <TextInput source="image" title="name" />
-            <TextInput source="urlInstagram" title="name" />
-            <TextInput source="position" title="name" />
-            <TextInput source="description" title="name" />
-            <CustomSelectInput />
-         </SimpleForm>
-      </Edit>
-   );
+    return (
+        <Edit
+            title="Cool Studio → Преподаватели → изменить"
+            redirect="list"
+        >
+            <SimpleForm toolbar={<CustomSaveToolBar />}>
+                <TextInput
+                    source="name"
+                    label="Имя"
+                />
+                <ImageInput
+                    source="newImage"
+                    multiple={false}
+                    accept="image/*"
+                    label="Новое изображение"
+                    placeholder={<p>Перетащите изображение для загрузки или щелкните, чтобы выбрать его.</p>}
+                >
+                    <ImageField
+                        source="src"
+                        title=""
+                    />
+                </ImageInput>
+                <TextInput
+                    source="urlInstagram"
+                    label="Ссылка на instagram"
+                />
+                <TextInput
+                    source="position"
+                    label="Позиция"
+                />
+                <TextInput
+                    source="description"
+                    label="Описание"
+                    fullWidth
+                />
+            </SimpleForm>
+        </Edit>
+    );
 };

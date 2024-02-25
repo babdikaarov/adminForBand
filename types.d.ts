@@ -1,6 +1,6 @@
 declare global {
-   enum Orient {
-      LANDSCAPE = "LANDSCAPE",
-      PORTRAIT = "PORTRAIT",
-   }
+    enum Orient {
+        LANDSCAPE = "LANDSCAPE",
+        PORTRAIT = "PORTRAIT",
+    }
 }
