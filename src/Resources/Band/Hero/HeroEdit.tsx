@@ -4,7 +4,7 @@ import { ClickVideo } from "../../../shared/ClickVideo";
 export const HeroEdit = () => {
     return (
         <Edit
-            title="Coll Band → Банер"
+            title="Cool Band → Банер"
             id={1}
         >
             <SimpleForm toolbar={<SaveButton label="Сохранить изменения" />}>

@@ -50,7 +50,7 @@ export const EventBandEdit = () => {
         >
             <TabbedShowLayout>
                 <TabbedShowLayout.Tab label="Альбом">
-                    <Edit title="Coll Band → Галерея → Альбом → изменить">
+                    <Edit title="Cool Band → Галерея → Альбом → изменить">
                         <SimpleForm
                             toolbar={
                                 <CustomSaveEdit
@@ -83,7 +83,7 @@ export const EventBandEdit = () => {
 
                 <TabbedShowLayout.Tab label="Список">
                     <List
-                        title="Coll Band → Галерея → Альбом → Фотографии"
+                        title="Cool Band → Галерея → Альбом → Фотографии"
                         hasCreate={false}
                         exporter={false}
                         pagination={false}
@@ -143,7 +143,7 @@ export const EventBandEdit = () => {
                 <TabbedShowLayout.Tab label="Добавить">
                     <Create
                         resource="event_band_images"
-                        title="Coll Band → Галерея → Альбом → Фотографии → добавить фото"
+                        title="Cool Band → Галерея → Альбом → Фотографии → добавить фото"
                     >
                         <SimpleForm
                             toolbar={

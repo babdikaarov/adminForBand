@@ -13,7 +13,7 @@ import { ModalImage } from "../../../shared/ModalImage";
 export const PartnersList = () => {
     return (
         <List
-            title="Coll Band → Клиенты"
+            title="Cool Band → Клиенты"
             pagination={false}
             exporter={false}
             hasCreate={true}

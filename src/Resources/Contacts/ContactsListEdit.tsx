@@ -1,16 +1,20 @@
-import { Edit, SaveButton, SimpleForm, TextInput } from "react-admin";
+import { Edit, SaveButton, SimpleForm, TextInput, Toolbar } from "react-admin";
 
 import { Box, Typography } from "@mui/material";
 
 export const ContactsListEdit = () => {
     return (
         <Edit
-            title="Coll Band → Контакты"
+            title="Cool Band → Контакты"
             id={1}
         >
             <SimpleForm
                 sx={{ maxWidth: 700 }}
-                toolbar={<SaveButton label="Сохранить изменения" />}
+                toolbar={
+                    <Toolbar>
+                        <SaveButton label="Сохранить изменения" />
+                    </Toolbar>
+                }
             >
                 <Typography
                     variant="h6"

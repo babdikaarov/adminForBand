@@ -7,7 +7,7 @@ export const TeamEdit = () => {
     /*
      */
     return (
-        <Edit title="Coll Band → Наша команда → изменить карточку">
+        <Edit title="Cool Band → Наша команда → изменить карточку">
             <SimpleForm toolbar={<CustomSaveEdit resource="team_band" />}>
                 <FieldTitle label="Карточка спереди" />
                 <ImageInput

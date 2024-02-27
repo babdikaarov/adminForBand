@@ -3,7 +3,7 @@ import CustomSaveToolBar from "../../../shared/CustomSaveCreate";
 export const EventBandCreate = () => {
     return (
         <Create
-            title="Coll Band → Галерея → добавить"
+            title="Cool Band → Галерея → добавить"
             redirect="list"
         >
             <SimpleForm toolbar={<CustomSaveToolBar />}>

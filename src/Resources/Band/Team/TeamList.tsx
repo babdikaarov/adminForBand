@@ -19,7 +19,7 @@ export const TeamList = () => {
     const is450 = useMediaQuery("(max-width:450px)");
     return (
         <List
-            title="Coll Band → Наша команда"
+            title="Cool Band → Наша команда"
             // filter={{ id: 1 }}
             pagination={false}
             exporter={false}

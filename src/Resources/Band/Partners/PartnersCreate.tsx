@@ -4,7 +4,7 @@ import CustomSaveCreate from "../../../shared/CustomSaveCreate";
 export const PartnersCreate = () => {
     return (
         <Create
-            title="Coll Band → Клиенты → добавить"
+            title="Cool Band → Клиенты → добавить"
             redirect="list"
         >
             <SimpleForm toolbar={<CustomSaveCreate />}>

@@ -37,7 +37,7 @@ export const ImageEdit = () => {
     return (
         <Edit
             resource="event_band_images"
-            title={`Coll Band → Галерея → Альбом → Фотографии → изменить фото`}
+            title={`Cool Band → Галерея → Альбом → Фотографии → изменить фото`}
         >
             <SimpleForm
                 toolbar={

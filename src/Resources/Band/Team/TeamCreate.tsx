@@ -5,7 +5,7 @@ import CustomSaveCreate from "../../../shared/CustomSaveCreate";
 export const TeamCreate = () => {
     return (
         <Create
-            title="Coll Band → Наша команда → добавить карточку"
+            title="Cool Band → Наша команда → добавить карточку"
             redirect="list"
         >
             <SimpleForm toolbar={<CustomSaveCreate />}>

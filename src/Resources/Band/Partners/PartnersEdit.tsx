@@ -4,7 +4,7 @@ import CustomSaveEdit from "../../../shared/CustomSaveEdit";
 export const PartnersEdit = () => {
     return (
         <Edit
-            title="Coll Band → Клиенты → изменить"
+            title="Cool Band → Клиенты → изменить"
             redirect="list"
         >
             <SimpleForm toolbar={<CustomSaveEdit resource="partners_band" />}>

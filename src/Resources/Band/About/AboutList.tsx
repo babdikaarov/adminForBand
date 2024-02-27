@@ -4,7 +4,7 @@ import { ModalImage } from "../../../shared/ModalImage";
 export const AboutList = () => {
     return (
         <Edit
-            title="Coll Band → О нас"
+            title="Cool Band → О нас"
             id={1}
         >
             <SimpleForm toolbar={<SaveButton label="Сохранить изменения" />}>

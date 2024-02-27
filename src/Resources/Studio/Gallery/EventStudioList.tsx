@@ -7,7 +7,7 @@ export const EventStudioList = () => {
 
     return (
         <List
-            title="Coll Studio → Концерты"
+            title="Cool Studio → Концерты"
             pagination={false}
             exporter={false}
             hasCreate={true}

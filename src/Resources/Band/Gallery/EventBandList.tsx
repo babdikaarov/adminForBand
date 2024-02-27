@@ -7,7 +7,7 @@ export const EventBandList = () => {
 
     return (
         <List
-            title="Coll Band → Галерея"
+            title="Cool Band → Галерея"
             pagination={false}
             exporter={false}
             hasCreate={true}
@@ -21,7 +21,12 @@ export const EventBandList = () => {
                 bulkActionButtons={false}
                 rowClick={!is500 ? "" : "edit"}
             >
-                {!is500 ? <TextField source="id" /> : null}
+                {!is500 ? (
+                    <TextField
+                        source="id"
+                        sortable={false}
+                    />
+                ) : null}
                 <Labeled label="Изображение">
                     <ModalImage
                         source="coverImage"
@@ -32,10 +37,12 @@ export const EventBandList = () => {
                 <TextField
                     source="date"
                     label="Дата"
+                    sortable={false}
                 />
                 <TextField
                     source="name"
                     label="Мероприятие"
+                    sortable={false}
                 />
 
                 {!is500 ? <EditButton label="Изменить" /> : null}

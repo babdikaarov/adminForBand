@@ -4,7 +4,7 @@ import { ModalImage } from "../../../shared/ModalImage";
 export const CollaborationList = () => {
     return (
         <List
-            title="Coll Band → Коллаборация"
+            title="Cool Band → Коллаборация"
             pagination={false}
             exporter={false}
             hasCreate={true}
