@@ -9,7 +9,9 @@
 body {
     margin: 0;
 }
-.MuiTreeItem-root {
+.MuiMenuItem-root {
+    overflow: hidden !important;
+    margin-left: 5px !important;
 }
 
 .MuiTreeItem-content {
@@ -28,8 +30,8 @@ body {
     /* min-width: 28px; */
 }
 .MuiTreeItem-label {
-    font-size: 24px !important;
-    font-weight: 700 !important;
+    /* font-size: 24px !important;
+    font-weight: 700 !important; */
 }
 
 .input_image_preview {

@@ -71,6 +71,7 @@ export const ImageEdit = () => {
                 <BooleanInput
                     source="coverImage"
                     label="Обложка"
+                    disabled={data.coverImage ? true : false}
                 />
             </SimpleForm>
         </Edit>

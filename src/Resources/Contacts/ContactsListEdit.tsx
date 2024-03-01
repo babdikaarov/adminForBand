@@ -20,6 +20,27 @@ export const ContactsListEdit = () => {
                     variant="h6"
                     gutterBottom
                 >
+                    Репертуар
+                </Typography>
+                <Box display={{ xs: "block", sm: "flex", width: "100%" }}>
+                    <Box
+                        flex={1}
+                        mr={{ xs: 0, sm: "0.5em" }}
+                    >
+                           <TextInput
+                            type="tel"
+                            source="whatsapp"
+                            label="Ссылка на репертуар файл в облачном хранилище"
+                            isRequired
+                            fullWidth
+                        />
+                    </Box>
+                  
+                </Box>
+                <Typography
+                    variant="h6"
+                    gutterBottom
+                >
                     Контактные данные
                 </Typography>
                 <Box display={{ xs: "block", sm: "flex", width: "100%" }}>
@@ -56,12 +77,12 @@ export const ContactsListEdit = () => {
                         mr={{ xs: 0, sm: "0.5em" }}
                     >
                         <TextInput
-                            type="tel"
-                            source="whatsapp"
-                            label="Номер Whatsapp"
-                            isRequired
-                            fullWidth
-                        />
+                    type="email"
+                    source="email"
+                    label="Почта"
+                    isRequired
+                    fullWidth
+                />
                     </Box>
                     <Box
                         flex={1}
@@ -76,13 +97,7 @@ export const ContactsListEdit = () => {
                         />
                     </Box>
                 </Box>
-                <TextInput
-                    type="email"
-                    source="email"
-                    label="Почта"
-                    isRequired
-                    fullWidth
-                />
+               
                 <br />
                 <Typography
                     variant="h6"
@@ -128,7 +143,7 @@ export const ContactsListEdit = () => {
                     variant="h6"
                     gutterBottom
                 >
-                    Адресс
+                    Адрес
                 </Typography>
                 <Box display={{ xs: "block", sm: "flex", width: "100%" }}>
                     <Box
@@ -164,7 +179,7 @@ export const ContactsListEdit = () => {
                         <TextInput
                             type="text"
                             source="city"
-                            label="Горол"
+                            label="Город"
                             isRequired
                             fullWidth
                         />
@@ -186,7 +201,7 @@ export const ContactsListEdit = () => {
                 <TextInput
                     type="text"
                     source="address"
-                    label="Адресс"
+                    label="Адрес"
                     isRequired
                     fullWidth
                 />
