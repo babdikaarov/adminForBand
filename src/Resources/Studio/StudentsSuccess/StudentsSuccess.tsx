@@ -53,6 +53,8 @@ export const StudentsSuccessCreate = () => {
                 <TextInput
                     source="url"
                     label="Ссылка на youtube видео"
+                    multiline
+                    fullWidth
                 ></TextInput>
             </SimpleForm>
         </Create>
@@ -71,6 +73,8 @@ export const StudentsSuccessEdit = () => {
                 <TextInput
                     source="url"
                     label="Ссылка на youtube видео"
+                    multiline
+                    fullWidth
                 ></TextInput>
             </SimpleForm>
         </Edit>

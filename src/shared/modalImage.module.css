@@ -11,7 +11,25 @@
     transform: translate(-50%, -50%);
     overflow: hidden;
     user-select: none;
+    
 }
+
+@media (min-width: 860px) {
+    .modal {
+        width: 50%;
+    }
+}
+@media (min-width: 1200px) {
+    .modal {
+        max-width: 40%;
+    }
+}
+@media (min-width: 1600px) {
+    .modal {
+        max-width: 35%;
+    }
+}
+
 
 .div {
     cursor: pointer;
