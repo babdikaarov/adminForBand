@@ -36,6 +36,7 @@ export const TeacherEdit = () => {
                     source="description"
                     label="Описание"
                     fullWidth
+                    multiline
                 />
             </SimpleForm>
         </Edit>

@@ -28,6 +28,8 @@ export const TestimonaialsCreate = () => {
                 <TextInput
                     source="reviews"
                     label="Отзыв"
+                    multiline
+                    sx={{maxWidth: "500px", width: "100%"}}
                 />
             </SimpleForm>
         </Create>

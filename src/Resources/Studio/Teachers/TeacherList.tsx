@@ -34,6 +34,7 @@ export const TeacherList = () => {
             <RichTextField
                 source="description"
                 label="Описание"
+                
             />
             {is950 ? (
                 <UrlField
