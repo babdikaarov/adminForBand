@@ -32,9 +32,6 @@ export const ResetForm = (props: LoginFormProps) => {
                 const encoder = new TextEncoder();
                 const jsonData = JSON.stringify(body);
                 const contentLength = encoder.encode(jsonData).length;
-                // const reset = localStorage.getItem("reset");
-                // const verify: { token: string; expireAt: string; role: string } = JSON.parse(reset!);
-                // console.log(verify)
                 headers.set("Authorization", `Bearer ${token}`);
                 headers.set("Content-Type", `application/json`);
                 headers.set("Content-Length", contentLength.toString());
@@ -44,15 +41,6 @@ export const ResetForm = (props: LoginFormProps) => {
                     body: JSON.stringify(body),
                 };
 
-                // console.log( headers)
-                // console.log(verify);
-
-                // if (new Date(verify.expireAt) < new Date()) {
-                //     notify("Ваша ссылка expired already");
-                //     setLoading(false);
-
-                //     setToLogIn(true);
-                // } else {
                     const response = await fetch(
                         `${import.meta.env.VITE_COOL_API}/auth/changePassword`,
                         requestOptions,
@@ -62,20 +50,17 @@ export const ResetForm = (props: LoginFormProps) => {
                         setToLogIn(true);
                         notify("Пароль успешно зарегистрирован");
 
-                        // localStorage.removeItem("reset");
                     } else {
                         setLoading(false);
                         notify(
                             "Ошибка сервера повторите запрос если это сообщение повторяется обратитесь разработчикам",
                         );
                     }
-                    // }
                 } catch (error) {
                     setLoading(false);
                     notify(
                         "Ошибка сервера повторите запрос если это сообщение повторяется обратитесь разработчикам",
                     );
-                // console.log(error)
                 throw Error("Something went wrong on ResetForm.tsx");
             }
         }
