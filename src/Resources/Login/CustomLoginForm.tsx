@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { Button, CardContent, CircularProgress } from "@mui/material";
 import { Form, required, useLogin, useNotify, useSafeSetState } from "ra-core";
 import { TextInput } from "react-admin";
-import * as jose from "jose";
+// import * as jose from "jose";
 
 export const CustomLoginForm = (props: LoginFormProps) => {
     const { redirectTo, className } = props;
@@ -31,17 +31,18 @@ export const CustomLoginForm = (props: LoginFormProps) => {
                 const formdata = new FormData();
                 formdata.append("email", mail);
                 // deploy FIX_ME change the value linkToChangePassword to value from new .env = url
-                const secretKey = jose.base64url.decode(import.meta.env.VITE_KEY);
-                const token = await new jose.SignJWT({ email: mail })
-                    .setProtectedHeader({ alg: "HS256" })
-                    .setIssuedAt()
-                    .setIssuer(import.meta.env.VITE_ISSUER)
-                    .setExpirationTime("20 minutes")
-                    .sign(secretKey);
+                // const secretKey = jose.base64url.decode(import.meta.env.VITE_KEY);
+                // const token = await new jose.SignJWT({ email: mail })
+                //     .setProtectedHeader({ alg: "HS256" })
+                //     .setIssuedAt()
+                //     .setIssuer(import.meta.env.VITE_ISSUER)
+                //     .setExpirationTime("20 minutes")
+                //     .sign(secretKey);
 
-                const params = new URLSearchParams({ reset: token });
+                // const params = new URLSearchParams({ reset: token });
 
-                formdata.append("linkToChangePassword", `${import.meta.env.VITE_COOL_URL}/auth-callback?${params}`);
+                // formdata.append("linkToChangePassword", `${import.meta.env.VITE_COOL_URL}/auth-callback?${params}`);
+                formdata.append("linkToChangePassword", "auth-callback");
                 const requestOptions = {
                     method: "PUT",
                     body: formdata,
@@ -49,11 +50,11 @@ export const CustomLoginForm = (props: LoginFormProps) => {
                 const response = await fetch(`${import.meta.env.VITE_COOL_API}/auth/forgotPassword`, requestOptions);
                 if (response.ok) {
                     // const expireAt = new Date(new Date().getTime() + 1) // 0.01 sec
-                    const expireAt = new Date(new Date().getTime() + 20 * 60 * 1000); // 20 min
+                    // const expireAt = new Date(new Date().getTime() + 20 * 60 * 1000); // 20 min
                     notify("Проверьте почту и перейдите по ссылке для восстановления пароля.");
                     // notify("Проверьте почту и перейдите по ссылке она будет активна в течении 20-мин");
-                    const data = await response.json();
-                    localStorage.setItem("reset", JSON.stringify({ token: data["token"], expireAt, mail }));
+                    // const data = await response.json();
+                    // localStorage.setItem("reset", JSON.stringify({ token: data["token"], expireAt, mail }));
 
                     // console.log(expireAt > new Date())
                     // const reset = localStorage.getItem("reset")

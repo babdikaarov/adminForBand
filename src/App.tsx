@@ -14,7 +14,7 @@ import Reset from "./Resources/ResetPassword/Reset";
 const App = () => {
     // const token = JSON.parse(localStorage.user);
     // console.log(token);
-
+   
     return (
         <Admin
             authCallbackPage={Reset}
