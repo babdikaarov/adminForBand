@@ -1,6 +1,7 @@
-import { Edit, SaveButton, SimpleForm, TextInput, Toolbar } from "react-admin";
+import { Edit, SimpleForm, TextInput } from "react-admin";
 
 import { Box, Typography } from "@mui/material";
+import CustomEditCreate from "../../shared/CustomEditCreate";
 
 export const ContactsListEdit = () => {
     return (
@@ -10,11 +11,7 @@ export const ContactsListEdit = () => {
         >
             <SimpleForm
                 sx={{ maxWidth: 700 }}
-                toolbar={
-                    <Toolbar>
-                        <SaveButton label="Сохранить изменения" />
-                    </Toolbar>
-                }
+                toolbar={<CustomEditCreate resource="contacts" />}
             >
                 <Typography
                     variant="h6"

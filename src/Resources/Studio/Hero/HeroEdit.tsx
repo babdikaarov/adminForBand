@@ -1,5 +1,6 @@
-import { Edit, FileField, FileInput, SaveButton, SimpleForm, TextInput } from "react-admin";
+import { Edit, FileField, FileInput, SimpleForm, TextInput } from "react-admin";
 import { ClickVideo } from "../../../shared/ClickVideo";
+import CustomEditCreate from "../../../shared/CustomEditCreate";
 
 export const HeroEdit = () => {
     return (
@@ -7,7 +8,7 @@ export const HeroEdit = () => {
             title="Cool Studio → Баннер"
             id={1}
         >
-            <SimpleForm toolbar={<SaveButton label="Сохранить изменения" />}>
+            <SimpleForm toolbar={<CustomEditCreate resource="hero_studio" />}>
                 <TextInput
                     source="title"
                     label="Загаловок"

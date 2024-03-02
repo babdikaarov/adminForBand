@@ -1,5 +1,6 @@
-import { SaveButton, UrlField } from "react-admin";
+import {  UrlField } from "react-admin";
 import { Edit, SimpleForm, TextInput } from "react-admin";
+import CustomEditCreate from "../../../shared/CustomEditCreate";
 /*
  */
 export const AboutEdit = () => {
@@ -10,7 +11,7 @@ export const AboutEdit = () => {
             title="Cool Studio → О нас"
             id={1}
         >
-            <SimpleForm toolbar={<SaveButton label="Сохранить изменения" />}>
+            <SimpleForm toolbar={<CustomEditCreate resource="about_us_studio" />}>
                 <TextInput
                     source="youtubeUrl"
                     label="Ссылка на youtube видео"
