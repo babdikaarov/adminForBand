@@ -2,13 +2,32 @@ import { ImageField, ImageInput } from "react-admin";
 import { Create, SimpleForm, TextInput } from "react-admin";
 import CustomSaveToolBar from "../../../shared/CustomSaveCreate";
 
+
 export const TestimonaialsCreate = () => {
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              const validate = (values: any) => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                const errors: any = {};
+                if (!values.newImage) {
+                    errors.newImage = 'Забыли фотографию';
+                }
+                  if (!values.name){
+                    errors.name = "Забыли Имя"
+                }
+                  if (!values.reviews){
+                    errors.reviews = "Забыли Отзыв"
+                }
+                return errors
+            };
+            // validate={validate}  criteriaMode="all"  shouldFocusError
     return (
         <Create
             title="Cool Studio → Отзывы учеников → добавить"
             redirect="list"
         >
-            <SimpleForm toolbar={<CustomSaveToolBar />}>
+            <SimpleForm toolbar={<CustomSaveToolBar />}
+            validate={validate}  criteriaMode="all"  shouldFocusError
+            >
                 <ImageInput
                     source="newImage"
                     multiple={false}

@@ -42,12 +42,26 @@ export const StudentsSuccessList = () => {
 };
 
 export const StudentsSuccessCreate = () => {
+
+             // eslint-disable-next-line @typescript-eslint/no-explicit-any
+             const validate = (values: any) => {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                const errors: any = {};
+                if (!values.url) {
+                    errors.url = 'Забыли ссылку на youtube';
+                }
+            
+                return errors
+            };
+            // validate={validate}  criteriaMode="all"  shouldFocusError
     return (
         <Create
             title="Cool Studio → История успехов студентов → добавить"
             redirect="list"
         >
-            <SimpleForm toolbar={<CustomSaveCreate />}>
+            <SimpleForm toolbar={<CustomSaveCreate />}
+            validate={validate}  criteriaMode="all"  shouldFocusError
+            >
                 <br />
                 <br />
                 <TextInput

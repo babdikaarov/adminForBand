@@ -31,10 +31,23 @@ import { ModalImage } from "../../../shared/ModalImage";
 import CustomSaveEdit from "../../../shared/CustomSaveEdit";
 import CustomEmpty from "../../../shared/CustomEmpty";
 
+
 export const EventStudioEdit = () => {
     const recordId = useGetRecordId();
     const { data, isLoading } = useGetList("event_studio_images");
     const listContext = useList({ data, isLoading, filter: { albumId: recordId } });
+
+         // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         const validate = (values: any) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const errors: any = {};
+            if (!values.newImage) {
+                errors.newImage = 'Забыли фотографию';
+            }
+           
+            return errors
+        };
+        // validate={validate}  criteriaMode="all"  shouldFocusError
     return (
         <Show
             title=" "
@@ -155,6 +168,8 @@ export const EventStudioEdit = () => {
                                 />
                             }
                             sanitizeEmptyValues
+        validate={validate}  criteriaMode="all"  shouldFocusError
+
                         >
                             <TextInput
                                 source="albumId"

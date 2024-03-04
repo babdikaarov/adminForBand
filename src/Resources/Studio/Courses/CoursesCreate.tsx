@@ -2,13 +2,30 @@ import { ImageField, ImageInput, TextInput } from "react-admin";
 import { Create, SimpleForm } from "react-admin";
 import CustomSaveToolBar from "../../../shared/CustomSaveCreate";
 
+
 export const CoursesCreate = () => {
+
+           // eslint-disable-next-line @typescript-eslint/no-explicit-any
+           const validate = (values: any) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            const errors: any = {};
+            if (!values.newImage) {
+                errors.newImage = 'Забыли фотографию';
+            }
+              if (!values.name){
+                errors.name = "Забыли Напрваление"
+            }
+            return errors
+        };
+        // validate={validate}  criteriaMode="all"  shouldFocusError
     return (
         <Create
             title="Cool Studio → Направления → добавить"
             redirect="list"
         >
-            <SimpleForm toolbar={<CustomSaveToolBar />}>
+            <SimpleForm toolbar={<CustomSaveToolBar />}
+        validate={validate}  criteriaMode="all"  shouldFocusError
+        >
                 <ImageInput
                     source="newImage"
                     multiple={false}

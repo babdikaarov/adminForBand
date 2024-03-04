@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import styles from "./style.module.css";
 
 const BandPage = () => {
-    let page = "https://coolband.netlify.app";
+    let page = import.meta.env.VITE_COOL_PAGE;
     const { pathname } = useLocation();
     if (pathname !== "/cool_band") {
         page = page + "/studio";
