@@ -4,8 +4,8 @@ export const updateOne = async (url: string, resource: string, params: UpdatePar
     const { id, data } = params;
     // console.log(url);
     // console.log(data);
-    console.log(params);
-    console.log(resource);
+    console.log(params.data);
+    // console.log(resource);
 
     try {
         const token = JSON.parse(localStorage.user).token;
@@ -49,7 +49,7 @@ export const updateOne = async (url: string, resource: string, params: UpdatePar
             case "about_us_band":
             case "hero_band":
             case "hero_studio":
-                console.log(parameters);
+                // console.log(parameters);
                 response = await fetch(`${url}/${resource}`, parameters);
                 break;
             case "auth":
