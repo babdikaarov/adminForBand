@@ -1,4 +1,4 @@
-import {  UrlField } from "react-admin";
+import { UrlField } from "react-admin";
 import { Edit, SimpleForm, TextInput } from "react-admin";
 import CustomEditCreate from "../../../shared/CustomEditCreate";
 /*

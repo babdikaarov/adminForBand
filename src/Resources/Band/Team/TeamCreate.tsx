@@ -2,28 +2,24 @@ import { Create, FieldTitle, FileField, FileInput, ImageField, ImageInput, Simpl
 import CustomSelectInput from "../../../shared/CustomSelectInput";
 import CustomSaveCreate from "../../../shared/CustomSaveCreate";
 
-
 export const TeamCreate = () => {
-
-
-    
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const validate = (values: any) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const errors: any = {};
         if (!values.newImage) {
-            errors.newImage = 'Забыли фотографию';
+            errors.newImage = "Забыли фотографию";
         }
-          if (!values.newVideo){
-            errors.newVideo = "Забыли видео"
+        if (!values.newVideo) {
+            errors.newVideo = "Забыли видео";
         }
-          if (!values.instrument){
-            errors.instrument = "Забыли Роль"
+        if (!values.instrument) {
+            errors.instrument = "Забыли Роль";
         }
-          if (!values.name){
-            errors.name = "Забыли Имя"
+        if (!values.name) {
+            errors.name = "Забыли Имя";
         }
-        return errors
+        return errors;
     };
     // validate={validate}  criteriaMode="all"  shouldFocusError
 
@@ -31,12 +27,12 @@ export const TeamCreate = () => {
         <Create
             title="Cool Band → Наша команда → добавить карточку"
             redirect="list"
-            
         >
-            <SimpleForm toolbar={<CustomSaveCreate />}
-            
-            validate={validate}  criteriaMode="all"  shouldFocusError
-            
+            <SimpleForm
+                toolbar={<CustomSaveCreate />}
+                validate={validate}
+                criteriaMode="all"
+                shouldFocusError
             >
                 <FieldTitle label="Карточка спереди" />
                 <ImageInput

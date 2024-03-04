@@ -22,14 +22,14 @@ export const ImageEdit = () => {
     const recordId = useGetRecordId();
     const { data } = useGetOne("event_band_images", { id: recordId });
     const { albumId } = data;
-    
+
     const [update] = useUpdate();
-    
+
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const handleSave = (data: any) => {
         update("event_band_images", { id: recordId, data: data, previousData: data });
     };
-    
+
     useEffect(() => {
         setIdToNavigate(albumId);
     }, [albumId]);

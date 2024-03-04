@@ -29,7 +29,7 @@ export const TestimonaialsEdit = () => {
                     source="reviews"
                     label="Отзыв"
                     multiline
-                    sx={{maxWidth: "500px", width: "100%"}}
+                    sx={{ maxWidth: "500px", width: "100%" }}
                 />
             </SimpleForm>
         </Edit>

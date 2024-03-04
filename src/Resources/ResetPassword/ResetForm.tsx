@@ -41,26 +41,18 @@ export const ResetForm = (props: LoginFormProps) => {
                     body: JSON.stringify(body),
                 };
 
-                    const response = await fetch(
-                        `${import.meta.env.VITE_COOL_API}/auth/changePassword`,
-                        requestOptions,
-                    );
-                    if (response.ok) {
-                        setLoading(false);
-                        setToLogIn(true);
-                        notify("Пароль успешно зарегистрирован");
-
-                    } else {
-                        setLoading(false);
-                        notify(
-                            "Ошибка сервера повторите запрос если это сообщение повторяется обратитесь разработчикам",
-                        );
-                    }
-                } catch (error) {
+                const response = await fetch(`${import.meta.env.VITE_COOL_API}/auth/changePassword`, requestOptions);
+                if (response.ok) {
                     setLoading(false);
-                    notify(
-                        "Ошибка сервера повторите запрос если это сообщение повторяется обратитесь разработчикам",
-                    );
+                    setToLogIn(true);
+                    notify("Пароль успешно зарегистрирован");
+                } else {
+                    setLoading(false);
+                    notify("Ошибка сервера повторите запрос если это сообщение повторяется обратитесь разработчикам");
+                }
+            } catch (error) {
+                setLoading(false);
+                notify("Ошибка сервера повторите запрос если это сообщение повторяется обратитесь разработчикам");
                 throw Error("Something went wrong on ResetForm.tsx");
             }
         }

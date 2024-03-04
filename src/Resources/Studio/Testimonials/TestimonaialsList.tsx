@@ -18,7 +18,10 @@ export const TestimonaialsList = () => {
 
     const DescriptionShow = () => (
         <SimpleShowLayout>
-            <RichTextField source="reviews" label="Отзыв" />
+            <RichTextField
+                source="reviews"
+                label="Отзыв"
+            />
         </SimpleShowLayout>
     );
     return (

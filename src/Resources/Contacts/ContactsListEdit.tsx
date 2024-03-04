@@ -5,15 +5,6 @@ import CustomEditCreate from "../../shared/CustomEditCreate";
 import { MuiPhone } from "./Phone";
 
 export const ContactsListEdit = () => {
-
-
-
-
-
-
-
-
-
     return (
         <Edit
             title="Cool Band → Контакты"
@@ -27,7 +18,6 @@ export const ContactsListEdit = () => {
                     variant="h6"
                     gutterBottom
                     width="100%"
-                   
                 >
                     Репертуар
                 </Typography>
@@ -37,23 +27,20 @@ export const ContactsListEdit = () => {
                         flex={1}
                         mr={{ xs: 0, sm: "0.5em" }}
                     >
-                           <TextInput
+                        <TextInput
                             type="tel"
                             source="whatsapp"
                             label="Ссылка на репертуар файл в облачном хранилище"
                             isRequired
                             fullWidth
-                            
                         />
                     </Box>
-                  
                 </Box>
                 <br />
                 <Typography
                     variant="h6"
                     gutterBottom
                     width="100%"
-                   
                 >
                     Контактные данные
                 </Typography>
@@ -63,13 +50,19 @@ export const ContactsListEdit = () => {
                         flex={1}
                         mr={{ xs: 0, sm: "0.5em" }}
                     >
-                         <MuiPhone source="bandNumber" label="Номер Cool Band" />
+                        <MuiPhone
+                            source="bandNumber"
+                            label="Номер Cool Band"
+                        />
                     </Box>
                     <Box
                         flex={1}
                         ml={{ xs: 0, sm: "0.5em" }}
                     >
-                         <MuiPhone source="studioNumber" label="Номер Cool Studio" />
+                        <MuiPhone
+                            source="studioNumber"
+                            label="Номер Cool Studio"
+                        />
                     </Box>
                 </Box>
                 <br />
@@ -79,12 +72,12 @@ export const ContactsListEdit = () => {
                         mr={{ xs: 0, sm: "0.5em" }}
                     >
                         <TextInput
-                    type="email"
-                    source="email"
-                    label="Почта"
-                    isRequired
-                    fullWidth
-                />
+                            type="email"
+                            source="email"
+                            label="Почта"
+                            isRequired
+                            fullWidth
+                        />
                     </Box>
                     <Box
                         flex={1}
@@ -99,13 +92,12 @@ export const ContactsListEdit = () => {
                         />
                     </Box>
                 </Box>
-               
+
                 <br />
                 <Typography
                     variant="h6"
                     gutterBottom
                     width="100%"
-                   
                 >
                     Социальные сети
                 </Typography>
@@ -148,16 +140,11 @@ export const ContactsListEdit = () => {
                     variant="h6"
                     gutterBottom
                     width="100%"
-                   
-                    
                 >
                     Адрес
                 </Typography>
                 <br />
                 <Box display={{ xs: "block", sm: "flex", width: "100%" }}>
-
-
-
                     <Box
                         flex={1}
                         mr={{ xs: 0, sm: "0.5em" }}
@@ -184,12 +171,9 @@ export const ContactsListEdit = () => {
                             fullWidth
                         />
                     </Box>
-                  
                 </Box>
                 <Box display={{ xs: "block", sm: "flex", width: "100%" }}>
-
-                 
-  <Box
+                    <Box
                         flex={1}
                         mr={{ xs: 0, sm: "0.5em" }}
                     >

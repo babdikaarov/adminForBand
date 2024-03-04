@@ -8,7 +8,7 @@ export const HeroEdit = () => {
             title="Cool Band → Банер"
             id={1}
         >
-            <SimpleForm toolbar={<CustomEditCreate resource="hero_band"/>}>
+            <SimpleForm toolbar={<CustomEditCreate resource="hero_band" />}>
                 <FileInput
                     source="newVideo"
                     accept="video/*"

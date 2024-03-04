@@ -2,17 +2,17 @@ import { Create, ImageField, ImageInput, SimpleForm, TextInput } from "react-adm
 import CustomSaveCreate from "../../../shared/CustomSaveCreate";
 
 export const PartnersCreate = () => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const validate = (values: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const validate = (values: any) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const errors: any = {};
         if (!values.newImage) {
-            errors.newImage = 'Забыли фотографию';
+            errors.newImage = "Забыли фотографию";
         }
-          if (!values.url){
-            errors.url = "Забыли Наименование"
+        if (!values.url) {
+            errors.url = "Забыли Наименование";
         }
-        return errors
+        return errors;
     };
     // validate={validate}  criteriaMode="all"  shouldFocusError
     return (
@@ -20,8 +20,11 @@ export const PartnersCreate = () => {
             title="Cool Band → Клиенты → добавить"
             redirect="list"
         >
-            <SimpleForm toolbar={<CustomSaveCreate />}
-    validate={validate}  criteriaMode="all"  shouldFocusError
+            <SimpleForm
+                toolbar={<CustomSaveCreate />}
+                validate={validate}
+                criteriaMode="all"
+                shouldFocusError
             >
                 <ImageInput
                     source="newImage"

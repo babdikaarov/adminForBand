@@ -1,20 +1,18 @@
 import { Create, ImageField, ImageInput, SimpleForm, TextInput } from "react-admin";
 import CustomSaveCreate from "../../../shared/CustomSaveCreate";
 
-
 export const CollaborationCreate = () => {
-
-       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-       const validate = (values: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const validate = (values: any) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const errors: any = {};
         if (!values.newImage) {
-            errors.newImage = 'Забыли фотографию';
+            errors.newImage = "Забыли фотографию";
         }
-          if (!values.name){
-            errors.name = "Забыли Имя"
+        if (!values.name) {
+            errors.name = "Забыли Имя";
         }
-        return errors
+        return errors;
     };
     // validate={validate}  criteriaMode="all"  shouldFocusError
     return (
@@ -22,9 +20,12 @@ export const CollaborationCreate = () => {
             title="Cool Band → Коллаборация → добавить"
             redirect="list"
         >
-            <SimpleForm toolbar={<CustomSaveCreate />}
-    validate={validate}  criteriaMode="all"  shouldFocusError
-    >
+            <SimpleForm
+                toolbar={<CustomSaveCreate />}
+                validate={validate}
+                criteriaMode="all"
+                shouldFocusError
+            >
                 <ImageInput
                     source="newImage"
                     multiple={false}
