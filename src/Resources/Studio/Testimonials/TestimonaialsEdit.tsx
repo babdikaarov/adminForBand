@@ -2,7 +2,7 @@ import { ImageField, ImageInput } from "react-admin";
 import { Edit, SimpleForm, TextInput } from "react-admin";
 import CustomSaveEdit from "../../../shared/CustomSaveEdit";
 import { textLengthExcess } from "../../../modules/validators";
-import { TextLimit } from "../../Band/Collaboration/TextLimit";
+import { TextLimit } from "../../../shared/TextLimit";
 
 export const TestimonaialsEdit = () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -61,6 +61,7 @@ export const TestimonaialsEdit = () => {
                 <TextLimit
                     stylesClass="testimonialP"
                     source="reviews"
+                    textOnServer="Отзыв"
                 />
             </SimpleForm>
         </Edit>

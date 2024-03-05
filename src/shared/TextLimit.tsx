@@ -4,6 +4,7 @@ import { useController } from "react-hook-form";
 
 interface TextLimitProps extends UseRecordContextParams<RaRecord<Identifier>> {
     stylesClass: string;
+    textOnServer: string;
 }
 export const TextLimit = (props: TextLimitProps) => {
     const record = useRecordContext(props);
@@ -13,7 +14,7 @@ export const TextLimit = (props: TextLimitProps) => {
 
     return record ? (
         <>
-            <h3>Так будет выглядеть отзыв на сайте:</h3>
+            <h3>Так будет выглядеть {props.textOnServer} на сайте:</h3>
             <p className={props.stylesClass}>{field.value}</p>
         </>
     ) : null;

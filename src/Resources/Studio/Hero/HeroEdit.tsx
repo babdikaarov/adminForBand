@@ -1,14 +1,24 @@
 import { Edit, FileField, FileInput, SimpleForm, TextInput } from "react-admin";
 import { ClickVideo } from "../../../shared/ClickVideo";
-import CustomEditCreate from "../../../shared/SaveEdit";
+// import SaveEdit from "../../../shared/SaveEdit";
+import CustomSaveEdit from "../../../shared/CustomSaveEdit";
 
+// TODO test video on save if not works replase CustomSaveEdit with SaveEdit and remove noGoBack noRedirect attribute
 export const HeroEdit = () => {
     return (
         <Edit
             title="Cool Studio → Баннер"
             id={1}
         >
-            <SimpleForm toolbar={<CustomEditCreate resource="hero_studio" />}>
+            <SimpleForm
+                toolbar={
+                    <CustomSaveEdit
+                        noGoBack
+                        noRedirect
+                        resource="hero_studio"
+                    />
+                }
+            >
                 <TextInput
                     source="title"
                     label="Загаловок"

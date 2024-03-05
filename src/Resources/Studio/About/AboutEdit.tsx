@@ -21,6 +21,7 @@ export const AboutEdit = () => {
             <SimpleForm
                 toolbar={
                     <CustomSaveEdit
+                        noGoBack
                         noRedirect
                         resource="about_us_studio"
                     />

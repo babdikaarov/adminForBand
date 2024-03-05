@@ -1,8 +1,9 @@
 import { Edit, SimpleForm, TextInput } from "react-admin";
 
 import { Box, Typography } from "@mui/material";
-import SaveEdit from "../../shared/SaveEdit";
 import { MuiPhone } from "./Phone";
+import { validate } from "./validateContacts";
+import CustomSaveEdit from "../../shared/CustomSaveEdit";
 
 export const ContactsListEdit = () => {
     return (
@@ -12,7 +13,16 @@ export const ContactsListEdit = () => {
         >
             <SimpleForm
                 sx={{ maxWidth: 700 }}
-                toolbar={<SaveEdit resource="contacts" />}
+                toolbar={
+                    <CustomSaveEdit
+                        noGoBack
+                        noRedirect
+                        resource="contacts"
+                    />
+                }
+                validate={validate}
+                criteriaMode="all"
+                shouldFocusError
             >
                 <Typography
                     variant="h6"
@@ -33,6 +43,7 @@ export const ContactsListEdit = () => {
                             label="Ссылка на репертуар файл в облачном хранилище"
                             isRequired
                             fullWidth
+                            multiline
                         />
                     </Box>
                 </Box>
@@ -110,7 +121,7 @@ export const ContactsListEdit = () => {
                         <TextInput
                             type="url"
                             source="instagram"
-                            label="Ссылка на Instagram Cool Band"
+                            label="Ссылка на Instagram"
                             isRequired
                             fullWidth
                         />
@@ -205,6 +216,7 @@ export const ContactsListEdit = () => {
                     label="Адрес"
                     isRequired
                     fullWidth
+                    multiline
                 />
             </SimpleForm>
             <br />

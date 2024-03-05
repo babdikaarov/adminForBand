@@ -21,6 +21,7 @@ import { Toolbar, useUpdate, Button } from "react-admin";
 const CustomSaveEdit = <RecordType extends RaRecord = any>(
     {
         goBack = "../",
+        noGoBack = false,
         resource,
         noRedirect = false,
         label = "Сохранить изменения",
@@ -30,6 +31,7 @@ const CustomSaveEdit = <RecordType extends RaRecord = any>(
         resource: string;
         noRedirect?: boolean;
         redirect2?: boolean;
+        noGoBack?: boolean;
         label?: string;
         label2?: string | null;
     },
@@ -93,7 +95,7 @@ const CustomSaveEdit = <RecordType extends RaRecord = any>(
                 // this button doesn't submit the form, so it doesn't trigger useIsFormInvalid in <FormContent>
                 // therefore we need to check for errors manually
                 event.stopPropagation();
-                await form.handleSubmit(handleSubmit, ({ name }) => console.log(name?.message))();
+                await form.handleSubmit(handleSubmit, ()=>console.log("validating form"))();
             }
         },
         [onClick, type, form, handleSubmit],
@@ -187,11 +189,13 @@ const CustomSaveEdit = <RecordType extends RaRecord = any>(
                     {label2}
                 </StyledButton>
             ) : null}
-            <Button
-                label="Назад"
-                size="large"
-                onClick={() => navigate(goBack)}
-            />
+            {!noGoBack ? (
+                <Button
+                    label="Назад"
+                    size="large"
+                    onClick={() => navigate(goBack)}
+                />
+            ) : null}
         </Toolbar>
     );
 };

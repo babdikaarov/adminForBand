@@ -11,6 +11,7 @@ import {
 } from "react-admin";
 import { useEffect, useState } from "react";
 import CustomSaveEdit from "../../shared/CustomSaveEdit";
+import { textLengthExcess } from "../../modules/validators";
 
 type TUser = {
     id: number;
@@ -35,6 +36,32 @@ export const UsersEdit = () => {
         };
     }, [listContext, user]);
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+   const validate = (values: any) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const errors: any = {};
+
+    if (!values.firstName) {
+        errors.firstName = "Забыли Имя";
+    }
+    if (!values.lastName) {
+        errors.lastName = "Забыли Фамилия";
+    }
+    if (!values.email) {
+        errors.email = "Забыли email";
+    }
+    if (!values.password) {
+        errors.password = "Чтобы изменить данные нужно ввести новый пароль";
+    }
+    if(values.password){
+
+        if (!textLengthExcess(3, values.password)) {
+            errors.password = "Неболее 4 символов";
+        }
+    }
+    return errors;
+};
+// validate={validate}  criteriaMode="all"  shouldFocusError
     return (
         <Edit
             title="Authorization → изменить"
@@ -46,6 +73,7 @@ export const UsersEdit = () => {
                     firstName: user?.fullName.split(" ")[0],
                     lastName: user?.fullName.split(" ")[1],
                 }}
+                validate={validate}  criteriaMode="all"  shouldFocusError
             >
                 <TextInput
                     source="firstName"
@@ -64,6 +92,7 @@ export const UsersEdit = () => {
                     label="Пароль"
                     type="password"
                     required
+                    
                 />
                 <Labeled label="Тип">
                     <FunctionField
@@ -76,6 +105,7 @@ export const UsersEdit = () => {
                 <DeleteButton
                     disabled={user?.role !== "ADMIN" ? false : true}
                     mutationMode="pessimistic"
+                    label="Удалить пользователя"
                 />
             </SimpleForm>
         </Edit>

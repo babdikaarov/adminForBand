@@ -1,6 +1,6 @@
 import { Edit, SimpleForm, TextInput, ImageInput, ImageField } from "react-admin";
 import CustomSaveEdit from "../../../shared/CustomSaveEdit";
-import { TextLimit } from "./TextLimit";
+import { TextLimit } from "../../../shared/TextLimit";
 
 export const CollaborationEdit = () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -53,6 +53,7 @@ export const CollaborationEdit = () => {
                 <TextLimit
                     stylesClass="collabP"
                     source="name"
+                    textOnServer="Имя"
                 />
             </SimpleForm>
         </Edit>

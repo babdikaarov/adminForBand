@@ -30,6 +30,7 @@ import CustomSelectInput from "../../../shared/CustomSelectInput";
 import { ModalImage } from "../../../shared/ModalImage";
 import CustomSaveEdit from "../../../shared/CustomSaveEdit";
 import CustomEmpty from "../../../shared/CustomEmpty";
+import { textLengthExcess } from "../../../modules/validators";
 
 export const EventStudioEdit = () => {
     const recordId = useGetRecordId();
@@ -37,16 +38,43 @@ export const EventStudioEdit = () => {
     const listContext = useList({ data, isLoading, filter: { albumId: recordId } });
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const validate = (values: any) => {
+    const validateCreateImage = (values: any) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const errors: any = {};
         if (!values.newImage) {
             errors.newImage = "Забыли фотографию";
         }
+        return errors;
+    };
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const validateEdit = (values: any) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const errors: any = {};
+        if (!values.name) {
+            errors.name = "Забыли Наименование";
+        }
+        if (textLengthExcess(28, values.location)) {
+            errors.location = "Неболее 28 символов";
+        }
+        if (values.name) {
+            values.name.split(" ").forEach((item: string) => {
+                if (item.length > 22) {
+                    errors.name = "Одно слово неболее 22 символов";
+                }
+            });
+        }
+
+        if (values.name.split(" ")) {
+            if (values.name.split(" ").length > 2) {
+                errors.name = "Неболее 2-х слов";
+            }
+        }
 
         return errors;
     };
-    // validate={validate}  criteriaMode="all"  shouldFocusError
+
+    // validate={validateEdit}  criteriaMode="all"  shouldFocusError
     return (
         <Show
             title=" "
@@ -65,10 +93,14 @@ export const EventStudioEdit = () => {
                         <SimpleForm
                             toolbar={
                                 <CustomSaveEdit
+                                    noRedirect
                                     resource="event_studio"
                                     goBack="../../"
                                 />
                             }
+                            validate={validateEdit}
+                            criteriaMode="all"
+                            shouldFocusError
                         >
                             <TextInput
                                 source="id"
@@ -78,6 +110,7 @@ export const EventStudioEdit = () => {
                             <TextInput
                                 source="name"
                                 label="Наименование"
+                                sx={{ width: "100%", maxWidth: "300px" }}
                             />
                             <TextInput
                                 source="location"
@@ -167,7 +200,7 @@ export const EventStudioEdit = () => {
                                 />
                             }
                             sanitizeEmptyValues
-                            validate={validate}
+                            validate={validateCreateImage}
                             criteriaMode="all"
                             shouldFocusError
                         >

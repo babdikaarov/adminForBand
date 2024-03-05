@@ -1,20 +1,31 @@
 import { Create, DateInput, SimpleForm, TextInput } from "react-admin";
 import CustomSaveToolBar from "../../../shared/CustomSaveCreate";
+import { textLengthExcess } from "../../../modules/validators";
 
 export const EventStudioCreate = () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const validate = (values: any) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const errors: any = {};
-        if (!values.date) {
-            errors.date = "Забыли Дата";
-        }
         if (!values.name) {
             errors.name = "Забыли Наименование";
         }
-        if (!values.location) {
-            errors.location = "Забыли Локацию";
+        if (textLengthExcess(28, values.location)) {
+            errors.location = "Неболее 28 символов";
         }
+        if (values.name) {
+            values.name.split(" ").forEach((item: string) => {
+                if (item.length > 22) {
+                    errors.name = "Одно слово неболее 22 символов";
+                }
+            });
+        }
+        if (values.name.split(" ")) {
+            if (values.name.split(" ").length > 2) {
+                errors.name = "Неболее 2-х слов";
+            }
+        }
+
         return errors;
     };
     // validate={validate}  criteriaMode="all"  shouldFocusError

@@ -31,6 +31,7 @@ import CustomSelectInput from "../../../shared/CustomSelectInput";
 import { ModalImage } from "../../../shared/ModalImage";
 import CustomSaveEdit from "../../../shared/CustomSaveEdit";
 import CustomEmpty from "../../../shared/CustomEmpty";
+import { textLengthExcess } from "../../../modules/validators";
 
 export const EventBandEdit = () => {
     const recordId = useGetRecordId();
@@ -38,15 +39,29 @@ export const EventBandEdit = () => {
     const listContext = useList({ data, isLoading, filter: { albumId: recordId } });
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const validate = (values: any) => {
+    const validateCreateImage = (values: any) => {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const errors: any = {};
         if (!values.newImage) {
             errors.newImage = "Забыли фотографию";
         }
+        return errors;
+    };
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const validateEdit = (values: any) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const errors: any = {};
+        if (!values.name) {
+            errors.name = "Забыли Наименование";
+        }
+        if (textLengthExcess(30, values.name)) {
+            errors.name = "Неболее 30 символов";
+        }
 
         return errors;
     };
+
     // validate={validate}  criteriaMode="all"  shouldFocusError
     return (
         <Show
@@ -66,10 +81,14 @@ export const EventBandEdit = () => {
                         <SimpleForm
                             toolbar={
                                 <CustomSaveEdit
+                                    noRedirect
                                     resource="event_band"
                                     goBack="../../"
                                 />
                             }
+                            validate={validateEdit}
+                            criteriaMode="all"
+                            shouldFocusError
                         >
                             <TextInput
                                 source="id"
@@ -79,6 +98,8 @@ export const EventBandEdit = () => {
                             <TextInput
                                 source="name"
                                 label="Наименование"
+                                sx={{ width: "100%", maxWidth: "300px" }}
+                                // validate={validateEdit}
                             />
                             <DateInput
                                 source="date"
@@ -165,7 +186,7 @@ export const EventBandEdit = () => {
                                 />
                             }
                             sanitizeEmptyValues
-                            validate={validate}
+                            validate={validateCreateImage}
                             criteriaMode="all"
                             shouldFocusError
                         >

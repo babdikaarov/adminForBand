@@ -4,14 +4,14 @@ const callBack = async (params: Partial<any>) => {
     // console.log(params.lastName);
     const data = {
         id: params.id,
-        firstName: params.firstName ?? "",
-        lastName: params.lastName ?? "",
+        firstName: params.firstName,
+        lastName: params.lastName,
         email: params.email,
         password: params.password,
     };
-
     return data;
 };
+
 
 export const callBackUser: ResourceCallbacks = {
     resource: "auth",

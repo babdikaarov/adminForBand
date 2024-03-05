@@ -1,5 +1,6 @@
 import { Create, DateInput, SimpleForm, TextInput } from "react-admin";
 import CustomSaveToolBar from "../../../shared/CustomSaveCreate";
+import { textLengthExcess } from "../../../modules/validators";
 
 export const EventBandCreate = () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -11,6 +12,9 @@ export const EventBandCreate = () => {
         }
         if (!values.name) {
             errors.name = "Забыли Наименование";
+        }
+        if (textLengthExcess(30, values.name)) {
+            errors.name = "Неболее 30 символов";
         }
         return errors;
     };
