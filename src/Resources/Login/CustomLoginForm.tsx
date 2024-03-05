@@ -27,7 +27,7 @@ export const CustomLoginForm = (props: LoginFormProps) => {
                 if (!mail) return;
                 const formdata = new FormData();
                 formdata.append("email", mail);
-                formdata.append("linkToChangePassword", "auth-callback");
+                formdata.append("linkToChangePassword", "admin/auth-callback");
                 const requestOptions = {
                     method: "PUT",
                     body: formdata,
