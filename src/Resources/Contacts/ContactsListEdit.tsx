@@ -1,7 +1,7 @@
 import { Edit, SimpleForm, TextInput } from "react-admin";
 
 import { Box, Typography } from "@mui/material";
-import CustomEditCreate from "../../shared/CustomEditCreate";
+import SaveEdit from "../../shared/SaveEdit";
 import { MuiPhone } from "./Phone";
 
 export const ContactsListEdit = () => {
@@ -12,7 +12,7 @@ export const ContactsListEdit = () => {
         >
             <SimpleForm
                 sx={{ maxWidth: 700 }}
-                toolbar={<CustomEditCreate resource="contacts" />}
+                toolbar={<SaveEdit resource="contacts" />}
             >
                 <Typography
                     variant="h6"

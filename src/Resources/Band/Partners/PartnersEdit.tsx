@@ -23,6 +23,8 @@ export const PartnersEdit = () => {
                 <TextInput
                     source="url"
                     label="Наименование"
+                    fullWidth
+                    multiline
                 />
             </SimpleForm>
         </Edit>

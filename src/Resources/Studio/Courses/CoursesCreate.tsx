@@ -1,6 +1,7 @@
 import { ImageField, ImageInput, TextInput } from "react-admin";
 import { Create, SimpleForm } from "react-admin";
 import CustomSaveToolBar from "../../../shared/CustomSaveCreate";
+import { textLengthExcess } from "../../../modules/validators";
 
 export const CoursesCreate = () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -12,6 +13,9 @@ export const CoursesCreate = () => {
         }
         if (!values.name) {
             errors.name = "Забыли Напрваление";
+        }
+        if (values.name && textLengthExcess(15, values.name)) {
+            errors.name = "Неболее 15 символов";
         }
         return errors;
     };

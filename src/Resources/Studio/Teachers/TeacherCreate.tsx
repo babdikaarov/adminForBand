@@ -1,5 +1,6 @@
 import { Create, ImageField, ImageInput, SimpleForm, TextInput } from "react-admin";
 import CustomSaveToolBar from "../../../shared/CustomSaveCreate";
+import { textLengthExcess } from "../../../modules/validators";
 
 export const TeacherCreate = () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -8,6 +9,12 @@ export const TeacherCreate = () => {
         const errors: any = {};
         if (!values.newImage) {
             errors.newImage = "Забыли фотографию";
+        }
+        if (values.name && textLengthExcess(18, values.name)) {
+            errors.name = "Неболее 18 символов";
+        }
+        if (values.position && textLengthExcess(22, values.position)) {
+            errors.position = "Неболее 22 символов";
         }
         if (!values.name) {
             errors.name = "Забыли Напрваление";
@@ -35,10 +42,6 @@ export const TeacherCreate = () => {
                 criteriaMode="all"
                 shouldFocusError
             >
-                <TextInput
-                    source="name"
-                    label="Имя"
-                />
                 <ImageInput
                     source="newImage"
                     multiple={false}
@@ -52,12 +55,19 @@ export const TeacherCreate = () => {
                     />
                 </ImageInput>
                 <TextInput
-                    source="urlInstagram"
-                    label="Ссылка на instagram"
+                    source="name"
+                    label="Имя"
+                    sx={{ width: "100%", maxWidth: "250px" }}
                 />
                 <TextInput
                     source="position"
                     label="Позиция"
+                    sx={{ width: "100%", maxWidth: "250px" }}
+                />
+                <TextInput
+                    source="urlInstagram"
+                    label="Ссылка на instagram"
+                    fullWidth
                 />
                 <TextInput
                     source="description"

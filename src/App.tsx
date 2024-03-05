@@ -40,12 +40,6 @@ const App = () => {
                 />
             </CustomRoutes>
             {/* CoolStudio */}
-            {/* <CustomRoutes noLayout>
-                <Route
-                    path="change_password"
-                    element={<Reset />}
-                />
-            </CustomRoutes> */}
             <Resource name="cool_band" /> {/* initial page */}
             <Resource
                 name="auth"
@@ -78,7 +72,6 @@ const App = () => {
                 list={<rcs.Studio.testimonials.list />}
                 create={<rcs.Studio.testimonials.create />}
                 edit={<rcs.Studio.testimonials.edit />}
-                // {...rcs.Studio.testimonials}
             />
             <Resource
                 name={rcs.Studio.courses.resource}

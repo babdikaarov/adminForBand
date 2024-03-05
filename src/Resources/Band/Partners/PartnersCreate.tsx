@@ -41,6 +41,8 @@ export const PartnersCreate = () => {
                 <TextInput
                     source="url"
                     label="Наименование"
+                    fullWidth
+                    multiline
                 />
             </SimpleForm>
         </Create>

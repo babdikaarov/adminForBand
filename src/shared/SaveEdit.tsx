@@ -4,7 +4,7 @@ import CircularProgress from "@mui/material/CircularProgress/CircularProgress";
 import ContentSave from "@mui/icons-material/Save";
 import { useEffect, useState } from "react";
 
-const CustomEditCreate = ({ resource }: { resource: string }) => {
+const SaveEdit = ({ resource }: { resource: string }) => {
     const { dirtyFields, isValidating, isSubmitting } = useFormState();
     const isDirty = Object.keys(dirtyFields).length > 0;
     const [icon, setIcon] = useState(<ContentSave color="inherit" />);
@@ -63,4 +63,4 @@ const CustomEditCreate = ({ resource }: { resource: string }) => {
     );
 };
 
-export default CustomEditCreate;
+export default SaveEdit;

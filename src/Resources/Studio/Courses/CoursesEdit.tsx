@@ -1,14 +1,34 @@
 import { ImageField, ImageInput, TextInput } from "react-admin";
 import { Edit, SimpleForm } from "react-admin";
 import CustomSaveEdit from "../../../shared/CustomSaveEdit";
+import { textLengthExcess } from "../../../modules/validators";
 
 export const CoursesEdit = () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const validate = (values: any) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const errors: any = {};
+
+        if (!values.name) {
+            errors.name = "Забыли Напрваление";
+        }
+        if (values.name && textLengthExcess(15, values.name)) {
+            errors.name = "Неболее 15 символов";
+        }
+        return errors;
+    };
+    // validate={validate}  criteriaMode="all"  shouldFocusError
     return (
         <Edit
             title="Cool Studio → Направления → изменить"
             redirect="list"
         >
-            <SimpleForm toolbar={<CustomSaveEdit resource="direction" />}>
+            <SimpleForm
+                toolbar={<CustomSaveEdit resource="direction" />}
+                validate={validate}
+                criteriaMode="all"
+                shouldFocusError
+            >
                 <ImageInput
                     source="newImage"
                     multiple={false}

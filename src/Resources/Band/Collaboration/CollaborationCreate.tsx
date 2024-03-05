@@ -18,7 +18,7 @@ export const CollaborationCreate = () => {
     return (
         <Create
             title="Cool Band → Коллаборация → добавить"
-            redirect="list"
+            redirect="edit"
         >
             <SimpleForm
                 toolbar={<CustomSaveCreate />}
@@ -41,6 +41,7 @@ export const CollaborationCreate = () => {
                 <TextInput
                     source="name"
                     label="Имя"
+                    sx={{ width: "100%", maxWidth: "250px" }}
                 />
             </SimpleForm>
         </Create>

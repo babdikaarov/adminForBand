@@ -1,6 +1,6 @@
 import { Edit, SimpleForm, ImageInput, ImageField } from "react-admin";
 import { ModalImage } from "../../../shared/ModalImage";
-import CustomEditCreate from "../../../shared/CustomEditCreate";
+import SaveEdit from "../../../shared/SaveEdit";
 
 export const AboutList = () => {
     return (
@@ -8,7 +8,7 @@ export const AboutList = () => {
             title="Cool Band → О нас"
             id={1}
         >
-            <SimpleForm toolbar={<CustomEditCreate resource="about_us_band" />}>
+            <SimpleForm toolbar={<SaveEdit resource="about_us_band" />}>
                 <ImageInput
                     source="newImage"
                     label="Новое изображение"

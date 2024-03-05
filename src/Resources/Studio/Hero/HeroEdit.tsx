@@ -1,6 +1,6 @@
 import { Edit, FileField, FileInput, SimpleForm, TextInput } from "react-admin";
 import { ClickVideo } from "../../../shared/ClickVideo";
-import CustomEditCreate from "../../../shared/CustomEditCreate";
+import CustomEditCreate from "../../../shared/SaveEdit";
 
 export const HeroEdit = () => {
     return (

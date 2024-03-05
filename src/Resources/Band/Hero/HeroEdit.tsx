@@ -1,6 +1,6 @@
 import { Edit, SimpleForm, FileInput, FileField } from "react-admin";
 import { ClickVideo } from "../../../shared/ClickVideo";
-import CustomEditCreate from "../../../shared/CustomEditCreate";
+import SaveEdit from "../../../shared/SaveEdit";
 
 export const HeroEdit = () => {
     return (
@@ -8,7 +8,7 @@ export const HeroEdit = () => {
             title="Cool Band → Банер"
             id={1}
         >
-            <SimpleForm toolbar={<CustomEditCreate resource="hero_band" />}>
+            <SimpleForm toolbar={<SaveEdit resource="hero_band" />}>
                 <FileInput
                     source="newVideo"
                     accept="video/*"

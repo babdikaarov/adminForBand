@@ -1,6 +1,7 @@
 import { ImageField, ImageInput } from "react-admin";
 import { Create, SimpleForm, TextInput } from "react-admin";
 import CustomSaveToolBar from "../../../shared/CustomSaveCreate";
+import { textLengthExcess } from "../../../modules/validators";
 
 export const TestimonaialsCreate = () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -12,6 +13,9 @@ export const TestimonaialsCreate = () => {
         }
         if (!values.name) {
             errors.name = "Забыли Имя";
+        }
+        if (values.name && textLengthExcess(23, values.name)) {
+            errors.name = "Неболее 23 символов";
         }
         if (!values.reviews) {
             errors.reviews = "Забыли Отзыв";

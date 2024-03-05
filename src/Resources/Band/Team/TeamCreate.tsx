@@ -1,6 +1,7 @@
 import { Create, FieldTitle, FileField, FileInput, ImageField, ImageInput, SimpleForm, TextInput } from "react-admin";
 import CustomSelectInput from "../../../shared/CustomSelectInput";
 import CustomSaveCreate from "../../../shared/CustomSaveCreate";
+import { textLengthExcess } from "../../../modules/validators";
 
 export const TeamCreate = () => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -18,6 +19,12 @@ export const TeamCreate = () => {
         }
         if (!values.name) {
             errors.name = "Забыли Имя";
+        }
+        if (values.instrument && textLengthExcess(20, values.instrument)) {
+            errors.instrument = "Неболее 20 символов";
+        }
+        if (values.name && textLengthExcess(13, values.name)) {
+            errors.name = "Неболее 13 символов";
         }
         return errors;
     };
@@ -68,10 +75,12 @@ export const TeamCreate = () => {
                     source="instrument"
                     label="Роль"
                     defaultValue={""}
+                    sx={{ width: "100%", maxWidth: "250px" }}
                 />
                 <TextInput
                     source="name"
                     label="Имя"
+                    sx={{ width: "100%", maxWidth: "250px" }}
                 />
             </SimpleForm>
 
