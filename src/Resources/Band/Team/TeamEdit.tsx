@@ -16,10 +16,10 @@ export const TeamEdit = () => {
             errors.name = "Забыли Имя";
         }
         if (values.instrument && textLengthExcess(20, values.instrument)) {
-            errors.instrument = "Неболее 20 символов";
+            errors.instrument = "Неболее 20 символов или проверьте есть ли пробел в конце";
         }
         if (values.name && textLengthExcess(13, values.name)) {
-            errors.name = "Неболее 13 символов";
+            errors.name = "Неболее 13 символов или проверьте есть ли пробел в конце";
         }
         return errors;
     };

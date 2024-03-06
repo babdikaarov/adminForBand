@@ -46,7 +46,7 @@ body {
 }
 
 .collabP {
-    text-wrap: balance;
+    overflow: hidden;
     text-align: center;
     box-sizing: border-box;
     border: #00023b solid 1px;
@@ -63,6 +63,7 @@ body {
 }
 
 .testimonialP {
+    overflow: hidden;
     font-family: "Montserrat Alternates", sans-serif;
     text-wrap: balance;
     text-align: center;

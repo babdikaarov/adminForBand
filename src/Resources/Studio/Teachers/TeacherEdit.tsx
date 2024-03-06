@@ -11,11 +11,24 @@ export const TeacherEdit = () => {
         if (!values.name) {
             errors.name = "Забыли Напрваление";
         }
-        if (values.name && textLengthExcess(18, values.name)) {
-            errors.name = "Неболее 18 символов";
+        // if (values.name && textLengthExcess(18, values.name)) {
+        //     errors.name = "Неболее 18 символов";
+        // }
+        if (values.name) {
+            values.name.split(" ").forEach((item: string) => {
+                if (item.length > 17) {
+                    errors.name = "Одно слово неболее 17 символов";
+                }
+            });
+        }
+
+        if (values.name.split(" ")) {
+            if (values.name.trim().split(" ").length > 2) {
+                errors.name = "Неболее 2-х слов";
+            }
         }
         if (values.position && textLengthExcess(22, values.position)) {
-            errors.position = "Неболее 22 символов";
+            errors.position = "Неболее 22 символов или проверьте есть ли пробел в конце";
         }
         if (!values.urlInstagram) {
             errors.urlInstagram = "Забыли ссылку на instagram";
@@ -56,12 +69,12 @@ export const TeacherEdit = () => {
                 <TextInput
                     source="name"
                     label="Имя"
-                    sx={{ width: "100%", maxWidth: "250px" }}
+                    sx={{ width: "100%", maxWidth: "400px" }}
                 />
                 <TextInput
                     source="position"
                     label="Позиция"
-                    sx={{ width: "100%", maxWidth: "250px" }}
+                    sx={{ width: "100%", maxWidth: "400px" }}
                 />
                 <TextInput
                     source="urlInstagram"
@@ -71,6 +84,7 @@ export const TeacherEdit = () => {
                 <TextInput
                     source="description"
                     label="Описание"
+
                     fullWidth
                     multiline
                 />

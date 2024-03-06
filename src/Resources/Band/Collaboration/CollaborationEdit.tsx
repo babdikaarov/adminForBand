@@ -52,6 +52,7 @@ export const CollaborationEdit = () => {
                 />
                 <TextLimit
                     stylesClass="collabP"
+                    description="!не выходите за рамки нижнего блока будте осторожны!"
                     source="name"
                     textOnServer="Имя"
                 />

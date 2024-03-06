@@ -15,7 +15,7 @@ export const CoursesCreate = () => {
             errors.name = "Забыли Напрваление";
         }
         if (values.name && textLengthExcess(15, values.name)) {
-            errors.name = "Неболее 15 символов";
+            errors.name = "Неболее 15 символов или проверьте есть ли пробел в конце";
         }
         return errors;
     };

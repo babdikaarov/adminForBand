@@ -14,7 +14,7 @@ export const EventBandCreate = () => {
             errors.name = "Забыли Наименование";
         }
         if (textLengthExcess(30, values.name)) {
-            errors.name = "Неболее 30 символов";
+            errors.name = "Неболее 30 символов или проверьте есть ли пробел в конце";
         }
         return errors;
     };

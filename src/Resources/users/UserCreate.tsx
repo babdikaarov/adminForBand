@@ -24,7 +24,7 @@ export const UserCreate = () => {
     if(values.password){
 
         if (!textLengthExcess(3, values.password)) {
-            errors.password = "Неболее 4 символов";
+            errors.password = "Неболее 4 символов или проверьте есть ли пробел в конце";
         }
     }
     return errors;

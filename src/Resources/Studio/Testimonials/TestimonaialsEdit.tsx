@@ -13,9 +13,15 @@ export const TestimonaialsEdit = () => {
         if (!values.name) {
             errors.name = "Забыли Напрваление";
         }
-        if (values.name && textLengthExcess(23, values.name)) {
-            errors.name = "Неболее 23 символов";
+        if (values.name) {
+            if(textLengthExcess(23, values.name)){
+                errors.name = "Неболее 23 символов или проверьте есть ли пробел в конце";
+            }
+            if(values.name.trim().split(" ").length >= 2){
+                errors.name = "необходимо только одно слово"
+            }
         }
+
 
         if (!values.reviews) {
             errors.reviews = "Забыли Позицию";
@@ -62,6 +68,7 @@ export const TestimonaialsEdit = () => {
                     stylesClass="testimonialP"
                     source="reviews"
                     textOnServer="Отзыв"
+                    description="Текст выходящий за рамки не будет показыватся на странице"
                 />
             </SimpleForm>
         </Edit>

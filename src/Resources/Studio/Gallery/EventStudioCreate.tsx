@@ -11,17 +11,17 @@ export const EventStudioCreate = () => {
             errors.name = "Забыли Наименование";
         }
         if (textLengthExcess(28, values.location)) {
-            errors.location = "Неболее 28 символов";
+            errors.location = "Неболее 28 символов или проверьте есть ли пробел в конце";
         }
         if (values.name) {
             values.name.split(" ").forEach((item: string) => {
                 if (item.length > 22) {
-                    errors.name = "Одно слово неболее 22 символов";
+                    errors.name = "Одно слово неболее 22 символов или проверьте есть ли пробел в конце";
                 }
             });
         }
         if (values.name.split(" ")) {
-            if (values.name.split(" ").length > 2) {
+            if (values.name.trim().split(" ").length > 2) {
                 errors.name = "Неболее 2-х слов";
             }
         }

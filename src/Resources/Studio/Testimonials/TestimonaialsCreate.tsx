@@ -15,7 +15,7 @@ export const TestimonaialsCreate = () => {
             errors.name = "Забыли Имя";
         }
         if (values.name && textLengthExcess(23, values.name)) {
-            errors.name = "Неболее 23 символов";
+            errors.name = "Неболее 23 символов или проверьте есть ли пробел в конце";
         }
         if (!values.reviews) {
             errors.reviews = "Забыли Отзыв";
